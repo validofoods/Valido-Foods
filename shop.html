@@ -232,38 +232,41 @@ footer p{font-size:11px;color:var(--text-dim)}
  
 <script>
 // ═══ PRODUCT DATA ═══
-const IMG = '/Images/';
+const I = '/Images/';
 const PRODUCTS = [
-  {id:'all-in-one',name:'All-In-One Seasoning',cat:'Seasoning Blend',badge:'hot',sizes:[{name:'6 oz',price:6.50,img:IMG+'all-in-one-6oz.webp'},{name:'9.5 oz',price:9.99,img:IMG+'all-in-one-9.5oz.webp'},{name:'1.5 lbs',price:16.99,img:IMG+'all-in-one-1.5lb.webp'}],img:IMG+'all-in-one-9.5oz.webp'},
-  {id:'all-in-one-ns',name:'All-In-One No Salt',cat:'No Salt',sizes:[{name:'3 oz',price:4.50}],img:IMG+'all-in-one-no-salt-3oz.webp'},
-  {id:'jollof',name:'Jollof Rice Seasoning',cat:'Seasoning Blend',badge:'hot',sizes:[{name:'11 oz',price:6.50,img:IMG+'jollof-11oz.webp'},{name:'1.37 lbs',price:12.99,img:IMG+'jollof-1.37lb.webp'}],img:IMG+'jollof-11oz.webp'},
-  {id:'smoky-jollof',name:'Smoky Party Jollof Rice',cat:'Seasoning Blend',badge:'new',sizes:[{name:'11 oz',price:6.50}],img:IMG+'smoky-jollof-11oz.webp'},
-  {id:'chicken',name:'Chicken Seasoning',cat:'Seasoning Blend',sizes:[{name:'10.7 oz',price:6.50,img:IMG+'chicken-10.7oz.webp'},{name:'1.37 lbs',price:14.99,img:IMG+'chicken-1.37lb.webp'}],img:IMG+'chicken-10.7oz.webp'},
-  {id:'steak',name:'Steak Seasoning',cat:'Seasoning Blend',badge:'new',sizes:[{name:'10.7 oz',price:8.99,img:IMG+'steak-10.7oz.webp'},{name:'1.37 lbs',price:16.99,img:IMG+'steak-1.37lb.webp'}],img:IMG+'steak-10.7oz.webp'},
-  {id:'stew',name:'Stew Seasoning',cat:'Seasoning Blend',sizes:[{name:'5.75 oz',price:4.50,img:IMG+'stew-5.75oz.webp'},{name:'11 oz',price:8.99,img:IMG+'stew-11oz.webp'}],img:IMG+'stew-11oz.webp'},
-  {id:'poultry',name:'Poultry Seasoning',cat:'Seasoning Blend',sizes:[{name:'5.75 oz',price:5.99,img:IMG+'poultry-5.75oz.webp'},{name:'10.7 oz',price:9.99,img:IMG+'poultry-10.7oz.webp'},{name:'1.37 lbs',price:14.99,img:IMG+'poultry-1.37lb.webp'}],img:IMG+'poultry-10.7oz.webp'},
-  {id:'oxtail',name:'Oxtail Seasoning',cat:'Seasoning Blend',sizes:[{name:'11 oz',price:8.99}],img:IMG+'oxtail-11oz.webp'},
-  {id:'moimoi',name:'Moi Moi Seasoning',cat:'Seasoning Blend',sizes:[{name:'11 oz',price:6.50}],img:IMG+'moi-moi-11oz.webp'},
-  {id:'spanish-rice',name:'Spanish Rice Seasoning',cat:'Seasoning Blend',sizes:[{name:'6 oz',price:4.50}],img:IMG+'spanish-rice-6oz.webp'},
-  {id:'curry',name:'Curry Powder',cat:'Spices',sizes:[{name:'4.5 oz',price:4.50,img:IMG+'curry-4.5oz.webp'},{name:'7 oz',price:6.50,img:IMG+'curry-7oz.webp'}],img:IMG+'curry-4.5oz.webp'},
-  {id:'curry-hot',name:'Jamaican Curry Powder Hot',cat:'Spices',sizes:[{name:'7 oz',price:6.50}],img:IMG+'curry-hot-7oz.webp'},
-  {id:'ginger',name:'Ginger Pure Ground',cat:'Spices',sizes:[{name:'13.58 oz',price:8.99}],img:IMG+'ginger-13.58oz.webp'},
-  {id:'lemon-pepper',name:'Lemon Pepper Pure Ground',cat:'Spices',sizes:[{name:'16 oz',price:10.99}],img:IMG+'lemon-pepper-16oz.webp'},
-  {id:'cinnamon',name:'Cinnamon Ground',cat:'Spices',sizes:[{name:'7 oz',price:6.50,img:IMG+'cinnamon-7oz.webp'},{name:'16 oz',price:14.99,img:IMG+'cinnamon-16oz.webp'}],img:IMG+'cinnamon-7oz.webp'},
-  {id:'chili',name:'Chili Powder',cat:'Spices',sizes:[{name:'6.5 oz',price:6.50}],img:IMG+'chili-6.5oz.webp'},
-  {id:'cayenne',name:'Cayenne Pepper',cat:'Spices',sizes:[{name:'7.58 oz',price:8.50}],img:IMG+'cayenne-7.58oz.webp'},
-  {id:'crushed-pepper',name:'Crushed Pepper',cat:'Spices',sizes:[{name:'5 oz',price:6.50}],img:IMG+'crushed-pepper-5oz.webp'},
-  {id:'red-hot',name:'Red Hot Pepper',cat:'Spices',sizes:[{name:'10.7 oz',price:6.50}],img:IMG+'red-hot-pepper-10.7oz.webp'},
-  {id:'paprika',name:'Paprika (Sweet) Ground',cat:'Spices',sizes:[{name:'6.5 oz',price:6.50}],img:IMG+'paprika-6.5oz.webp'},
-  {id:'nutmeg',name:'Nutmeg Ground',cat:'Spices',sizes:[{name:'5.8 oz',price:8.50}],img:IMG+'nutmeg-5.8oz.webp'},
-  {id:'onion',name:'Onion Granulated',cat:'Spices',sizes:[{name:'5.4 oz',price:6.50}],img:IMG+'onion-5.4oz.webp'},
-  {id:'thyme',name:'Thyme Leaves',cat:'Herbs',sizes:[{name:'2.8 oz',price:6.50}],img:IMG+'thyme-2.8oz.webp'},
-  {id:'bay-leaves',name:'Bay Leaves',cat:'Herbs',sizes:[{name:'1 oz',price:8.99}],img:IMG+'bay-leaves-1oz.webp'},
-  {id:'adobo',name:'Adobo Seasoning',cat:'Seasoning Blend',sizes:[{name:'5.75 oz',price:4.50,img:IMG+'adobo-5.75oz.webp'},{name:'11 oz',price:6.99,img:IMG+'adobo-11oz.webp'}],img:IMG+'adobo-5.75oz.webp'},
-  {id:'cameroon-pepper',name:'Cameroon Pepper',cat:'Spices',sizes:[{name:'16.2 oz',price:10.99}],img:IMG+'cameroon-pepper-16.2oz.webp'},
-  {id:'cumin',name:'Cumin Ground',cat:'Spices',sizes:[{name:'6.5 oz',price:6.50}],img:IMG+'cumin-6.5oz.webp'},
-  {id:'pepper-soup',name:'Pepper Soup Mix',cat:'Seasoning Blend',sizes:[{name:'9.6 oz',price:10.99}],img:IMG+'pepper-soup-9.6oz.webp'},
-  {id:'suya',name:'Suya Mix',cat:'Rub',sizes:[{name:'8.4 oz',price:10.99}],img:IMG+'suya-mix-8.4oz.webp'},
+  {id:'all-in-one',name:'All-In-One Seasoning',cat:'Seasoning Blend',badge:'hot',sizes:[{name:'6 oz',price:4.50,img:I+'DBA214CC-A56D-415E-BB37-F4810FE0EA18.jpg.webp'},{name:'9.5 oz',price:6.50,img:I+'all-in-one2.JPG.webp'},{name:'1.5 lbs',price:16.99,img:I+'all-in-one1.JPG.webp'}],img:I+'all-in-one2.JPG.webp'},
+  {id:'all-in-one-ns',name:'All-In-One No Salt',cat:'No Salt',sizes:[{name:'3 oz',price:4.50}],img:I+'IMG-8114-removebg-preview.jpg.webp'},
+  {id:'jollof',name:'Jollof Rice Seasoning',cat:'Seasoning Blend',badge:'hot',sizes:[{name:'11 oz',price:4.50,img:I+'jollofrice2.jpg.webp'},{name:'1.37 lbs',price:12.99,img:I+'jollofrice1.jpg.webp'}],img:I+'jollofrice2.jpg.webp'},
+  {id:'smoky-jollof',name:'Smoky Party Jollof Rice',cat:'Seasoning Blend',badge:'new',sizes:[{name:'11 oz',price:6.50}],img:I+'smoky+party+jollof+rice2.jpeg.webp'},
+  {id:'chicken',name:'Chicken Seasoning',cat:'Seasoning Blend',sizes:[{name:'10.7 oz',price:6.50,img:I+'chicken2+(2).jpg.webp'},{name:'1.37 lbs',price:14.99,img:I+'chicken1.jpg.webp'}],img:I+'chicken2+(2).jpg.webp'},
+  {id:'steak',name:'Steak Seasoning',cat:'Seasoning Blend',badge:'new',sizes:[{name:'10.7 oz',price:6.50,img:I+'KAP_7424.jpg.webp'},{name:'1.37 lbs',price:16.99,img:I+'steak1.jpg.webp'}],img:I+'KAP_7424.jpg.webp'},
+  {id:'stew',name:'Stew Seasoning',cat:'Seasoning Blend',sizes:[{name:'5.75 oz',price:4.50,img:I+'KAP_7415.jpg.webp'},{name:'11 oz',price:8.99,img:I+'STEW+2.jpg.webp'}],img:I+'STEW+2.jpg.webp'},
+  {id:'poultry',name:'Poultry Seasoning',cat:'Seasoning Blend',sizes:[{name:'5.75 oz',price:5.99,img:I+'poultry3.jpg.webp'},{name:'10.7 oz',price:9.99,img:I+'poultry2.JPG.webp'},{name:'1.37 lbs',price:14.99,img:I+'poultry1.JPG.webp'}],img:I+'poultry2.JPG.webp'},
+  {id:'oxtail',name:'Oxtail Seasoning',cat:'Seasoning Blend',sizes:[{name:'11 oz',price:6.50}],img:I+'VF+FACEBOOK+IMAGES.jpg.webp'},
+  {id:'moimoi',name:'Moi Moi Seasoning',cat:'Seasoning Blend',sizes:[{name:'11 oz',price:6.50}],img:I+'MOI+MOI+2.jpg.webp'},
+  {id:'spanish-rice',name:'Spanish Rice Seasoning',cat:'Seasoning Blend',sizes:[{name:'6 oz',price:4.50}],img:I+'spanish+rice3.png.webp'},
+  {id:'fried-rice',name:'Fried Rice Seasoning',cat:'Seasoning Blend',sizes:[{name:'6 oz',price:4.50}],img:I+'fried+rice2.JPG.webp'},
+  {id:'french-fries',name:'French Fries Seasoning',cat:'Seasoning Blend',sizes:[{name:'6 oz',price:6.50}],img:I+'FRENCH_FRIES-removebg-preview.png.webp'},
+  {id:'curry',name:'Curry Powder',cat:'Spices',sizes:[{name:'4.5 oz',price:4.50,img:I+'7979D0DA-6316-4B9A-8536-F3F0B96628E0.jpg.webp'},{name:'7 oz',price:6.50,img:I+'CURRY2.jpg.webp'}],img:I+'CURRY2.jpg.webp'},
+  {id:'curry-hot',name:'Jamaican Curry Powder Hot',cat:'Spices',sizes:[{name:'7 oz',price:6.50}],img:I+'curryhot2.jpg.webp'},
+  {id:'garlic',name:'Garlic',cat:'Spices',sizes:[{name:'6.5 oz',price:6.50}],img:I+'garlic.jpg.webp'},
+  {id:'ginger',name:'Ginger Pure Ground',cat:'Spices',sizes:[{name:'13.58 oz',price:6.50}],img:I+'KAP_7450.jpg.webp'},
+  {id:'lemon-pepper',name:'Lemon Pepper Pure Ground',cat:'Spices',sizes:[{name:'16 oz',price:8.50}],img:I+'valido+lemon+pepper1.jpg.webp'},
+  {id:'cinnamon',name:'Cinnamon Ground',cat:'Spices',sizes:[{name:'7 oz',price:6.50,img:I+'KAP_7441.jpg.webp'},{name:'16 oz',price:14.99,img:I+'KAP_7451.jpg.webp'}],img:I+'KAP_7441.jpg.webp'},
+  {id:'chili',name:'Chili Powder',cat:'Spices',sizes:[{name:'6.5 oz',price:6.50}],img:I+'chili2.jpg.webp'},
+  {id:'cayenne',name:'Cayenne Pepper',cat:'Spices',sizes:[{name:'7.58 oz',price:8.50}],img:I+'WhatsApp+Image+2021-11-12+at+11.54.31+PM+%282%29.jpg.webp'},
+  {id:'crushed-pepper',name:'Crushed Pepper',cat:'Spices',sizes:[{name:'5 oz',price:6.50}],img:I+'crushed_pepper-removebg-preview.jpg.webp'},
+  {id:'red-hot',name:'Red Hot Pepper',cat:'Spices',sizes:[{name:'10.7 oz',price:6.50}],img:I+'DSC00178.jpg.webp'},
+  {id:'paprika',name:'Paprika (Sweet) Ground',cat:'Spices',sizes:[{name:'6.5 oz',price:6.50}],img:I+'VALIDO+FOODS+PAPRIKA+SWEET+GROUND.jpg.webp'},
+  {id:'nutmeg',name:'Nutmeg Ground',cat:'Spices',sizes:[{name:'5.8 oz',price:8.50}],img:I+'KAP_7436.jpg.webp'},
+  {id:'onion',name:'Onion Granulated',cat:'Spices',sizes:[{name:'5.4 oz',price:6.50}],img:I+'KAP_7440.jpg.webp'},
+  {id:'thyme',name:'Thyme Leaves',cat:'Herbs',sizes:[{name:'2.8 oz',price:6.50}],img:I+'Thyme_Med-removebg-preview.png.webp'},
+  {id:'bay-leaves',name:'Bay Leaves',cat:'Herbs',sizes:[{name:'1 oz',price:6.50}],img:I+'Bay+Leaves2.png.webp'},
+  {id:'adobo',name:'Adobo Seasoning',cat:'Seasoning Blend',soldOut:true,sizes:[{name:'5.75 oz',price:4.50,img:I+'Adobo3.jpg.webp'},{name:'11 oz',price:6.99,img:I+'adobo2.jpg.webp'}],img:I+'Adobo3.jpg.webp'},
+  {id:'cameroon-pepper',name:'Cameroon Pepper',cat:'Spices',sizes:[{name:'16.2 oz',price:6.50}],img:I+'DSC00170.jpg.webp'},
+  {id:'cumin',name:'Cumin Ground',cat:'Spices',soldOut:true,sizes:[{name:'6.5 oz',price:6.50}],img:I+'Cumin_Med-removebg-preview.png.webp'},
+  {id:'pepper-soup',name:'Pepper Soup Mix',cat:'Seasoning Blend',soldOut:true,sizes:[{name:'9.6 oz',price:6.50}],img:I+'VALIDO+FOODS+PEPPER+SOUP+MIX+-FACEBOOK.png.webp'},
+  {id:'suya',name:'Suya Mix',cat:'Rub',soldOut:true,sizes:[{name:'8.4 oz',price:6.50}],img:I+'suya+mix2.png.webp'},
 ];
  
 // ═══ STATE ═══
@@ -485,3 +488,4 @@ if (new URLSearchParams(window.location.search).get('success') === 'true') {
 </script>
 </body>
 </html>
+ 
