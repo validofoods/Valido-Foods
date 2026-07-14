@@ -47,8 +47,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;transition:all 0.4s}
 nav.scrolled{background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:80px}
-.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;text-decoration:none;letter-spacing:-0.5px}
-.nav-logo span{color:var(--gold)}
+.nav-logo{text-decoration:none;display:flex;align-items:center}
+.nav-logo img{height:40px;width:auto}
 .nav-links{display:flex;align-items:center;gap:6px}
 .nav-links a{color:var(--text);text-decoration:none;font-size:12px;font-weight:600;padding:8px 18px;border-radius:30px;transition:all 0.25s;letter-spacing:0.8px;text-transform:uppercase}
 .nav-links a:hover{color:#fff;background:rgba(255,255,255,0.05)}
@@ -243,7 +243,7 @@ footer{border-top:1px solid var(--border);padding:64px 0 32px}
 <!-- ═══ NAV ═══ -->
 <nav id="mainNav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">VALIDO<span>.</span></a>
+    <a href="/" class="nav-logo"><img src="/Images/logo-3_png.webp" alt="Valido Foods"></a>
     <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
     <div class="nav-links">
       <a href="/shop">Shop</a>
@@ -515,7 +515,7 @@ footer{border-top:1px solid var(--border);padding:64px 0 32px}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">VALIDO<span>.</span></div>
+        <div class="footer-brand"><img src="/Images/logo-3_png.webp" alt="Valido Foods" style="height:48px;width:auto"></div>
         <p class="footer-desc">Premium spices, seasonings, and herb blends crafted in Dallas, TX. Inspired by global flavors, made for every kitchen.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/validofoods" aria-label="Facebook">f</a>
