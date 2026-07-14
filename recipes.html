@@ -11,8 +11,10 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Space Grotesk',sans-serif;background:#0a0a0a;color:#e8e0d6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-:root{--gold:#d4a24e;--gold-glow:rgba(212,162,78,0.15);--dark:#0a0a0a;--card:#111;--border:rgba(255,255,255,0.06);--text:rgba(255,255,255,0.55);--text-dim:rgba(255,255,255,0.25)}
+:root{--gold:#d4a24e;--gold-glow:rgba(212,162,78,0.15);--dark:#0a0a0a;--card:#111;--card-hover:#151515;--border:rgba(255,255,255,0.06);--text:rgba(255,255,255,0.55);--text-dim:rgba(255,255,255,0.25);--text-bright:rgba(255,255,255,0.85)}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
 .nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;text-decoration:none}.nav-logo span{color:var(--gold)}
@@ -22,30 +24,94 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rg
 .nav-links a.active{color:#fff}
 .nav-shop{background:var(--gold)!important;color:var(--dark)!important;font-weight:700!important;padding:10px 24px!important}
 .hamburger{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+
+/* PAGE HEADER */
 .container{max-width:1280px;margin:0 auto;padding:0 48px}
 .page-head{padding:120px 0 40px;text-align:center}
 .page-head h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,56px);font-weight:900;color:#fff;letter-spacing:-2px;margin-bottom:12px}
 .page-head h1 em{font-style:italic;color:var(--gold)}
-.page-head p{font-size:15px;color:var(--text);max-width:520px;margin:0 auto}
-.recipe-list{padding-bottom:100px;margin-top:48px}
-.recipe-item{display:flex;align-items:center;gap:24px;padding:24px 28px;background:var(--card);border:1px solid var(--border);border-radius:16px;margin-bottom:12px;text-decoration:none;color:inherit;transition:all 0.3s;cursor:pointer}
-.recipe-item:hover{border-color:rgba(212,162,78,0.25);background:#151515;transform:translateX(4px)}
-.recipe-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:rgba(212,162,78,0.15);min-width:48px;letter-spacing:-1px}
+.page-head p{font-size:15px;color:var(--text);max-width:520px;margin:0 auto;line-height:1.6}
+
+/* CATEGORY FILTERS */
+.filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:32px;margin-bottom:48px}
+.filter-btn{background:transparent;border:1px solid var(--border);color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;padding:8px 20px;border-radius:30px;cursor:pointer;transition:all 0.25s}
+.filter-btn:hover{color:#fff;border-color:rgba(255,255,255,0.15);background:rgba(255,255,255,0.04)}
+.filter-btn.active{color:var(--gold);border-color:rgba(212,162,78,0.4);background:var(--gold-glow)}
+
+/* RECIPE LIST */
+.recipe-list{padding-bottom:100px}
+
+/* RECIPE ACCORDION ITEM */
+.recipe-item{background:var(--card);border:1px solid var(--border);border-radius:16px;margin-bottom:12px;overflow:hidden;transition:all 0.3s}
+.recipe-item:hover{border-color:rgba(212,162,78,0.2);background:var(--card-hover)}
+.recipe-item.open{border-color:rgba(212,162,78,0.3);background:var(--card-hover)}
+
+.recipe-header{display:flex;align-items:center;gap:24px;padding:24px 28px;cursor:pointer;-webkit-user-select:none;user-select:none}
+.recipe-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:rgba(212,162,78,0.15);min-width:48px;letter-spacing:-1px;transition:color 0.3s}
+.recipe-item:hover .recipe-num,.recipe-item.open .recipe-num{color:rgba(212,162,78,0.4)}
 .recipe-info{flex:1}
 .recipe-name{font-size:17px;font-weight:700;color:#fff;margin-bottom:4px}
 .recipe-desc{font-size:13px;color:var(--text);line-height:1.5}
 .recipe-tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
 .recipe-tag{font-size:10px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:var(--gold);background:var(--gold-glow);border:1px solid rgba(212,162,78,0.15);padding:3px 10px;border-radius:12px}
-.recipe-arrow{font-size:18px;color:var(--text-dim);transition:color 0.3s}
-.recipe-item:hover .recipe-arrow{color:var(--gold)}
-.recipe-item:hover .recipe-num{color:rgba(212,162,78,0.4)}
+.recipe-toggle{font-size:20px;color:var(--text-dim);transition:all 0.3s;flex-shrink:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,0.03)}
+.recipe-item:hover .recipe-toggle{color:var(--gold);background:var(--gold-glow)}
+.recipe-item.open .recipe-toggle{color:var(--gold);background:var(--gold-glow);transform:rotate(45deg)}
+
+/* RECIPE EXPANDED CONTENT */
+.recipe-body{max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1)}
+.recipe-body-inner{padding:0 28px 32px;border-top:1px solid var(--border)}
+.recipe-layout{display:grid;grid-template-columns:320px 1fr;gap:32px;margin-top:28px}
+.recipe-img{width:100%;border-radius:12px;object-fit:cover;aspect-ratio:4/3}
+.recipe-content{}
+
+.recipe-section-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--gold);margin-bottom:14px;letter-spacing:-0.5px}
+.recipe-ingredients{list-style:none;margin-bottom:28px}
+.recipe-ingredients li{font-size:14px;color:var(--text-bright);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.03);line-height:1.5}
+.recipe-ingredients li:last-child{border-bottom:none}
+.recipe-ingredients li strong{color:#fff;font-weight:600}
+
+.recipe-instructions{list-style:none;counter-reset:step}
+.recipe-instructions li{font-size:14px;color:var(--text-bright);padding:10px 0 10px 36px;position:relative;line-height:1.6;border-bottom:1px solid rgba(255,255,255,0.03)}
+.recipe-instructions li:last-child{border-bottom:none}
+.recipe-instructions li::before{counter-increment:step;content:counter(step);position:absolute;left:0;top:10px;width:24px;height:24px;background:var(--gold-glow);border:1px solid rgba(212,162,78,0.2);color:var(--gold);font-size:11px;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center}
+
+.recipe-cta{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:10px 24px;background:var(--gold);color:var(--dark);font-size:12px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;border-radius:30px;text-decoration:none;transition:all 0.25s}
+.recipe-cta:hover{filter:brightness(1.1);transform:translateY(-1px)}
+
+/* SUB-SECTION for recipes with multiple parts */
+.recipe-sub{font-size:13px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.5px;margin:16px 0 8px;opacity:0.8}
+
+/* FOOTER */
 footer{border-top:1px solid var(--border);padding:40px 0;text-align:center}
 footer p{font-size:11px;color:var(--text-dim)}
-@media(max-width:960px){nav{padding:0 24px}.container{padding:0 24px}.nav-links{display:none}.hamburger{display:block}.nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;background:rgba(10,10,10,0.98);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:20px 24px;flex-direction:column;gap:4px}}
-@media(max-width:600px){.container{padding:0 16px}.recipe-item{flex-direction:column;align-items:flex-start;gap:12px}.recipe-num{font-size:24px}}
+
+/* HIDDEN RECIPES */
+.recipe-item.hidden{display:none}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav{padding:0 24px}
+  .container{padding:0 24px}
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;background:rgba(10,10,10,0.98);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:20px 24px;flex-direction:column;gap:4px}
+  .recipe-layout{grid-template-columns:1fr}
+  .recipe-img{max-height:280px}
+}
+@media(max-width:600px){
+  .container{padding:0 16px}
+  .recipe-header{flex-direction:row;gap:14px;padding:18px 16px}
+  .recipe-num{font-size:24px;min-width:36px}
+  .recipe-body-inner{padding:0 16px 24px}
+  .recipe-layout{gap:20px}
+  .filters{gap:6px}
+  .filter-btn{padding:6px 14px;font-size:11px}
+}
 </style>
 </head>
 <body>
+
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-logo">VALIDO<span>.</span></a>
@@ -70,140 +136,658 @@ footer p{font-size:11px;color:var(--text-dim)}
 </div>
 
 <div class="container">
-  <div class="recipe-list">
-    <a href="https://validofoods.com/baked-lemon-pepper-chicken" target="_blank" class="recipe-item">
-      <div class="recipe-num">01</div>
-      <div class="recipe-info">
-        <div class="recipe-name">Baked Lemon Pepper Chicken</div>
-        <div class="recipe-desc">Season chicken with lemon pepper, basil, oregano. Bake at 350°F for 30 minutes until golden and juicy.</div>
-        <div class="recipe-tags"><span class="recipe-tag">Poultry</span><span class="recipe-tag">Lemon Pepper</span><span class="recipe-tag">30 Min</span></div>
-      </div>
-      <div class="recipe-arrow">→</div>
-    </a>
-    <a href="https://validofoods.com/chickenfriedrice" target="_blank" class="recipe-item">
-      <div class="recipe-num">02</div>
-      <div class="recipe-info">
-        <div class="recipe-name">Chicken Fried Rice</div>
-        <div class="recipe-desc">A quick weeknight classic made with Valido Fried Rice Seasoning, diced chicken, veggies, and scrambled eggs.</div>
-        <div class="recipe-tags"><span class="recipe-tag">Rice</span><span class="recipe-tag">Fried Rice Seasoning</span><span class="recipe-tag">Quick</span></div>
-      </div>
-      <div class="recipe-arrow">→</div>
-    </a>
-    <a href="https://validofoods.com/maple-glazed-salmon" target="_blank" class="recipe-item">
-      <div class="recipe-num">03</div>
-      <div class="recipe-info">
-        <div class="recipe-name">Maple Glazed Salmon</div>
-        <div class="recipe-desc">Pan-seared salmon with a sweet maple glaze and Valido All-In-One Seasoning. Ready in under 20 minutes.</div>
-        <div class="recipe-tags"><span class="recipe-tag">Seafood</span><span class="recipe-tag">All-In-One</span><span class="recipe-tag">20 Min</span></div>
-      </div>
-      <div class="recipe-arrow">→</div>
-    </a>
-    <a href="https://validofoods.com/baked-garlic-brown-sugar-chicken" target="_blank" class="recipe-item">
-      <div class="recipe-num">04</div>
-      <div class="recipe-info">
-        <div class="recipe-name">Baked Garlic Brown Sugar Chicken</div>
-        <div class="recipe-desc">Sweet and savory baked chicken with garlic, brown sugar, and Valido Chicken Seasoning. A family favorite.</div>
-        <div class="recipe-tags"><span class="recipe-tag">Poultry</span><span class="recipe-tag">Garlic</span><span class="recipe-tag">Chicken</span></div>
-      </div>
-      <div class="recipe-arrow">→</div>
-    </a>
-    <a href="https://validofoods.com/foil-cajun-chicken-veggies" target="_blank" class="recipe-item">
-      <div class="recipe-num">05</div>
-      <div class="recipe-info">
-        <div class="recipe-name">Foil Cajun Chicken &amp; Veggies</div>
-        <div class="recipe-desc">One-pan foil packets with seasoned chicken, peppers, and zucchini. Bake at 450°F for 20-25 minutes.</div>
-        <div class="recipe-tags"><span class="recipe-tag">Poultry</span><span class="recipe-tag">Cajun</span><span class="recipe-tag">One Pan</span></div>
-      </div>
-      <div class="recipe-arrow">→</div>
-    </a>
-    <a href="https://validofoods.com/validos-overnight-chicken" target="_blank" class="recipe-item">
-      <div class="recipe-num">06</div>
-      <div class="recipe-info">
-        <div class="recipe-name">Valido's Overnight Chicken</div>
-        <div class="recipe-desc">Marinate overnight with Valido All-In-One for maximum flavor. Perfect for Sunday dinner or meal prep.</div>
-        <div class="recipe-tags"><span class="recipe-tag">Poultry</span><span class="recipe-tag">All-In-One</span><span class="recipe-tag">Meal Prep</span></div>
-      </div>
-      <div class="recipe-arrow">→</div>
-    </a>
-    <a href="https://validofoods.com/creamy-broccoli-keto" target="_blank" class="recipe-item">
-      <div class="recipe-num">07</div>
-      <div class="recipe-info">
-        <div class="recipe-name">Creamy Broccoli (Keto)</div>
-        <div class="recipe-desc">Low-carb creamy broccoli side dish seasoned with Valido garlic and All-In-One. Keto-friendly.</div>
-        <div class="recipe-tags"><span class="recipe-tag">Keto</span><span class="recipe-tag">Veggies</span><span class="recipe-tag">Garlic</span></div>
-      </div>
-      <div class="recipe-arrow">→</div>
-    </a>
-    <a href="https://validofoods.com/copy-of-copy-of-recipe-of-the-day-2" target="_blank" class="recipe-item">
-      <div class="recipe-num">08</div>
-      <div class="recipe-info">
-        <div class="recipe-name">Creamy Parmesan Garlic Shrimp Pasta</div>
-        <div class="recipe-desc">Rich, creamy pasta with garlic shrimp and parmesan, seasoned with Valido Garlic and All-In-One.</div>
-        <div class="recipe-tags"><span class="recipe-tag">Pasta</span><span class="recipe-tag">Seafood</span><span class="recipe-tag">Garlic</span></div>
-      </div>
-      <div class="recipe-arrow">→</div>
-    </a>
-    <a href="https://validofoods.com/blackened-shrimp-avocado-cucumber-bites" target="_blank" class="recipe-item">
-      <div class="recipe-num">09</div>
-      <div class="recipe-info">
-        <div class="recipe-name">Blackened Shrimp Avocado Cucumber Bites</div>
-        <div class="recipe-desc">Light, fresh appetizer with blackened shrimp on cucumber rounds topped with avocado.</div>
-        <div class="recipe-tags"><span class="recipe-tag">Appetizer</span><span class="recipe-tag">Seafood</span><span class="recipe-tag">Light</span></div>
-      </div>
-      <div class="recipe-arrow">→</div>
-    </a>
-    <a href="https://validofoods.com/healthy-baked-parmesan-chicken-nuggets" target="_blank" class="recipe-item">
-      <div class="recipe-num">10</div>
-      <div class="recipe-info">
-        <div class="recipe-name">Healthy Baked Parmesan Chicken Nuggets</div>
-        <div class="recipe-desc">Baked, not fried. Crispy parmesan coating with Valido Chicken Seasoning. Kids love them.</div>
-        <div class="recipe-tags"><span class="recipe-tag">Poultry</span><span class="recipe-tag">Chicken</span><span class="recipe-tag">Kid-Friendly</span></div>
-      </div>
-      <div class="recipe-arrow">→</div>
-    </a>
-    <a href="https://validofoods.com/crunchy-taco-cups" target="_blank" class="recipe-item">
-      <div class="recipe-num">11</div>
-      <div class="recipe-info">
-        <div class="recipe-name">Crunchy Taco Cups</div>
-        <div class="recipe-desc">Crispy tortilla cups filled with seasoned ground beef, cheese, lettuce, and salsa. Perfect party food.</div>
-        <div class="recipe-tags"><span class="recipe-tag">Mexican</span><span class="recipe-tag">Appetizer</span><span class="recipe-tag">Party</span></div>
-      </div>
-      <div class="recipe-arrow">→</div>
-    </a>
-    <a href="https://validofoods.com/cinnamon-apple-chips" target="_blank" class="recipe-item">
-      <div class="recipe-num">12</div>
-      <div class="recipe-info">
-        <div class="recipe-name">Cinnamon Apple Chips</div>
-        <div class="recipe-desc">Thin-sliced apples baked with Valido Cinnamon until crispy. A healthy, sweet snack.</div>
-        <div class="recipe-tags"><span class="recipe-tag">Snack</span><span class="recipe-tag">Cinnamon</span><span class="recipe-tag">Healthy</span></div>
-      </div>
-      <div class="recipe-arrow">→</div>
-    </a>
-    <a href="https://validofoods.com/taco-salad" target="_blank" class="recipe-item">
-      <div class="recipe-num">13</div>
-      <div class="recipe-info">
-        <div class="recipe-name">Taco Salad</div>
-        <div class="recipe-desc">Fresh taco salad with seasoned beef, black beans, corn, avocado, and a zesty lime dressing.</div>
-        <div class="recipe-tags"><span class="recipe-tag">Mexican</span><span class="recipe-tag">Salad</span><span class="recipe-tag">Fresh</span></div>
-      </div>
-      <div class="recipe-arrow">→</div>
-    </a>
-    <a href="https://validofoods.com/validos-taco-spaghetti" target="_blank" class="recipe-item">
-      <div class="recipe-num">14</div>
-      <div class="recipe-info">
-        <div class="recipe-name">Valido's Taco Spaghetti</div>
-        <div class="recipe-desc">A fusion twist — spaghetti meets taco seasoning for a quick, kid-approved dinner.</div>
-        <div class="recipe-tags"><span class="recipe-tag">Pasta</span><span class="recipe-tag">Mexican</span><span class="recipe-tag">Kid-Friendly</span></div>
-      </div>
-      <div class="recipe-arrow">→</div>
-    </a>
+
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All Recipes</button>
+    <button class="filter-btn" data-filter="poultry">Poultry</button>
+    <button class="filter-btn" data-filter="seafood">Seafood</button>
+    <button class="filter-btn" data-filter="beef">Beef</button>
+    <button class="filter-btn" data-filter="sides">Sides &amp; Snacks</button>
+    <button class="filter-btn" data-filter="pasta">Pasta &amp; Rice</button>
+    <button class="filter-btn" data-filter="quick">Quick (&lt;30 min)</button>
   </div>
-</div>
+
+  <div class="recipe-list">
+
+    <!-- 01 Baked Lemon Pepper Chicken -->
+    <div class="recipe-item" data-categories="poultry quick">
+      <div class="recipe-header" onclick="toggleRecipe(this)">
+        <div class="recipe-num">01</div>
+        <div class="recipe-info">
+          <div class="recipe-name">Baked Lemon Pepper Chicken</div>
+          <div class="recipe-desc">Season chicken with lemon pepper, basil, oregano. Bake at 350°F for 30 minutes until golden and juicy.</div>
+          <div class="recipe-tags"><span class="recipe-tag">Poultry</span><span class="recipe-tag">Lemon Pepper</span><span class="recipe-tag">30 Min</span></div>
+        </div>
+        <div class="recipe-toggle">+</div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-body-inner">
+          <div class="recipe-layout">
+            <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1553731221619-TX19JD2UUMIAE6RW30AT/lemon-pepper-chicken-with-creamy-garlic-sauce-2.jpg" alt="Baked Lemon Pepper Chicken" class="recipe-img" loading="lazy">
+            <div class="recipe-content">
+              <div class="recipe-section-title">Ingredients</div>
+              <ul class="recipe-ingredients">
+                <li>4 <strong>boneless skinless chicken breasts</strong></li>
+                <li>1 <strong>lemon juiced</strong> (1/4 cup)</li>
+                <li>1 tablespoon <strong>extra virgin olive oil</strong></li>
+                <li>3 teaspoons <strong>Valido's Lemon Pepper</strong></li>
+                <li>2 teaspoons <strong>dried basil</strong></li>
+                <li>2 teaspoons <strong>Valido's Dried Oregano</strong></li>
+                <li>1 teaspoon <strong>salt</strong></li>
+              </ul>
+              <div class="recipe-section-title">Instructions</div>
+              <ol class="recipe-instructions">
+                <li>Preheat oven to 350°F. Lightly grease a 9x13 baking dish.</li>
+                <li>Lay chicken breasts in the baking dish. Drizzle with lemon juice and rub with olive oil.</li>
+                <li>In a small bowl, whisk together lemon pepper, basil, oregano, and salt. Season chicken with mixture, coating all sides.</li>
+                <li>Bake for 30 minutes, until chicken reaches an internal temperature of 165°F.</li>
+                <li>Serve hot. Garnish with freshly chopped parsley and lemon slices (optional).</li>
+              </ol>
+              <a href="/shop" class="recipe-cta">Shop Lemon Pepper →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 Chicken Fried Rice -->
+    <div class="recipe-item" data-categories="poultry pasta quick">
+      <div class="recipe-header" onclick="toggleRecipe(this)">
+        <div class="recipe-num">02</div>
+        <div class="recipe-info">
+          <div class="recipe-name">Chicken Fried Rice</div>
+          <div class="recipe-desc">A quick weeknight classic made with Valido Fried Rice Seasoning, diced chicken, veggies, and scrambled eggs.</div>
+          <div class="recipe-tags"><span class="recipe-tag">Rice</span><span class="recipe-tag">Fried Rice Seasoning</span><span class="recipe-tag">Quick</span></div>
+        </div>
+        <div class="recipe-toggle">+</div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-body-inner">
+          <div class="recipe-layout">
+            <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1555955270788-JXY3164NC47HOAHX9H9X/fried+rice+meal.png" alt="Chicken Fried Rice" class="recipe-img" loading="lazy">
+            <div class="recipe-content">
+              <div class="recipe-section-title">Ingredients</div>
+              <ul class="recipe-ingredients">
+                <li>3 <strong>skinless chicken breasts</strong> (boneless)</li>
+                <li>12 ounces <strong>teriyaki sauce</strong></li>
+                <li>1 tablespoon <strong>Valido's Fried Rice Seasoning</strong></li>
+                <li>3 tablespoons <strong>sesame oil</strong> (or vegetable oil)</li>
+                <li>1 cup <strong>frozen peas and carrots</strong> (thawed)</li>
+                <li>1 <strong>small onion</strong> (chopped)</li>
+                <li>2 teaspoons <strong>minced garlic</strong></li>
+                <li>2 <strong>eggs</strong> (slightly beaten)</li>
+                <li>3 cups <strong>cooked white rice</strong> (day old or leftover cold rice is best)</li>
+                <li>4 tablespoons <strong>soy sauce</strong></li>
+              </ul>
+              <div class="recipe-section-title">Instructions</div>
+              <ol class="recipe-instructions">
+                <li>Cook chicken covered in teriyaki sauce and Valido's Fried Rice Seasoning in a crock-pot on high heat for 3 hours, or in oven at 375°F for 35 minutes. Once cooked, slice into small pieces. Set aside.</li>
+                <li>Heat the oil in a large skillet or wok over medium-high heat. Add the peas/carrots mix, onion, and garlic. Stir fry until tender.</li>
+                <li>Lower the heat to medium-low and push the mixture off to one side. Pour eggs on the other side of skillet. Stir fry until scrambled.</li>
+                <li>Add the rice and soy sauce and blend all together well. Stir in cooked chicken and cook until mixture is heated through. Serve and enjoy!</li>
+              </ol>
+              <a href="/shop" class="recipe-cta">Shop Fried Rice Seasoning →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 Maple Glazed Salmon -->
+    <div class="recipe-item" data-categories="seafood quick">
+      <div class="recipe-header" onclick="toggleRecipe(this)">
+        <div class="recipe-num">03</div>
+        <div class="recipe-info">
+          <div class="recipe-name">Maple Glazed Salmon</div>
+          <div class="recipe-desc">Pan-seared salmon with a sweet maple glaze and Valido Chili Powder. Ready in under 20 minutes.</div>
+          <div class="recipe-tags"><span class="recipe-tag">Seafood</span><span class="recipe-tag">Chili Powder</span><span class="recipe-tag">20 Min</span></div>
+        </div>
+        <div class="recipe-toggle">+</div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-body-inner">
+          <div class="recipe-layout">
+            <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1554389641727-ELRYOJWEMYZ6SVWRFFXL/maple-salmong.jpg" alt="Maple Glazed Salmon" class="recipe-img" loading="lazy">
+            <div class="recipe-content">
+              <div class="recipe-section-title">Ingredients</div>
+              <ul class="recipe-ingredients">
+                <li>3 pounds <strong>salmon</strong></li>
+                <li>3 tablespoons <strong>dijon mustard</strong></li>
+                <li>2 tablespoons <strong>Valido's Chili Powder</strong></li>
+                <li>2 tablespoons <strong>smoked paprika</strong></li>
+                <li>1½ tablespoons <strong>brown sugar</strong></li>
+                <li>1½ teaspoons <strong>salt</strong></li>
+                <li>½ cup <strong>pure maple syrup</strong></li>
+              </ul>
+              <div class="recipe-section-title">Instructions</div>
+              <ol class="recipe-instructions">
+                <li>Preheat the oven to 375°F. Line a large rimmed cookie sheet with foil.</li>
+                <li>In a small bowl, stir together the mustard, chili powder, smoked paprika, brown sugar, and salt to form a thick paste.</li>
+                <li>Place the salmon on the foil and spread the entire fish with the mustard paste using the back of a spoon.</li>
+                <li>Pull the foil up and over the salmon (don't lay foil on the paste). Pinch closed like a packet.</li>
+                <li>Bake for 14–15 minutes.</li>
+                <li>Remove from oven, carefully open foil (watch for steam). Turn oven to broil.</li>
+                <li>Drizzle maple syrup over the salmon. Place back under broiler for 2–3 minutes.</li>
+                <li>Remove and serve immediately.</li>
+              </ol>
+              <a href="/shop" class="recipe-cta">Shop Chili Powder →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 Baked Garlic Brown Sugar Chicken -->
+    <div class="recipe-item" data-categories="poultry quick">
+      <div class="recipe-header" onclick="toggleRecipe(this)">
+        <div class="recipe-num">04</div>
+        <div class="recipe-info">
+          <div class="recipe-name">Baked Garlic Brown Sugar Chicken</div>
+          <div class="recipe-desc">Sweet and savory baked chicken with garlic, brown sugar, and Valido Garlic. A family favorite.</div>
+          <div class="recipe-tags"><span class="recipe-tag">Poultry</span><span class="recipe-tag">Garlic</span><span class="recipe-tag">20 Min</span></div>
+        </div>
+        <div class="recipe-toggle">+</div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-body-inner">
+          <div class="recipe-layout">
+            <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1554909920680-W92JUWSRCHRHKGJTNN5T/Baked+Garlic+Brown+Sugar+Chicken.png" alt="Baked Garlic Brown Sugar Chicken" class="recipe-img" loading="lazy">
+            <div class="recipe-content">
+              <div class="recipe-section-title">Ingredients</div>
+              <ul class="recipe-ingredients">
+                <li>4 <strong>boneless skinless chicken breasts</strong></li>
+                <li>4 tablespoons <strong>brown sugar</strong></li>
+                <li>4 teaspoons <strong>Valido Garlic</strong></li>
+                <li>3 teaspoons <strong>olive oil</strong></li>
+              </ul>
+              <div class="recipe-section-title">Instructions</div>
+              <ol class="recipe-instructions">
+                <li>Preheat oven to 500°F. Grease pan.</li>
+                <li>Fry garlic with oil until it becomes soft.</li>
+                <li>Mix the garlic into the brown sugar.</li>
+                <li>Place chicken in a baking dish.</li>
+                <li>Spread the garlic–brown sugar mixture on the chicken.</li>
+                <li>Add salt and/or pepper to taste.</li>
+                <li>Bake uncovered for approximately 20 minutes.</li>
+              </ol>
+              <a href="/shop" class="recipe-cta">Shop Garlic Seasoning →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 Foil Cajun Chicken & Veggies -->
+    <div class="recipe-item" data-categories="poultry quick">
+      <div class="recipe-header" onclick="toggleRecipe(this)">
+        <div class="recipe-num">05</div>
+        <div class="recipe-info">
+          <div class="recipe-name">Foil Cajun Chicken &amp; Veggies</div>
+          <div class="recipe-desc">One-pan foil packets with seasoned chicken, peppers, and zucchini. Bake at 450°F for 20–25 minutes.</div>
+          <div class="recipe-tags"><span class="recipe-tag">Poultry</span><span class="recipe-tag">Cajun</span><span class="recipe-tag">One Pan</span></div>
+        </div>
+        <div class="recipe-toggle">+</div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-body-inner">
+          <div class="recipe-layout">
+            <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1588229072813-LDA75NUCXJ2112KGBCQ3/Cajun-Chicken-and-Veggie-Foil-Packs-11.jpg" alt="Foil Cajun Chicken and Veggies" class="recipe-img" loading="lazy">
+            <div class="recipe-content">
+              <div class="recipe-section-title">Ingredients</div>
+              <ul class="recipe-ingredients">
+                <li>2–3 <strong>boneless skinless chicken breasts</strong>, cut into 1-inch pieces</li>
+                <li>1 large <strong>zucchini</strong>, chopped</li>
+                <li>2 cups <strong>broccoli florets</strong></li>
+                <li>1 <strong>bell pepper</strong>, chopped</li>
+                <li>2 cloves <strong>garlic</strong>, minced</li>
+                <li>2 tablespoons <strong>olive oil</strong></li>
+                <li>1 teaspoon each: <strong>Valido Garlic, Chicken, Cajun, Paprika, Oregano</strong></li>
+                <li>¼ teaspoon <strong>Valido Black Pepper</strong> (optional)</li>
+              </ul>
+              <div class="recipe-section-title">Instructions</div>
+              <ol class="recipe-instructions">
+                <li>Preheat oven to 450°F. Cut 4 sheets of foil into ~12"×12" rectangles. Set aside.</li>
+                <li>Combine all ingredients in a large bowl. Spoon mixture evenly onto the 4 foil sheets. Fold and seal foil.</li>
+                <li>Place foil packs on a baking sheet and bake 20–25 minutes. Be careful when opening — steam is trapped inside.</li>
+              </ol>
+              <a href="/shop" class="recipe-cta">Shop Cajun Seasoning →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 Valido's Overnight Chicken -->
+    <div class="recipe-item" data-categories="poultry">
+      <div class="recipe-header" onclick="toggleRecipe(this)">
+        <div class="recipe-num">06</div>
+        <div class="recipe-info">
+          <div class="recipe-name">Valido's Overnight Chicken</div>
+          <div class="recipe-desc">Marinate overnight with Valido Curry Powder for maximum flavor. Perfect for Sunday dinner or meal prep.</div>
+          <div class="recipe-tags"><span class="recipe-tag">Poultry</span><span class="recipe-tag">Curry Powder</span><span class="recipe-tag">Meal Prep</span></div>
+        </div>
+        <div class="recipe-toggle">+</div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-body-inner">
+          <div class="recipe-layout">
+            <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1555292498281-IXBHKDONKCV3I632WL04/Valido%27s+Overnight+Chicken+%282%29.png" alt="Valido's Overnight Chicken" class="recipe-img" loading="lazy">
+            <div class="recipe-content">
+              <div class="recipe-section-title">Ingredients</div>
+              <ul class="recipe-ingredients">
+                <li>4 <strong>chicken breasts</strong></li>
+                <li>½ cup <strong>honey</strong></li>
+                <li>⅓ cup <strong>dijon mustard</strong></li>
+                <li>1 tablespoon <strong>Valido's Curry Powder</strong></li>
+                <li>4 tablespoons <strong>soy sauce</strong></li>
+              </ul>
+              <div class="recipe-section-title">Instructions</div>
+              <ol class="recipe-instructions">
+                <li>Mix together the honey, mustard, soy sauce, and curry powder.</li>
+                <li>Place the chicken and marinade in a plastic bag or glass container. Marinate overnight.</li>
+                <li>The next day, place the chicken and marinade in a pan. Bake at 350°F for one hour, covered with tin foil.</li>
+                <li>Uncover the chicken and baste. Cook another 15 minutes.</li>
+              </ol>
+              <a href="/shop" class="recipe-cta">Shop Curry Powder →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07 Creamy Broccoli (Keto) -->
+    <div class="recipe-item" data-categories="sides quick">
+      <div class="recipe-header" onclick="toggleRecipe(this)">
+        <div class="recipe-num">07</div>
+        <div class="recipe-info">
+          <div class="recipe-name">Creamy Broccoli (Keto)</div>
+          <div class="recipe-desc">Low-carb creamy broccoli side dish seasoned with Valido Garlic Powder. Keto-friendly comfort food.</div>
+          <div class="recipe-tags"><span class="recipe-tag">Keto</span><span class="recipe-tag">Veggies</span><span class="recipe-tag">Garlic</span></div>
+        </div>
+        <div class="recipe-toggle">+</div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-body-inner">
+          <div class="recipe-layout">
+            <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1554271415244-ON0OYWYEZZDRKZMII97K/Creamy-Broccoli-Keto-3-500x500.jpg" alt="Creamy Broccoli Keto" class="recipe-img" loading="lazy">
+            <div class="recipe-content">
+              <div class="recipe-section-title">Ingredients</div>
+              <ul class="recipe-ingredients">
+                <li>1 tablespoon <strong>butter</strong></li>
+                <li>5 cloves <strong>garlic</strong> (minced or crushed)</li>
+                <li>½ cup <strong>bacon</strong> (4–6 slices, chopped — optional)</li>
+                <li>3 cups <strong>broccoli florets</strong></li>
+                <li>½ teaspoon <strong>Valido Garlic Powder</strong></li>
+                <li>½ teaspoon <strong>crushed red pepper</strong> (optional)</li>
+                <li><strong>Salt</strong> and <strong>pepper</strong> to taste</li>
+                <li>1 cup <strong>heavy cream</strong></li>
+                <li>½ cup <strong>shredded Mozzarella</strong></li>
+                <li>¼ cup <strong>Parmesan cheese</strong> (optional)</li>
+              </ul>
+              <div class="recipe-section-title">Instructions</div>
+              <ol class="recipe-instructions">
+                <li>Preheat oven to 400°F. In a large pan over medium-high heat, cook chopped bacon for 2–3 minutes or until almost crispy.</li>
+                <li>Remove bacon. In the same pan, add butter, garlic, broccoli, Valido Garlic Powder, crushed red pepper, and a dash of salt and pepper. Sauté for 2–3 minutes until garlic is fragrant. Add heavy cream, cheese, and cooked bacon.</li>
+                <li>Transfer to preheated oven and cook for 12–15 minutes until cheese is bubbly and broccoli is done to your liking.</li>
+              </ol>
+              <a href="/shop" class="recipe-cta">Shop Garlic Powder →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 08 Creamy Parmesan Garlic Shrimp Pasta -->
+    <div class="recipe-item" data-categories="seafood pasta quick">
+      <div class="recipe-header" onclick="toggleRecipe(this)">
+        <div class="recipe-num">08</div>
+        <div class="recipe-info">
+          <div class="recipe-name">Creamy Parmesan Garlic Shrimp Pasta</div>
+          <div class="recipe-desc">Rich, creamy pasta with garlic shrimp and parmesan, seasoned with Valido Garlic and Seasoned Salt.</div>
+          <div class="recipe-tags"><span class="recipe-tag">Pasta</span><span class="recipe-tag">Seafood</span><span class="recipe-tag">Garlic</span></div>
+        </div>
+        <div class="recipe-toggle">+</div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-body-inner">
+          <div class="recipe-layout">
+            <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1554480695239-GZEZHU9IVTS54VOZZWQE/0C4A7708.jpg" alt="Creamy Parmesan Garlic Shrimp Pasta" class="recipe-img" loading="lazy">
+            <div class="recipe-content">
+              <div class="recipe-section-title">Ingredients</div>
+              <ul class="recipe-ingredients">
+                <li>1 pound <strong>jumbo shrimp</strong> (peeled and deveined)</li>
+                <li>½ teaspoon <strong>Valido's Seasoned Salt</strong></li>
+                <li><strong>Pepper</strong> to taste</li>
+                <li>2 tablespoons <strong>olive oil</strong></li>
+                <li>3 <strong>garlic cloves</strong> (minced)</li>
+                <li>1 cup <strong>heavy cream</strong></li>
+                <li>½ cup <strong>chicken broth</strong></li>
+                <li>1 teaspoon <strong>Valido's Garlic Powder</strong></li>
+                <li>1 teaspoon <strong>Italian seasoning</strong></li>
+                <li>½ cup <strong>parmesan cheese</strong></li>
+                <li>8 ounces <strong>linguine</strong> (cooked al dente)</li>
+              </ul>
+              <div class="recipe-section-title">Instructions</div>
+              <ol class="recipe-instructions">
+                <li>In a medium skillet, add olive oil. Add shrimp and garlic, cook over medium-high heat until almost pink but not fully cooked.</li>
+                <li>Add heavy cream, chicken broth, garlic powder, Italian seasoning, and parmesan cheese. Stir until smooth. Simmer 3–5 minutes until sauce thickens. Add pasta and stir to coat.</li>
+                <li>Garnish with fresh parsley, shredded parmesan, and lemon wedges.</li>
+              </ol>
+              <a href="/shop" class="recipe-cta">Shop Seasoned Salt →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 09 Blackened Shrimp Avocado Cucumber Bites -->
+    <div class="recipe-item" data-categories="seafood sides quick">
+      <div class="recipe-header" onclick="toggleRecipe(this)">
+        <div class="recipe-num">09</div>
+        <div class="recipe-info">
+          <div class="recipe-name">Blackened Shrimp Avocado Cucumber Bites</div>
+          <div class="recipe-desc">Light, fresh appetizer with blackened shrimp on cucumber rounds topped with avocado sauce.</div>
+          <div class="recipe-tags"><span class="recipe-tag">Appetizer</span><span class="recipe-tag">Seafood</span><span class="recipe-tag">Creole</span></div>
+        </div>
+        <div class="recipe-toggle">+</div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-body-inner">
+          <div class="recipe-layout">
+            <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1554743516412-R8MOO2PWB4PD76HPDSWJ/Blackened+Shrimp+Cucumber.jpg" alt="Blackened Shrimp Avocado Cucumber Bites" class="recipe-img" loading="lazy">
+            <div class="recipe-content">
+              <div class="recipe-section-title">Ingredients</div>
+              <div class="recipe-sub">For the shrimp &amp; cucumber bites</div>
+              <ul class="recipe-ingredients">
+                <li>1 tablespoon <strong>oil</strong></li>
+                <li>1 tablespoon <strong>Valido Creole Seasoning</strong></li>
+                <li>1 pound <strong>shrimp</strong> (peeled and deveined)</li>
+                <li>1 <strong>cucumber</strong>, sliced</li>
+                <li>¼ cup <strong>remoulade sauce</strong> (optional)</li>
+              </ul>
+              <div class="recipe-sub">For the avocado sauce</div>
+              <ul class="recipe-ingredients">
+                <li>1 <strong>avocado</strong>, mashed</li>
+                <li>1 <strong>green onion</strong>, thinly sliced</li>
+                <li>2 tablespoons <strong>cilantro and/or parsley</strong>, chopped</li>
+                <li>1 tablespoon <strong>lemon juice</strong></li>
+                <li><strong>Salt</strong> and <strong>cayenne</strong> to taste</li>
+              </ul>
+              <div class="recipe-section-title">Instructions</div>
+              <ol class="recipe-instructions">
+                <li>Toss shrimp in oil and Valido Creole Seasoning. Cook in a preheated heavy-bottomed skillet (medium-high) until slightly blackened, about 2–3 minutes per side.</li>
+                <li>Mix all avocado sauce ingredients together.</li>
+                <li>Assemble bites: cucumber slices, topped with avocado sauce, then shrimp, and a drizzle of remoulade.</li>
+              </ol>
+              <a href="/shop" class="recipe-cta">Shop Creole Seasoning →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 Healthy Baked Parmesan Chicken Nuggets -->
+    <div class="recipe-item" data-categories="poultry quick">
+      <div class="recipe-header" onclick="toggleRecipe(this)">
+        <div class="recipe-num">10</div>
+        <div class="recipe-info">
+          <div class="recipe-name">Healthy Baked Parmesan Chicken Nuggets</div>
+          <div class="recipe-desc">Baked, not fried. Crispy parmesan coating with Valido Black Pepper. Kids love them.</div>
+          <div class="recipe-tags"><span class="recipe-tag">Poultry</span><span class="recipe-tag">Black Pepper</span><span class="recipe-tag">Kid-Friendly</span></div>
+        </div>
+        <div class="recipe-toggle">+</div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-body-inner">
+          <div class="recipe-layout">
+            <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1554832453371-JJ3E4Z01R0NBHD6CSR86/Healthy+Baked+Parmesan+Chicken+Nuggets" alt="Healthy Baked Parmesan Chicken Nuggets" class="recipe-img" loading="lazy">
+            <div class="recipe-content">
+              <div class="recipe-section-title">Ingredients</div>
+              <ul class="recipe-ingredients">
+                <li>1 pound <strong>boneless skinless chicken breasts</strong> (cut into pieces)</li>
+                <li>½ cup <strong>parmesan cheese</strong> (divided in half)</li>
+                <li>¼ cup <strong>cold water</strong></li>
+                <li>½ teaspoon <strong>salt</strong></li>
+                <li>⅛ teaspoon <strong>Valido's Black Pepper</strong></li>
+                <li>1 cup <strong>panko breadcrumbs</strong></li>
+              </ul>
+              <div class="recipe-section-title">Instructions</div>
+              <ol class="recipe-instructions">
+                <li>Preheat oven to 400°F. Line a baking sheet with foil or parchment paper.</li>
+                <li>In a food processor, pulse chicken breasts, ¼ cup parmesan, cold water, salt, and Valido's Black Pepper for 1 minute until minced and combined.</li>
+                <li>Mix panko breadcrumbs and remaining ¼ cup parmesan in a shallow dish. Shape chicken mixture into small nuggets and coat with the breadcrumb mix. Place on baking sheet and drizzle with oil.</li>
+                <li>Bake 12–15 minutes, then broil 2–3 minutes until golden. Serve warm with your favorite dipping sauce.</li>
+              </ol>
+              <a href="/shop" class="recipe-cta">Shop Black Pepper →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11 Crunchy Taco Cups -->
+    <div class="recipe-item" data-categories="beef sides quick">
+      <div class="recipe-header" onclick="toggleRecipe(this)">
+        <div class="recipe-num">11</div>
+        <div class="recipe-info">
+          <div class="recipe-name">Crunchy Taco Cups</div>
+          <div class="recipe-desc">Crispy wonton cups filled with seasoned ground beef, cheese, and diced tomatoes. Perfect party food.</div>
+          <div class="recipe-tags"><span class="recipe-tag">Mexican</span><span class="recipe-tag">Appetizer</span><span class="recipe-tag">Party</span></div>
+        </div>
+        <div class="recipe-toggle">+</div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-body-inner">
+          <div class="recipe-layout">
+            <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1555300475377-FPL51H1EWVY15Y7RM7V9/Crunchy+Taco+Cups.png" alt="Crunchy Taco Cups" class="recipe-img" loading="lazy">
+            <div class="recipe-content">
+              <div class="recipe-section-title">Ingredients</div>
+              <ul class="recipe-ingredients">
+                <li>1 pound <strong>lean ground beef</strong> (browned and drained)</li>
+                <li>3 tablespoons <strong>Valido's Taco Seasoning</strong></li>
+                <li>10 ounces <strong>diced tomatoes and green chiles</strong></li>
+                <li>1½ cups <strong>shredded cheddar or Mexican blend cheese</strong></li>
+                <li>24 <strong>wonton wrappers</strong></li>
+              </ul>
+              <div class="recipe-section-title">Instructions</div>
+              <ol class="recipe-instructions">
+                <li>Preheat oven to 375°F. Generously coat a standard muffin tin with nonstick spray.</li>
+                <li>Combine cooked beef, Valido's Taco Seasoning, and tomatoes in a bowl. Line each muffin cup with a wonton wrapper. Add 1½ tbsp taco mixture, top with 1 tbsp cheese. Add another wonton wrapper, more filling, and a final cheese layer.</li>
+                <li>Bake at 375°F for 11–13 minutes until edges are golden and cups are heated through.</li>
+              </ol>
+              <a href="/shop" class="recipe-cta">Shop Taco Seasoning →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12 Cinnamon Apple Chips -->
+    <div class="recipe-item" data-categories="sides">
+      <div class="recipe-header" onclick="toggleRecipe(this)">
+        <div class="recipe-num">12</div>
+        <div class="recipe-info">
+          <div class="recipe-name">Cinnamon Apple Chips</div>
+          <div class="recipe-desc">Thin-sliced apples baked with Valido Cinnamon until crispy. A healthy, sweet snack.</div>
+          <div class="recipe-tags"><span class="recipe-tag">Snack</span><span class="recipe-tag">Cinnamon</span><span class="recipe-tag">Healthy</span></div>
+        </div>
+        <div class="recipe-toggle">+</div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-body-inner">
+          <div class="recipe-layout">
+            <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1555302818906-HI8N3PWX809CSDYH6RJI/Cinnamon+Apple+Chips.png" alt="Cinnamon Apple Chips" class="recipe-img" loading="lazy">
+            <div class="recipe-content">
+              <div class="recipe-section-title">Ingredients</div>
+              <ul class="recipe-ingredients">
+                <li>1 <strong>apple</strong></li>
+                <li>1 teaspoon <strong>Valido's Cinnamon</strong></li>
+              </ul>
+              <div class="recipe-section-title">Instructions</div>
+              <ol class="recipe-instructions">
+                <li>Preheat oven to 200°F and line baking sheets with parchment paper.</li>
+                <li>Lay apple slices in a single layer on lined baking sheets. Sprinkle evenly with Valido's Cinnamon.</li>
+                <li>Bake at 200°F for 2 hours.</li>
+                <li>Remove from oven, loosen slices from parchment — they'll crisp up even more as they cool.</li>
+              </ol>
+              <a href="/shop" class="recipe-cta">Shop Cinnamon →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13 Taco Salad -->
+    <div class="recipe-item" data-categories="beef quick">
+      <div class="recipe-header" onclick="toggleRecipe(this)">
+        <div class="recipe-num">13</div>
+        <div class="recipe-info">
+          <div class="recipe-name">Taco Salad</div>
+          <div class="recipe-desc">Fresh taco salad with seasoned beef, cilantro-lime dressing, cheese, and optional tortilla strips.</div>
+          <div class="recipe-tags"><span class="recipe-tag">Mexican</span><span class="recipe-tag">Salad</span><span class="recipe-tag">Fresh</span></div>
+        </div>
+        <div class="recipe-toggle">+</div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-body-inner">
+          <div class="recipe-layout">
+            <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1554184041784-VNMTSZHZ374TGY45YXHQ/TACO+SALAD.jpg" alt="Taco Salad" class="recipe-img" loading="lazy">
+            <div class="recipe-content">
+              <div class="recipe-section-title">Ingredients</div>
+              <div class="recipe-sub">Dressing</div>
+              <ul class="recipe-ingredients">
+                <li>⅓ cup <strong>light sour cream</strong></li>
+                <li>⅓ cup <strong>low-fat yogurt</strong></li>
+                <li>½ cup <strong>chopped cilantro</strong></li>
+                <li>2 tablespoons <strong>lime juice</strong></li>
+                <li>⅛ teaspoon <strong>Valido Garlic Salt</strong></li>
+                <li>½ teaspoon <strong>Valido Taco Seasoning</strong></li>
+              </ul>
+              <div class="recipe-sub">Salad</div>
+              <ul class="recipe-ingredients">
+                <li>¾ pound <strong>lean ground beef</strong></li>
+                <li>1 <strong>red bell pepper</strong> (diced)</li>
+                <li>½ teaspoon <strong>Valido Chili Powder</strong></li>
+                <li>¾ cup <strong>salsa</strong></li>
+                <li>6 cups <strong>romaine lettuce</strong> (chopped)</li>
+                <li>2 <strong>green onions</strong> (sliced)</li>
+                <li>¾ cup <strong>Mexican blend cheese</strong></li>
+                <li>2 <strong>tomatoes</strong> (cut into wedges)</li>
+              </ul>
+              <div class="recipe-section-title">Instructions</div>
+              <ol class="recipe-instructions">
+                <li>For the dressing: combine all dressing ingredients in a blender and blend until smooth.</li>
+                <li>Spray a large non-stick skillet with cooking spray. Sauté diced pepper 3–4 minutes. Add beef and chili powder, cook 5–6 minutes until browned. Stir in salsa and cook 1 minute. Remove from heat.</li>
+                <li>Assemble: place 1½ cups lettuce on each plate. Top with ¾ cup meat mixture. Add green onions, 3 tablespoons cheese, and 3 tablespoons dressing. Garnish with tomato wedges.</li>
+              </ol>
+              <a href="/shop" class="recipe-cta">Shop Taco Seasoning →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14 Valido's Taco Spaghetti -->
+    <div class="recipe-item" data-categories="beef pasta">
+      <div class="recipe-header" onclick="toggleRecipe(this)">
+        <div class="recipe-num">14</div>
+        <div class="recipe-info">
+          <div class="recipe-name">Valido's Taco Spaghetti</div>
+          <div class="recipe-desc">A fusion twist — spaghetti meets taco seasoning for a quick, kid-approved dinner.</div>
+          <div class="recipe-tags"><span class="recipe-tag">Pasta</span><span class="recipe-tag">Mexican</span><span class="recipe-tag">Kid-Friendly</span></div>
+        </div>
+        <div class="recipe-toggle">+</div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-body-inner">
+          <div class="recipe-layout">
+            <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1575590000661-9MQPLSSNOWX94ZUWMOBX/TACO+SPAGHETTI+PIC.jpg" alt="Valido's Taco Spaghetti" class="recipe-img" loading="lazy">
+            <div class="recipe-content">
+              <div class="recipe-section-title">Ingredients</div>
+              <ul class="recipe-ingredients">
+                <li>1 tablespoon <strong>vegetable oil</strong></li>
+                <li>1 lb <strong>extra-lean ground beef</strong> (90%+)</li>
+                <li>1 carton (32 oz) <strong>beef broth</strong></li>
+                <li>1 can (14.5 oz) <strong>fire roasted crushed tomatoes</strong></li>
+                <li>1 can (4.5 oz) <strong>chopped green chiles</strong></li>
+                <li>½ cup <strong>water</strong></li>
+                <li>3 tablespoons <strong>Valido's Taco Seasoning</strong></li>
+                <li>12 oz <strong>spaghetti</strong> (broken in half)</li>
+                <li>1 cup <strong>shredded Colby-Monterey Jack cheese</strong></li>
+              </ul>
+              <div class="recipe-section-title">Instructions</div>
+              <ol class="recipe-instructions">
+                <li>In a 5-quart Dutch oven, heat oil over medium-high heat. Add beef and cook 5–7 minutes, stirring frequently, until no longer pink. Stir in broth, tomatoes, chiles, water, and Valido's Taco Seasoning.</li>
+                <li>Add spaghetti and bring to a boil. Reduce heat to a simmer. Cook uncovered 15–20 minutes, stirring frequently, until pasta is tender. Top with cheese and serve.</li>
+              </ol>
+              <a href="/shop" class="recipe-cta">Shop Taco Seasoning →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /recipe-list -->
+</div><!-- /container -->
 
 <footer>
   <div class="container">
-    <p>© 2026 Valido Foods, Inc. All rights reserved. · 8617 Ambassador Row, #120, Dallas, TX 75247 · (214) 307-5200</p>
+    <p>&copy; 2026 Valido Foods, Inc. All rights reserved. · 8617 Ambassador Row, #120, Dallas, TX 75247 · (214) 307-5200</p>
   </div>
 </footer>
+
+<script>
+function toggleRecipe(header) {
+  const item = header.closest('.recipe-item');
+  const body = item.querySelector('.recipe-body');
+  const isOpen = item.classList.contains('open');
+
+  // Close all others
+  document.querySelectorAll('.recipe-item.open').forEach(el => {
+    if (el !== item) {
+      el.classList.remove('open');
+      el.querySelector('.recipe-body').style.maxHeight = '0';
+    }
+  });
+
+  if (isOpen) {
+    item.classList.remove('open');
+    body.style.maxHeight = '0';
+  } else {
+    item.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+    // Smooth scroll into view after a beat
+    setTimeout(() => {
+      item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 200);
+  }
+}
+
+// Category filters
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Update active button
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filter = btn.dataset.filter;
+
+    // Close any open recipes
+    document.querySelectorAll('.recipe-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.recipe-body').style.maxHeight = '0';
+    });
+
+    // Show/hide recipes
+    document.querySelectorAll('.recipe-item').forEach(item => {
+      if (filter === 'all' || item.dataset.categories.includes(filter)) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>
