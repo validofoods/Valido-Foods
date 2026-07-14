@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valido Foods — Premium Spices, Seasonings & Herbs | Dallas, TX</title>
+<meta name="description" content="Valido Foods crafts premium spices, seasonings and herb blends inspired by global flavors. From Jollof Rice to Lemon Pepper — elevate every meal. Shop online or find us in stores.">
+<meta name="keywords" content="spices, seasonings, herbs, Valido Foods, Jollof Rice seasoning, Nigerian spices, Dallas TX, cooking seasonings, herb blends, low sodium spices">
+<link rel="canonical" href="https://validofoods.com">
+<meta property="og:title" content="Valido Foods — Premium Spices, Seasonings & Herbs">
+<meta property="og:description" content="Crafted spice blends inspired by global flavors. Elevate every meal.">
+<meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1553549464698-A8WRONE8I824F27CENZD/ALL+PINTS+PIC+4.png?format=1500w">
+<meta property="og:url" content="https://validofoods.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Valido Foods, Inc.","url":"https://validofoods.com","description":"Premium spices, seasonings, and herb blends inspired by global flavors.","address":{"@type":"PostalAddress","streetAddress":"8617 Ambassador Row, #120","addressLocality":"Dallas","addressRegion":"TX","postalCode":"75247","addressCountry":"US"},"telephone":"+1-214-307-5200","email":"info@validofoods.com","sameAs":["https://www.facebook.com/validofoods","https://www.instagram.com/validofoods","https://twitter.com/validofoods","https://www.pinterest.com/validofoods"]}</script>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:#0a0a0a;color:#e8e0d6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+:root{
+  --gold:#d4a24e;
+  --gold-glow:rgba(212,162,78,0.15);
+  --amber:#f59e0b;
+  --cream:#f5efe6;
+  --dark:#0a0a0a;
+  --card:#111;
+  --border:rgba(255,255,255,0.06);
+  --text:rgba(255,255,255,0.55);
+  --text-dim:rgba(255,255,255,0.25);
+}
+
+/* ═══ SCROLL ANIMATION ═══ */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+
+/* ═══ GRAIN OVERLAY ═══ */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ═══ NAV ═══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;transition:all 0.4s}
+nav.scrolled{background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:80px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;text-decoration:none;letter-spacing:-0.5px}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{color:var(--text);text-decoration:none;font-size:12px;font-weight:600;padding:8px 18px;border-radius:30px;transition:all 0.25s;letter-spacing:0.8px;text-transform:uppercase}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.05)}
+.nav-shop{background:var(--gold)!important;color:var(--dark)!important;font-weight:700!important;padding:10px 24px!important}
+.nav-shop:hover{background:#e8b45a!important;box-shadow:0 4px 24px var(--gold-glow)!important}
+.hamburger{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:8px}
+
+/* ═══ LAYOUT ═══ */
+.container{max-width:1280px;margin:0 auto;padding:0 48px}
+.section{padding:120px 0}
+
+/* ═══ HERO ═══ */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 0 80px}
+.hero::before{content:'';position:absolute;top:0;right:-20%;width:70%;height:100%;background:radial-gradient(ellipse at center,var(--gold-glow) 0%,transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:inline-flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(42px,6vw,80px);font-weight:900;line-height:0.95;letter-spacing:-3px;color:#fff;margin-bottom:28px}
+.hero h1 em{font-style:italic;font-weight:700;color:var(--gold)}
+.hero-sub{font-size:16px;color:var(--text);line-height:1.8;margin-bottom:40px;max-width:440px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:60px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.3s;border:none;cursor:pointer;letter-spacing:0.5px;text-transform:uppercase}
+.btn-gold{background:var(--gold);color:var(--dark)}
+.btn-gold:hover{background:#e8b45a;box-shadow:0 8px 40px var(--gold-glow);transform:translateY(-2px)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.15);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.25)}
+.hero-stats{display:flex;gap:40px}
+.hero-stat .h-val{font-size:28px;font-weight:700;color:#fff;letter-spacing:-1px}
+.hero-stat .h-val span{color:var(--gold)}
+.hero-stat .h-lbl{font-size:11px;color:var(--text-dim);margin-top:4px;letter-spacing:0.5px;text-transform:uppercase}
+.hero-visual{position:relative}
+.hero-img{width:100%;height:600px;object-fit:cover;border-radius:24px;box-shadow:0 40px 80px rgba(0,0,0,0.4)}
+.hero-float-card{position:absolute;bottom:24px;left:-32px;background:rgba(17,17,17,0.9);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:16px;padding:20px 24px;display:flex;align-items:center;gap:16px;animation:float 4s ease-in-out infinite}
+.hfc-icon{width:44px;height:44px;border-radius:12px;background:var(--gold-glow);display:flex;align-items:center;justify-content:center;font-size:20px}
+.hfc-text{font-size:13px;font-weight:600;color:#fff}
+.hfc-text span{display:block;font-size:11px;font-weight:400;color:var(--text);margin-top:2px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* ═══ MARQUEE ═══ */
+.marquee-wrap{padding:40px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}
+.marquee-track{display:flex;gap:24px;animation:marquee 30s linear infinite;width:max-content}
+.marquee-item{font-size:48px;font-family:'Playfair Display',serif;font-weight:900;color:rgba(255,255,255,0.03);white-space:nowrap;display:flex;align-items:center;gap:24px;letter-spacing:-2px}
+.marquee-item::after{content:'◆';font-size:12px;color:rgba(212,162,78,0.2)}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═══ PRODUCTS ═══ */
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:inline-flex;align-items:center;gap:10px}
+.section-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
+.section-head h2{font-family:'Playfair Display',serif;font-size:clamp(32px,4.5vw,56px);font-weight:900;color:#fff;letter-spacing:-2px;margin-bottom:16px}
+.section-head h2 em{font-style:italic;color:var(--gold)}
+.section-head p{font-size:15px;color:var(--text);line-height:1.7;max-width:480px}
+.section-head.center{text-align:center}
+.section-head.center p{margin:0 auto}
+
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+.product-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);text-decoration:none;color:inherit;display:block;position:relative}
+.product-card:hover{transform:translateY(-8px);border-color:rgba(212,162,78,0.2);box-shadow:0 24px 60px rgba(0,0,0,0.3)}
+.product-card:hover .product-img{transform:scale(1.08)}
+.product-img-wrap{overflow:hidden;aspect-ratio:1;background:#1a1a1a}
+.product-img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1)}
+.product-info{padding:20px 22px}
+.product-name{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-0.2px}
+.product-meta{font-size:11px;color:var(--text-dim);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px}
+.product-bottom{display:flex;align-items:center;justify-content:space-between}
+.product-price{font-size:18px;font-weight:700;color:var(--gold)}
+.product-price .from{font-size:11px;font-weight:500;color:var(--text-dim)}
+.product-arrow{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--text);transition:all 0.3s}
+.product-card:hover .product-arrow{background:var(--gold);color:var(--dark)}
+.product-badge{position:absolute;top:16px;left:16px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:20px;z-index:2}
+.badge-hot{background:var(--gold);color:var(--dark)}
+.badge-new{background:#10b981;color:#fff}
+.badge-sold{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.5)}
+.shop-all{text-align:center;margin-top:48px}
+
+/* ═══ STORY ═══ */
+.story{position:relative;overflow:hidden}
+.story::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,162,78,0.05) 0%,transparent 50%);pointer-events:none}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.story-img-wrap{position:relative}
+.story-img{width:100%;height:480px;object-fit:cover;border-radius:24px}
+.story-img-accent{position:absolute;top:-20px;left:-20px;width:100px;height:100px;border:2px solid var(--gold);border-radius:20px;opacity:0.3}
+.story-content blockquote{font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:var(--gold);line-height:1.5;margin:28px 0;padding-left:24px;border-left:2px solid var(--gold)}
+.story-content p{font-size:15px;color:var(--text);line-height:1.8;margin-bottom:16px}
+.values-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px}
+.value-pill{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:14px;padding:20px 16px;text-align:center;transition:all 0.3s}
+.value-pill:hover{background:rgba(212,162,78,0.05);border-color:rgba(212,162,78,0.15)}
+.value-pill .v-icon{font-size:24px;margin-bottom:8px;display:block}
+.value-pill .v-text{font-size:11px;font-weight:600;color:var(--text);letter-spacing:0.5px;text-transform:uppercase}
+
+/* ═══ RECIPES ═══ */
+.recipe-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;margin-top:56px}
+.recipe-card{border-radius:20px;overflow:hidden;position:relative;text-decoration:none;display:block;min-height:400px}
+.recipe-card:first-child{grid-row:span 2;min-height:100%}
+.recipe-card:not(:first-child){min-height:240px}
+.recipe-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1)}
+.recipe-card:hover img{transform:scale(1.05)}
+.recipe-card::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,0.8))}
+.recipe-overlay{position:absolute;bottom:0;left:0;right:0;padding:28px;z-index:2}
+.recipe-tag{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:block}
+.recipe-overlay h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;line-height:1.2}
+.recipe-card:not(:first-child) .recipe-overlay h3{font-size:18px}
+
+/* ═══ CHEFS ═══ */
+.chef-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.chef-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px 32px;text-align:center;text-decoration:none;color:inherit;transition:all 0.4s}
+.chef-card:hover{border-color:rgba(212,162,78,0.2);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.2)}
+.chef-card img{width:140px;height:140px;border-radius:50%;object-fit:cover;margin:0 auto 20px;border:3px solid var(--border);transition:border-color 0.3s}
+.chef-card:hover img{border-color:var(--gold)}
+.chef-card h3{font-family:'Playfair Display',serif;font-size:22px;color:#fff;margin-bottom:6px}
+.chef-card p{font-size:13px;color:var(--text)}
+
+/* ═══ FIND / MAP ═══ */
+.find-section{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.find-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.find-content h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);color:#fff;letter-spacing:-1.5px;margin-bottom:16px}
+.find-content p{font-size:15px;color:var(--text);line-height:1.8;margin-bottom:28px}
+.find-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.find-chip{font-size:12px;font-weight:600;color:var(--text);background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:30px;padding:8px 18px;transition:all 0.2s}
+.find-chip:hover{border-color:rgba(212,162,78,0.3);color:var(--gold)}
+.find-address{font-size:13px;color:var(--text-dim);line-height:1.8;border-top:1px solid var(--border);padding-top:24px;margin-top:24px}
+.find-address strong{color:#fff;font-weight:600}
+.find-img{width:100%;height:420px;object-fit:cover;border-radius:24px;border:1px solid var(--border)}
+
+/* ═══ WHOLESALE ═══ */
+.wholesale-banner{background:linear-gradient(135deg,#1a1510 0%,#0a0a0a 100%);border:1px solid rgba(212,162,78,0.15);border-radius:24px;padding:56px 64px;display:flex;align-items:center;justify-content:space-between;gap:40px;position:relative;overflow:hidden}
+.wholesale-banner::before{content:'';position:absolute;top:-50%;right:-10%;width:50%;height:200%;background:radial-gradient(ellipse,var(--gold-glow),transparent 70%);pointer-events:none}
+.wholesale-banner h3{font-family:'Playfair Display',serif;font-size:32px;color:#fff;letter-spacing:-1px;position:relative;z-index:1}
+.wholesale-banner p{font-size:14px;color:var(--text);margin-top:8px;position:relative;z-index:1}
+
+/* ═══ NEWSLETTER ═══ */
+.newsletter{text-align:center;border-top:1px solid var(--border)}
+.newsletter h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);color:#fff;letter-spacing:-1.5px;margin-bottom:12px}
+.newsletter p{font-size:15px;color:var(--text);margin-bottom:32px}
+.nl-form{display:flex;gap:10px;max-width:440px;margin:0 auto}
+.nl-form input{flex:1;padding:16px 24px;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:60px;color:#fff;font-family:'Space Grotesk',sans-serif;font-size:14px;outline:none;transition:border-color 0.3s}
+.nl-form input:focus{border-color:var(--gold)}
+.nl-form input::placeholder{color:var(--text-dim)}
+.nl-form button{padding:16px 28px;background:var(--gold);color:var(--dark);border:none;border-radius:60px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.3s;text-transform:uppercase;letter-spacing:0.5px}
+.nl-form button:hover{background:#e8b45a;box-shadow:0 4px 24px var(--gold-glow)}
+
+/* ═══ FOOTER ═══ */
+footer{border-top:1px solid var(--border);padding:64px 0 32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:#fff;margin-bottom:14px}
+.footer-brand span{color:var(--gold)}
+.footer-desc{font-size:13px;color:var(--text-dim);line-height:1.7;margin-bottom:20px}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.04);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:13px;font-weight:700;color:var(--text);transition:all 0.3s}
+.footer-social a:hover{background:var(--gold);color:var(--dark);border-color:var(--gold)}
+.footer-col h4{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:20px}
+.footer-col a{display:block;font-size:13px;color:var(--text);text-decoration:none;padding:5px 0;transition:color 0.2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:11px;color:var(--text-dim)}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-visual{margin-top:48px}
+  .hero-img{height:420px}
+  .product-grid{grid-template-columns:repeat(2,1fr)}
+  .story-grid,.find-grid{grid-template-columns:1fr}
+  .recipe-grid{grid-template-columns:1fr 1fr}
+  .recipe-card:first-child{grid-row:auto}
+  .values-row{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  nav{padding:0 24px}
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .nav-links.open{display:flex;position:absolute;top:80px;left:0;right:0;background:rgba(10,10,10,0.98);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:20px 24px;flex-direction:column;gap:4px}
+}
+@media(max-width:640px){
+  .container{padding:0 20px}
+  .section{padding:80px 0}
+  .hero{min-height:auto;padding:100px 0 60px}
+  .hero-img{height:320px}
+  .hero-float-card{display:none}
+  .hero-stats{gap:24px}
+  .product-grid{grid-template-columns:1fr 1fr}
+  .recipe-grid{grid-template-columns:1fr}
+  .chef-grid{grid-template-columns:1fr}
+  .chef-card{padding:28px 24px}
+  .wholesale-banner{padding:36px 28px;flex-direction:column;text-align:center}
+  .nl-form{flex-direction:column}
+  .values-row{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">VALIDO<span>.</span></a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="/shop">Shop</a>
+      <a href="#recipes">Recipes</a>
+      <a href="#chefs">Chefs</a>
+      <a href="/videos">Videos</a>
+      <a href="/store-locations">Find Us</a>
+      <a href="/wholesale">Wholesale</a>
+      <a href="/about">About</a>
+      <a href="/shop" class="nav-shop">Shop Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Premium Spices &amp; Seasonings</div>
+        <h1>Every Great Meal Starts With <em>the Right Spice</em></h1>
+        <p class="hero-sub">Hand-crafted seasoning blends born from authentic global recipes. From West African Jollof to classic American BBQ — Valido brings the world's best flavors to your kitchen.</p>
+        <div class="hero-ctas">
+          <a href="/shop" class="btn btn-gold">Shop All Spices →</a>
+          <a href="#recipes" class="btn btn-ghost">Explore Recipes</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="h-val">30<span>+</span></div>
+            <div class="h-lbl">Unique Blends</div>
+          </div>
+          <div class="hero-stat">
+            <div class="h-val">10<span>yrs</span></div>
+            <div class="h-lbl">Crafting Flavor</div>
+          </div>
+          <div class="hero-stat">
+            <div class="h-val">100<span>%</span></div>
+            <div class="h-lbl">Natural</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1553549464698-A8WRONE8I824F27CENZD/ALL+PINTS+PIC+4.png?format=1500w" alt="Valido Foods premium spice collection" class="hero-img">
+        <div class="hero-float-card">
+          <div class="hfc-icon">🔥</div>
+          <div class="hfc-text">Bestseller<span>All-In-One Seasoning</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item">Jollof Rice</div><div class="marquee-item">All-In-One</div><div class="marquee-item">Lemon Pepper</div><div class="marquee-item">Curry Powder</div><div class="marquee-item">Cajun</div><div class="marquee-item">Steak</div><div class="marquee-item">Suya Mix</div><div class="marquee-item">Garlic</div><div class="marquee-item">Fajita</div><div class="marquee-item">Fried Rice</div><div class="marquee-item">Chicken</div><div class="marquee-item">Moi Moi</div>
+    <div class="marquee-item">Jollof Rice</div><div class="marquee-item">All-In-One</div><div class="marquee-item">Lemon Pepper</div><div class="marquee-item">Curry Powder</div><div class="marquee-item">Cajun</div><div class="marquee-item">Steak</div><div class="marquee-item">Suya Mix</div><div class="marquee-item">Garlic</div><div class="marquee-item">Fajita</div><div class="marquee-item">Fried Rice</div><div class="marquee-item">Chicken</div><div class="marquee-item">Moi Moi</div>
+  </div>
+</div>
+
+<!-- ═══ BESTSELLERS ═══ -->
+<div class="section reveal" id="shop">
+  <div class="container">
+    <div class="section-head center">
+      <span class="section-eyebrow">Shop</span>
+      <h2>Fan <em>Favorites</em></h2>
+      <p>The blends our customers reach for again and again. Each one crafted for real home cooking — no filler, no shortcuts.</p>
+    </div>
+
+    <div class="product-grid">
+      <a href="/shop/all-in-one-seasoning" class="product-card reveal reveal-delay-1">
+        <div class="product-badge badge-hot">Bestseller</div>
+        <div class="product-img-wrap"><img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1583876564783-3VEYJ9SFIMFKTWOFBQUX/all+in+one2.jpg?format=750w" alt="All-In-One Seasoning" class="product-img"></div>
+        <div class="product-info">
+          <div class="product-name">All-In-One Seasoning</div>
+          <div class="product-meta">Seasoning Blend</div>
+          <div class="product-bottom">
+            <div class="product-price"><span class="from">from </span>$6.50</div>
+            <div class="product-arrow">→</div>
+          </div>
+        </div>
+      </a>
+      <a href="/shop/jollof-rice" class="product-card reveal reveal-delay-2">
+        <div class="product-badge badge-hot">Popular</div>
+        <div class="product-img-wrap"><img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1597701561221-16YPA2R7X3UFKB9TCJHH/jollof3.png?format=750w" alt="Jollof Rice Seasoning" class="product-img"></div>
+        <div class="product-info">
+          <div class="product-name">Jollof Rice Seasoning</div>
+          <div class="product-meta">Seasoning Blend</div>
+          <div class="product-bottom">
+            <div class="product-price"><span class="from">from </span>$4.50</div>
+            <div class="product-arrow">→</div>
+          </div>
+        </div>
+      </a>
+      <a href="/shop/chicken-seasoning" class="product-card reveal reveal-delay-2">
+        <div class="product-img-wrap"><img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1583877316893-VVVZRTDG4AD2L18D2I3D/chicken2+%282%29.jpg?format=750w" alt="Chicken Seasoning" class="product-img"></div>
+        <div class="product-info">
+          <div class="product-name">Chicken Seasoning</div>
+          <div class="product-meta">Seasoning Blend</div>
+          <div class="product-bottom">
+            <div class="product-price"><span class="from">from </span>$6.50</div>
+            <div class="product-arrow">→</div>
+          </div>
+        </div>
+      </a>
+      <a href="/shop/steak" class="product-card reveal reveal-delay-3">
+        <div class="product-badge badge-new">Premium</div>
+        <div class="product-img-wrap"><img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1549397665764-8AWW5XP5E2XZ9JQ6R18X/KAP_7424.jpg?format=750w" alt="Steak Seasoning" class="product-img"></div>
+        <div class="product-info">
+          <div class="product-name">Steak Seasoning</div>
+          <div class="product-meta">Seasoning Blend</div>
+          <div class="product-bottom">
+            <div class="product-price"><span class="from">from </span>$8.99</div>
+            <div class="product-arrow">→</div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="shop-all"><a href="/shop" class="btn btn-ghost">View All 30+ Products →</a></div>
+  </div>
+</div>
+
+<!-- ═══ STORY ═══ -->
+<div class="section story reveal">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-img-wrap">
+        <div class="story-img-accent"></div>
+        <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1459530575984-X0F22WUGAND283EOSXRT/image-asset.jpeg?format=1000w" alt="Valido Foods kitchen" class="story-img">
+      </div>
+      <div class="story-content">
+        <span class="section-eyebrow">Our Story</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);color:#fff;letter-spacing:-1.5px;margin-bottom:16px">Rooted in Culture.<br><em style="color:var(--gold)">Made for Everyone.</em></h2>
+        <p>Valido Foods was built on a belief: great food starts with great seasoning. Born from the rich flavors of West Africa and refined in the kitchens of Dallas, Texas — every blend we make bridges cultures and brings families together.</p>
+        <blockquote>"Our vision is to be part of every family's journey in discovering nourishment and delight through our foods."</blockquote>
+        <div class="values-row">
+          <div class="value-pill"><span class="v-icon">🌿</span><span class="v-text">All Natural</span></div>
+          <div class="value-pill"><span class="v-icon">👨‍👩‍👧‍👦</span><span class="v-text">Family Owned</span></div>
+          <div class="value-pill"><span class="v-icon">🇺🇸</span><span class="v-text">Made in TX</span></div>
+          <div class="value-pill"><span class="v-icon">🌍</span><span class="v-text">Global Roots</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ RECIPES ═══ -->
+<div class="section reveal" id="recipes">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">VF Kitchen</span>
+      <h2>Cook With <em>Valido</em></h2>
+      <p>Quick recipes from our kitchen to yours. Each one features Valido seasonings for restaurant-quality meals at home.</p>
+    </div>
+
+    <div class="recipe-grid">
+      <a href="/baked-lemon-pepper-chicken" class="recipe-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1552936166543-UFPOCO8P8ORW8VUM73AT/WhatsApp+Image+2019-03-06+at+5.46.29+PM.jpeg?format=1500w" alt="Baked Lemon Pepper Chicken">
+        <div class="recipe-overlay">
+          <span class="recipe-tag">Featured Recipe</span>
+          <h3>Baked Lemon Pepper Chicken</h3>
+        </div>
+      </a>
+      <a href="/maple-glazed-salmon" class="recipe-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1459530833557-3L2FA1BZU0KZY2TN6OX4/image-asset.jpeg?format=1000w" alt="Maple Glazed Salmon">
+        <div class="recipe-overlay">
+          <span class="recipe-tag">Dinner</span>
+          <h3>Maple Glazed Salmon</h3>
+        </div>
+      </a>
+      <a href="/chickenfriedrice" class="recipe-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1552936163099-X05JY6B7WADGPOYSW4UV/All-In-One+Chef2.png?format=1000w" alt="Chicken Fried Rice">
+        <div class="recipe-overlay">
+          <span class="recipe-tag">30 Min</span>
+          <h3>Chicken Fried Rice</h3>
+        </div>
+      </a>
+    </div>
+
+    <div class="shop-all" style="margin-top:40px"><a href="/recipes" class="btn btn-ghost">See All Recipes →</a></div>
+  </div>
+</div>
+
+<!-- ═══ CHEFS ═══ -->
+<div class="section reveal" id="chefs" style="border-top:1px solid var(--border)">
+  <div class="container">
+    <div class="section-head center">
+      <span class="section-eyebrow">VF Chefs</span>
+      <h2>Crafted With <em>the Pros</em></h2>
+      <p>Our chef partners develop recipes and validate every blend — so you cook with confidence.</p>
+    </div>
+
+    <div class="chef-grid">
+      <a href="/chef-cassondra" class="chef-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1459530575984-X0F22WUGAND283EOSXRT/image-asset.jpeg?format=500w" alt="Chef Cassondra">
+        <h3>Chef Cassondra</h3>
+        <p>Southern Comfort Cuisine</p>
+      </a>
+      <a href="/top-chef-ron-duprat" class="chef-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1459530833557-3L2FA1BZU0KZY2TN6OX4/image-asset.jpeg?format=500w" alt="Top Chef Ron Duprat">
+        <h3>Chef Ron Duprat</h3>
+        <p>International Fusion · Top Chef</p>
+      </a>
+      <a href="/chef-winnie" class="chef-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1553549574060-8NEKIR0E0DUOMKD1TELQ/All-In-One+Chef.png?format=500w" alt="Chef Winnie">
+        <h3>Chef Winnie</h3>
+        <p>West African Flavors</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FIND US ═══ -->
+<div class="section find-section reveal">
+  <div class="container">
+    <div class="find-grid">
+      <div class="find-content">
+        <span class="section-eyebrow">Find VF</span>
+        <h2>Shop <em style="color:var(--gold)">In Store</em></h2>
+        <p>Find Valido Foods at your favorite local grocery store. We're stocked across Texas and growing nationwide.</p>
+        <div class="find-chips">
+          <span class="find-chip">Local Grocers</span>
+          <span class="find-chip">Specialty Stores</span>
+          <span class="find-chip">African Markets</span>
+          <span class="find-chip">Online</span>
+        </div>
+        <a href="/store-locations" class="btn btn-gold">Find a Store →</a>
+        <div class="find-address">
+          <strong>Valido Foods, Inc.</strong><br>
+          8617 Ambassador Row, #120<br>
+          Dallas, TX 75247<br>
+          ☎ (214) 307-5200 · info@validofoods.com
+        </div>
+      </div>
+      <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1553549464698-A8WRONE8I824F27CENZD/ALL+PINTS+PIC+4.png?format=1000w" alt="Valido Foods products" class="find-img">
+    </div>
+  </div>
+</div>
+
+<!-- ═══ WHOLESALE ═══ -->
+<div class="section reveal">
+  <div class="container">
+    <div class="wholesale-banner">
+      <div style="position:relative;z-index:1">
+        <h3>Wholesale &amp; Bulk Orders</h3>
+        <p>Stock Valido Foods in your store, restaurant, or commercial kitchen. Volume pricing available.</p>
+      </div>
+      <a href="/wholesale" class="btn btn-gold" style="position:relative;z-index:1">Create Wholesale Account →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ NEWSLETTER ═══ -->
+<div class="section newsletter reveal">
+  <div class="container">
+    <span class="section-eyebrow" style="justify-content:center">Stay Connected</span>
+    <h2>Recipes, Deals <em style="color:var(--gold)">&amp; More</em></h2>
+    <p>New recipes, seasonal drops, and exclusive deals — straight to your inbox.</p>
+    <div class="nl-form" id="nlForm">
+      <input type="email" id="nlEmail" placeholder="Your email address" required>
+      <button onclick="subscribeNL()">Subscribe</button>
+    </div>
+    <p id="nlSuccess" style="display:none;color:var(--gold);font-weight:600;margin-top:20px">✓ You're in! Welcome to the Valido family.</p>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">VALIDO<span>.</span></div>
+        <p class="footer-desc">Premium spices, seasonings, and herb blends crafted in Dallas, TX. Inspired by global flavors, made for every kitchen.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/validofoods" aria-label="Facebook">f</a>
+          <a href="https://www.instagram.com/validofoods" aria-label="Instagram">ig</a>
+          <a href="https://twitter.com/validofoods" aria-label="Twitter">x</a>
+          <a href="https://www.pinterest.com/validofoods" aria-label="Pinterest">p</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="/shop">All Products</a>
+        <a href="/shop?category=Seasoning+Blend">Seasoning Blends</a>
+        <a href="/shop?category=Spices+and+Herbs">Spices &amp; Herbs</a>
+        <a href="/shop?category=Rub">Rubs</a>
+        <a href="/shop?category=No+Salt">Low Sodium</a>
+      </div>
+      <div class="footer-col">
+        <h4>Kitchen</h4>
+        <a href="/recipes">Recipes</a>
+        <a href="/chefs">VF Chefs</a>
+        <a href="/videos">Videos</a>
+        <a href="/niceblend">N.I.C.E. Blend</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/validocares">Valido Cares</a>
+        <a href="/wholesale">Wholesale</a>
+        <a href="/store-locations">Store Locator</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Valido Foods, Inc. All rights reserved.</p>
+      <p>8617 Ambassador Row, #120, Dallas, TX 75247 · (214) 307-5200</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll',function(){
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>40);
+},{passive:true});
+
+// Scroll reveal
+const observer=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}});
+},{threshold:0.1,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el)});
+
+// Newsletter
+function subscribeNL(){
+  var email=document.getElementById('nlEmail').value;
+  if(!email||!email.includes('@')){alert('Please enter a valid email.');return;}
+  console.log('Newsletter:',email);
+  document.getElementById('nlForm').style.display='none';
+  document.getElementById('nlSuccess').style.display='block';
+}
+
+// Mobile menu close on link click
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open')});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — Valido Foods | Premium Spices & Seasonings</title>
+<meta name="description" content="Shop Valido Foods' full collection of premium spices, seasoning blends, and herbs. From Jollof Rice to Lemon Pepper — elevate every meal.">
+<link rel="canonical" href="https://validofoods.com/shop">
+<meta property="og:title" content="Shop — Valido Foods">
+<meta property="og:description" content="Premium spices, seasoning blends, and herbs. Shop our full collection.">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:#0a0a0a;color:#e8e0d6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+:root{--gold:#d4a24e;--gold-glow:rgba(212,162,78,0.15);--dark:#0a0a0a;--card:#111;--border:rgba(255,255,255,0.06);--text:rgba(255,255,255,0.55);--text-dim:rgba(255,255,255,0.25)}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{color:var(--text);text-decoration:none;font-size:12px;font-weight:600;padding:8px 18px;border-radius:30px;transition:all 0.25s;letter-spacing:0.8px;text-transform:uppercase}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.05)}
+.nav-links a.active{color:#fff}
+.cart-btn{background:var(--gold)!important;color:var(--dark)!important;font-weight:700!important;padding:10px 20px!important;position:relative;cursor:pointer}
+.cart-btn:hover{background:#e8b45a!important}
+.cart-count{position:absolute;top:-4px;right:-4px;width:18px;height:18px;border-radius:50%;background:#e53e3e;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;transition:transform 0.2s}
+.cart-count.bump{animation:bump 0.3s}
+@keyframes bump{0%{transform:scale(1)}50%{transform:scale(1.4)}100%{transform:scale(1)}}
+.hamburger{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+
+/* LAYOUT */
+.container{max-width:1280px;margin:0 auto;padding:0 48px}
+
+/* PAGE HEADER */
+.page-head{padding:120px 0 40px;text-align:center}
+.page-head h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,60px);font-weight:900;color:#fff;letter-spacing:-2px;margin-bottom:12px}
+.page-head h1 em{font-style:italic;color:var(--gold)}
+.page-head p{font-size:15px;color:var(--text);max-width:500px;margin:0 auto}
+
+/* FILTERS */
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;padding:0 48px}
+.filter-btn{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.5px;color:var(--text);background:transparent;border:1px solid var(--border);padding:8px 20px;border-radius:30px;cursor:pointer;transition:all 0.25s;text-transform:uppercase}
+.filter-btn:hover{color:#fff;border-color:rgba(255,255,255,0.15)}
+.filter-btn.active{color:var(--dark);background:var(--gold);border-color:var(--gold)}
+
+/* PRODUCT GRID */
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-bottom:100px}
+.product-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative}
+.product-card:hover{transform:translateY(-6px);border-color:rgba(212,162,78,0.2);box-shadow:0 20px 50px rgba(0,0,0,0.3)}
+.product-card:hover .p-img{transform:scale(1.06)}
+.product-card.sold-out{opacity:0.5;pointer-events:none}
+.p-img-wrap{overflow:hidden;aspect-ratio:1;background:#1a1a1a;position:relative;cursor:pointer}
+.p-img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)}
+.p-badge{position:absolute;top:12px;left:12px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:16px;z-index:2}
+.p-badge.hot{background:var(--gold);color:var(--dark)}
+.p-badge.new{background:#10b981;color:#fff}
+.p-badge.out{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.5)}
+.p-info{padding:18px 20px}
+.p-name{font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;letter-spacing:-0.2px}
+.p-cat{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:14px}
+.p-bottom{display:flex;align-items:center;justify-content:space-between}
+.p-price{font-size:17px;font-weight:700;color:var(--gold)}
+.p-price .from{font-size:10px;font-weight:500;color:var(--text-dim)}
+.add-btn{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--text);cursor:pointer;transition:all 0.25s}
+.add-btn:hover{background:var(--gold);color:var(--dark);border-color:var(--gold);transform:scale(1.1)}
+.add-btn.added{background:var(--gold);color:var(--dark);border-color:var(--gold)}
+
+/* SIZE PICKER MODAL */
+.size-modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:200;display:none;align-items:center;justify-content:center;backdrop-filter:blur(8px)}
+.size-modal-bg.open{display:flex}
+.size-modal{background:#151515;border:1px solid var(--border);border-radius:24px;padding:36px;max-width:380px;width:90%;text-align:center}
+.size-modal h3{font-family:'Playfair Display',serif;font-size:22px;color:#fff;margin-bottom:6px}
+.size-modal .sm-cat{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:24px}
+.size-options{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.size-opt{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:14px;cursor:pointer;transition:all 0.2s}
+.size-opt:hover,.size-opt.selected{border-color:var(--gold);background:var(--gold-glow)}
+.size-opt .so-name{font-size:14px;font-weight:600;color:#fff}
+.size-opt .so-price{font-size:15px;font-weight:700;color:var(--gold)}
+.sm-add{width:100%;padding:14px;background:var(--gold);color:var(--dark);border:none;border-radius:60px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.25s;text-transform:uppercase;letter-spacing:0.5px}
+.sm-add:hover{background:#e8b45a;box-shadow:0 4px 24px var(--gold-glow)}
+.sm-close{margin-top:12px;font-size:13px;color:var(--text);cursor:pointer;background:none;border:none;font-family:'Space Grotesk',sans-serif}
+.sm-close:hover{color:#fff}
+
+/* CART DRAWER */
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:150;display:none;backdrop-filter:blur(4px)}
+.cart-overlay.open{display:block}
+.cart-drawer{position:fixed;top:0;right:-440px;width:420px;max-width:100vw;height:100vh;background:#111;border-left:1px solid var(--border);z-index:151;display:flex;flex-direction:column;transition:right 0.4s cubic-bezier(0.16,1,0.3,1)}
+.cart-drawer.open{right:0}
+.cart-header{padding:24px 28px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.cart-header h2{font-family:'Playfair Display',serif;font-size:22px;color:#fff}
+.cart-close{background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;padding:4px}
+.cart-close:hover{color:#fff}
+.cart-items{flex:1;overflow-y:auto;padding:20px 28px}
+.cart-empty{text-align:center;padding:60px 20px;color:var(--text-dim);font-size:14px}
+.cart-item{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);align-items:center}
+.cart-item img{width:64px;height:64px;border-radius:12px;object-fit:cover;background:#1a1a1a}
+.ci-info{flex:1}
+.ci-name{font-size:14px;font-weight:700;color:#fff;margin-bottom:2px}
+.ci-size{font-size:11px;color:var(--text-dim)}
+.ci-price{font-size:14px;font-weight:700;color:var(--gold);margin-top:4px}
+.ci-qty{display:flex;align-items:center;gap:8px}
+.ci-qty button{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.ci-qty button:hover{background:rgba(255,255,255,0.1)}
+.ci-qty span{font-size:14px;font-weight:600;color:#fff;min-width:20px;text-align:center}
+.ci-remove{background:none;border:none;color:var(--text-dim);font-size:12px;cursor:pointer;margin-top:4px}
+.ci-remove:hover{color:#e53e3e}
+.cart-footer{padding:24px 28px;border-top:1px solid var(--border);background:#0e0e0e}
+.cart-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.cart-total .ct-label{font-size:14px;color:var(--text)}
+.cart-total .ct-val{font-size:22px;font-weight:700;color:#fff}
+.checkout-btn{width:100%;padding:16px;background:var(--gold);color:var(--dark);border:none;border-radius:60px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.3s;text-transform:uppercase;letter-spacing:0.5px}
+.checkout-btn:hover{background:#e8b45a;box-shadow:0 4px 24px var(--gold-glow)}
+.checkout-btn:disabled{opacity:0.5;cursor:not-allowed}
+.cart-note{font-size:11px;color:var(--text-dim);text-align:center;margin-top:12px}
+
+/* SUCCESS BANNER */
+.success-banner{position:fixed;top:80px;left:50%;transform:translateX(-50%);background:#10b981;color:#fff;padding:14px 32px;border-radius:14px;font-size:14px;font-weight:600;z-index:200;display:none;box-shadow:0 8px 32px rgba(16,185,129,0.3)}
+.success-banner.show{display:block;animation:slideDown 0.4s ease}
+@keyframes slideDown{from{opacity:0;transform:translateX(-50%) translateY(-20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+
+/* TOAST */
+.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#1a1a1a;border:1px solid var(--border);color:#fff;padding:12px 24px;border-radius:12px;font-size:13px;font-weight:600;z-index:200;display:none;box-shadow:0 8px 32px rgba(0,0,0,0.3)}
+.toast.show{display:flex;align-items:center;gap:8px;animation:slideDown 0.3s ease}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:40px 0;text-align:center}
+footer p{font-size:11px;color:var(--text-dim)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .product-grid{grid-template-columns:repeat(3,1fr)}
+  nav{padding:0 24px}
+  .container{padding:0 24px}
+  .filters{padding:0 24px}
+  .nav-links{display:none}.hamburger{display:block}
+  .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;background:rgba(10,10,10,0.98);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:20px 24px;flex-direction:column;gap:4px}
+}
+@media(max-width:640px){
+  .product-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .container,.filters{padding:0 16px}
+  .cart-drawer{width:100%}
+  .page-head{padding:100px 0 32px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">VALIDO<span>.</span></a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="/shop" class="active">Shop</a>
+      <a href="/#recipes">Recipes</a>
+      <a href="/#chefs">Chefs</a>
+      <a href="/videos">Videos</a>
+      <a href="/store-locations">Find Us</a>
+      <a href="/wholesale">Wholesale</a>
+      <a href="/about">About</a>
+      <a class="cart-btn" onclick="toggleCart()">Cart <span class="cart-count" id="cartCount">0</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- SUCCESS BANNER -->
+<div class="success-banner" id="successBanner">✓ Order placed successfully! Thank you for shopping with Valido Foods.</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- PAGE HEADER -->
+<div class="page-head">
+  <div class="container">
+    <h1>The <em>Collection</em></h1>
+    <p>30+ premium blends crafted in Dallas, TX. Every jar is made with natural ingredients — no fillers, no shortcuts.</p>
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div class="filters" id="filters"></div>
+
+<!-- PRODUCTS -->
+<div class="container">
+  <div class="product-grid" id="productGrid"></div>
+</div>
+
+<!-- SIZE PICKER MODAL -->
+<div class="size-modal-bg" id="sizeModal">
+  <div class="size-modal">
+    <h3 id="smName"></h3>
+    <div class="sm-cat" id="smCat"></div>
+    <div class="size-options" id="smOptions"></div>
+    <button class="sm-add" onclick="confirmAdd()">Add to Cart</button>
+    <button class="sm-close" onclick="closeSizeModal()">Cancel</button>
+  </div>
+</div>
+
+<!-- CART OVERLAY -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+<!-- CART DRAWER -->
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">Your cart is empty.</div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span class="ct-label">Subtotal</span>
+      <span class="ct-val" id="cartTotal">$0.00</span>
+    </div>
+    <button class="checkout-btn" id="checkoutBtn" onclick="checkout()" disabled>Checkout with Stripe →</button>
+    <div class="cart-note">Shipping calculated at checkout</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>© 2026 Valido Foods, Inc. All rights reserved. · 8617 Ambassador Row, #120, Dallas, TX 75247 · (214) 307-5200</p>
+  </div>
+</footer>
+
+<script>
+// ═══ PRODUCT DATA ═══
+const IMG = '/images/';
+const PRODUCTS = [
+  {id:'all-in-one',name:'All-In-One Seasoning',cat:'Seasoning Blend',badge:'hot',sizes:[{name:'6 oz',price:6.50,img:IMG+'all-in-one-6oz.webp'},{name:'9.5 oz',price:9.99,img:IMG+'all-in-one-9.5oz.webp'},{name:'1.5 lbs',price:16.99,img:IMG+'all-in-one-1.5lb.webp'}],img:IMG+'all-in-one-9.5oz.webp'},
+  {id:'all-in-one-ns',name:'All-In-One No Salt',cat:'No Salt',sizes:[{name:'3 oz',price:4.50}],img:IMG+'all-in-one-no-salt-3oz.webp'},
+  {id:'jollof',name:'Jollof Rice Seasoning',cat:'Seasoning Blend',badge:'hot',sizes:[{name:'11 oz',price:6.50,img:IMG+'jollof-11oz.webp'},{name:'1.37 lbs',price:12.99,img:IMG+'jollof-1.37lb.webp'}],img:IMG+'jollof-11oz.webp'},
+  {id:'smoky-jollof',name:'Smoky Party Jollof Rice',cat:'Seasoning Blend',badge:'new',sizes:[{name:'11 oz',price:6.50}],img:IMG+'smoky-jollof-11oz.webp'},
+  {id:'chicken',name:'Chicken Seasoning',cat:'Seasoning Blend',sizes:[{name:'10.7 oz',price:6.50,img:IMG+'chicken-10.7oz.webp'},{name:'1.37 lbs',price:14.99,img:IMG+'chicken-1.37lb.webp'}],img:IMG+'chicken-10.7oz.webp'},
+  {id:'steak',name:'Steak Seasoning',cat:'Seasoning Blend',badge:'new',sizes:[{name:'10.7 oz',price:8.99,img:IMG+'steak-10.7oz.webp'},{name:'1.37 lbs',price:16.99,img:IMG+'steak-1.37lb.webp'}],img:IMG+'steak-10.7oz.webp'},
+  {id:'stew',name:'Stew Seasoning',cat:'Seasoning Blend',sizes:[{name:'5.75 oz',price:4.50,img:IMG+'stew-5.75oz.webp'},{name:'11 oz',price:8.99,img:IMG+'stew-11oz.webp'}],img:IMG+'stew-11oz.webp'},
+  {id:'poultry',name:'Poultry Seasoning',cat:'Seasoning Blend',sizes:[{name:'5.75 oz',price:5.99,img:IMG+'poultry-5.75oz.webp'},{name:'10.7 oz',price:9.99,img:IMG+'poultry-10.7oz.webp'},{name:'1.37 lbs',price:14.99,img:IMG+'poultry-1.37lb.webp'}],img:IMG+'poultry-10.7oz.webp'},
+  {id:'oxtail',name:'Oxtail Seasoning',cat:'Seasoning Blend',sizes:[{name:'11 oz',price:8.99}],img:IMG+'oxtail-11oz.webp'},
+  {id:'moimoi',name:'Moi Moi Seasoning',cat:'Seasoning Blend',sizes:[{name:'11 oz',price:6.50}],img:IMG+'moi-moi-11oz.webp'},
+  {id:'spanish-rice',name:'Spanish Rice Seasoning',cat:'Seasoning Blend',sizes:[{name:'6 oz',price:4.50}],img:IMG+'spanish-rice-6oz.webp'},
+  {id:'curry',name:'Curry Powder',cat:'Spices',sizes:[{name:'4.5 oz',price:4.50,img:IMG+'curry-4.5oz.webp'},{name:'7 oz',price:6.50,img:IMG+'curry-7oz.webp'}],img:IMG+'curry-4.5oz.webp'},
+  {id:'curry-hot',name:'Jamaican Curry Powder Hot',cat:'Spices',sizes:[{name:'7 oz',price:6.50}],img:IMG+'curry-hot-7oz.webp'},
+  {id:'ginger',name:'Ginger Pure Ground',cat:'Spices',sizes:[{name:'13.58 oz',price:8.99}],img:IMG+'ginger-13.58oz.webp'},
+  {id:'lemon-pepper',name:'Lemon Pepper Pure Ground',cat:'Spices',sizes:[{name:'16 oz',price:10.99}],img:IMG+'lemon-pepper-16oz.webp'},
+  {id:'cinnamon',name:'Cinnamon Ground',cat:'Spices',sizes:[{name:'7 oz',price:6.50,img:IMG+'cinnamon-7oz.webp'},{name:'16 oz',price:14.99,img:IMG+'cinnamon-16oz.webp'}],img:IMG+'cinnamon-7oz.webp'},
+  {id:'chili',name:'Chili Powder',cat:'Spices',sizes:[{name:'6.5 oz',price:6.50}],img:IMG+'chili-6.5oz.webp'},
+  {id:'cayenne',name:'Cayenne Pepper',cat:'Spices',sizes:[{name:'7.58 oz',price:8.50}],img:IMG+'cayenne-7.58oz.webp'},
+  {id:'crushed-pepper',name:'Crushed Pepper',cat:'Spices',sizes:[{name:'5 oz',price:6.50}],img:IMG+'crushed-pepper-5oz.webp'},
+  {id:'red-hot',name:'Red Hot Pepper',cat:'Spices',sizes:[{name:'10.7 oz',price:6.50}],img:IMG+'red-hot-pepper-10.7oz.webp'},
+  {id:'paprika',name:'Paprika (Sweet) Ground',cat:'Spices',sizes:[{name:'6.5 oz',price:6.50}],img:IMG+'paprika-6.5oz.webp'},
+  {id:'nutmeg',name:'Nutmeg Ground',cat:'Spices',sizes:[{name:'5.8 oz',price:8.50}],img:IMG+'nutmeg-5.8oz.webp'},
+  {id:'onion',name:'Onion Granulated',cat:'Spices',sizes:[{name:'5.4 oz',price:6.50}],img:IMG+'onion-5.4oz.webp'},
+  {id:'thyme',name:'Thyme Leaves',cat:'Herbs',sizes:[{name:'2.8 oz',price:6.50}],img:IMG+'thyme-2.8oz.webp'},
+  {id:'bay-leaves',name:'Bay Leaves',cat:'Herbs',sizes:[{name:'1 oz',price:8.99}],img:IMG+'bay-leaves-1oz.webp'},
+  {id:'adobo',name:'Adobo Seasoning',cat:'Seasoning Blend',sizes:[{name:'5.75 oz',price:4.50,img:IMG+'adobo-5.75oz.webp'},{name:'11 oz',price:6.99,img:IMG+'adobo-11oz.webp'}],img:IMG+'adobo-5.75oz.webp'},
+  {id:'cameroon-pepper',name:'Cameroon Pepper',cat:'Spices',sizes:[{name:'16.2 oz',price:10.99}],img:IMG+'cameroon-pepper-16.2oz.webp'},
+  {id:'cumin',name:'Cumin Ground',cat:'Spices',sizes:[{name:'6.5 oz',price:6.50}],img:IMG+'cumin-6.5oz.webp'},
+  {id:'pepper-soup',name:'Pepper Soup Mix',cat:'Seasoning Blend',sizes:[{name:'9.6 oz',price:10.99}],img:IMG+'pepper-soup-9.6oz.webp'},
+  {id:'suya',name:'Suya Mix',cat:'Rub',sizes:[{name:'8.4 oz',price:10.99}],img:IMG+'suya-mix-8.4oz.webp'},
+];
+
+// ═══ STATE ═══
+let cart = JSON.parse(localStorage.getItem('vf_cart') || '[]');
+let currentFilter = 'All';
+let pendingProduct = null;
+let selectedSizeIdx = 0;
+
+// ═══ RENDER FILTERS ═══
+function renderFilters() {
+  const cats = ['All', ...new Set(PRODUCTS.map(p => p.cat))];
+  document.getElementById('filters').innerHTML = cats.map(c =>
+    '<button class="filter-btn' + (c === currentFilter ? ' active' : '') + '" onclick="setFilter(\'' + c + '\')">' + c + '</button>'
+  ).join('');
+}
+
+// ═══ RENDER PRODUCTS ═══
+function renderProducts() {
+  const filtered = currentFilter === 'All' ? PRODUCTS : PRODUCTS.filter(p => p.cat === currentFilter);
+  document.getElementById('productGrid').innerHTML = filtered.map(p => {
+    const badge = p.soldOut ? '<div class="p-badge out">Sold Out</div>' :
+                  p.badge === 'hot' ? '<div class="p-badge hot">Bestseller</div>' :
+                  p.badge === 'new' ? '<div class="p-badge new">New</div>' : '';
+    return '<div class="product-card' + (p.soldOut ? ' sold-out' : '') + '">' +
+      '<div class="p-img-wrap" onclick="openSizeModal(\'' + p.id + '\')">' + badge +
+      '<img src="' + p.img + '" alt="' + p.name + '" class="p-img" loading="lazy"></div>' +
+      '<div class="p-info">' +
+      '<div class="p-name">' + p.name + '</div>' +
+      '<div class="p-cat">' + p.cat + '</div>' +
+      '<div class="p-bottom">' +
+      '<div class="p-price">' + (p.sizes.length > 1 ? '<span class="from">from </span>' : '') + '$' + p.sizes[0].price.toFixed(2) + '</div>' +
+      (p.soldOut ? '' : '<button class="add-btn" onclick="openSizeModal(\'' + p.id + '\')">+</button>') +
+      '</div></div></div>';
+  }).join('');
+}
+
+// ═══ FILTER ═══
+function setFilter(cat) {
+  currentFilter = cat;
+  renderFilters();
+  renderProducts();
+}
+
+// ═══ SIZE MODAL ═══
+function openSizeModal(productId) {
+  pendingProduct = PRODUCTS.find(p => p.id === productId);
+  if (!pendingProduct || pendingProduct.soldOut) return;
+  selectedSizeIdx = 0;
+  document.getElementById('smName').textContent = pendingProduct.name;
+  document.getElementById('smCat').textContent = pendingProduct.cat;
+  const opts = pendingProduct.sizes.map((s, i) =>
+    '<div class="size-opt' + (i === 0 ? ' selected' : '') + '" onclick="selectSize(' + i + ')">' +
+    '<span class="so-name">' + s.name + '</span>' +
+    '<span class="so-price">$' + s.price.toFixed(2) + '</span></div>'
+  ).join('');
+  // Show product image in modal
+  var modalImgHtml = '<img src="' + (pendingProduct.sizes[0].img || pendingProduct.img) + '" style="width:120px;height:120px;object-fit:cover;border-radius:14px;margin-bottom:16px;background:#1a1a1a" id="smImg">';
+  document.getElementById('smName').insertAdjacentHTML('beforebegin', modalImgHtml);
+  document.getElementById('smOptions').innerHTML = opts;
+  document.getElementById('sizeModal').classList.add('open');
+}
+
+function selectSize(idx) {
+  selectedSizeIdx = idx;
+  document.querySelectorAll('.size-opt').forEach((el, i) => {
+    el.classList.toggle('selected', i === idx);
+  });
+  // Update image if size has its own
+  var smImg = document.getElementById('smImg');
+  if (smImg && pendingProduct) {
+    smImg.src = pendingProduct.sizes[idx].img || pendingProduct.img;
+  }
+}
+
+function closeSizeModal() {
+  document.getElementById('sizeModal').classList.remove('open');
+  var smImg = document.getElementById('smImg');
+  if (smImg) smImg.remove();
+  pendingProduct = null;
+}
+
+function confirmAdd() {
+  if (!pendingProduct) return;
+  const size = pendingProduct.sizes[selectedSizeIdx];
+  addToCart({
+    id: pendingProduct.id + '-' + size.name,
+    name: pendingProduct.name,
+    size: size.name,
+    price: size.price,
+    img: pendingProduct.img,
+    qty: 1
+  });
+  closeSizeModal();
+}
+
+// ═══ CART ═══
+function addToCart(item) {
+  const existing = cart.find(c => c.id === item.id);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push(item);
+  }
+  saveCart();
+  renderCart();
+  showToast('✓ ' + item.name + ' (' + item.size + ') added');
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(c => c.id !== id);
+  saveCart();
+  renderCart();
+}
+
+function updateQty(id, delta) {
+  const item = cart.find(c => c.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) { removeFromCart(id); return; }
+  saveCart();
+  renderCart();
+}
+
+function saveCart() {
+  localStorage.setItem('vf_cart', JSON.stringify(cart));
+}
+
+function renderCart() {
+  const countEl = document.getElementById('cartCount');
+  const totalCount = cart.reduce((sum, c) => sum + c.qty, 0);
+  countEl.textContent = totalCount;
+  if (totalCount > 0) { countEl.classList.add('bump'); setTimeout(() => countEl.classList.remove('bump'), 300); }
+
+  const itemsEl = document.getElementById('cartItems');
+  if (cart.length === 0) {
+    itemsEl.innerHTML = '<div class="cart-empty">Your cart is empty. Add some spice!</div>';
+    document.getElementById('checkoutBtn').disabled = true;
+    document.getElementById('cartTotal').textContent = '$0.00';
+    return;
+  }
+
+  document.getElementById('checkoutBtn').disabled = false;
+  const total = cart.reduce((sum, c) => sum + c.price * c.qty, 0);
+  document.getElementById('cartTotal').textContent = '$' + total.toFixed(2);
+
+  itemsEl.innerHTML = cart.map(c =>
+    '<div class="cart-item">' +
+    '<img src="' + c.img + '" alt="' + c.name + '">' +
+    '<div class="ci-info">' +
+    '<div class="ci-name">' + c.name + '</div>' +
+    '<div class="ci-size">' + c.size + '</div>' +
+    '<div class="ci-price">$' + (c.price * c.qty).toFixed(2) + '</div>' +
+    '<button class="ci-remove" onclick="removeFromCart(\'' + c.id + '\')">Remove</button>' +
+    '</div>' +
+    '<div class="ci-qty">' +
+    '<button onclick="updateQty(\'' + c.id + '\',-1)">−</button>' +
+    '<span>' + c.qty + '</span>' +
+    '<button onclick="updateQty(\'' + c.id + '\',1)">+</button>' +
+    '</div></div>'
+  ).join('');
+}
+
+function toggleCart() {
+  const d = document.getElementById('cartDrawer');
+  const o = document.getElementById('cartOverlay');
+  d.classList.toggle('open');
+  o.classList.toggle('open');
+}
+
+// ═══ CHECKOUT ═══
+async function checkout() {
+  const btn = document.getElementById('checkoutBtn');
+  btn.textContent = 'Redirecting...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('/api/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: cart }),
+    });
+    const data = await res.json();
+    if (data.url) {
+      localStorage.removeItem('vf_cart');
+      window.location.href = data.url;
+    } else {
+      throw new Error(data.error || 'Checkout failed');
+    }
+  } catch (err) {
+    console.error(err);
+    btn.textContent = 'Checkout with Stripe →';
+    btn.disabled = false;
+    showToast('Checkout error. Please try again.');
+  }
+}
+
+// ═══ TOAST ═══
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ═══ INIT ═══
+renderFilters();
+renderProducts();
+renderCart();
+
+// Check for success
+if (new URLSearchParams(window.location.search).get('success') === 'true') {
+  cart = [];
+  saveCart();
+  renderCart();
+  document.getElementById('successBanner').classList.add('show');
+  setTimeout(() => document.getElementById('successBanner').classList.remove('show'), 6000);
+  history.replaceState({}, '', '/shop');
+}
+</script>
+</body>
+</html>

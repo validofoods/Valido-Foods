@@ -1,0 +1,9 @@
+{
+  "name": "valido-foods-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Valido Foods — Premium Spices, Seasonings & Herbs",
+  "dependencies": {
+    "stripe": "^17.5.0"
+  }
+}
