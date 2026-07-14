@@ -12,6 +12,10 @@
     {
       "source": "/recipes",
       "destination": "/recipes.html"
+    },
+    {
+      "source": "/wholesale",
+      "destination": "/wholesale.html"
     }
   ],
   "cleanUrls": true
