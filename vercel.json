@@ -1,6 +1,18 @@
+
 {
   "rewrites": [
-    { "source": "/shop", "destination": "/shop.html" }
+    {
+      "source": "/shop",
+      "destination": "/shop.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/recipes",
+      "destination": "/recipes.html"
+    }
   ],
   "cleanUrls": true
 }
