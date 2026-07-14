@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipes — Valido Foods | VF Kitchen</title>
+<meta name="description" content="Explore Valido Foods recipes — from Baked Lemon Pepper Chicken to Chicken Fried Rice. Quick, flavorful meals using Valido seasonings.">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:#0a0a0a;color:#e8e0d6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+:root{--gold:#d4a24e;--gold-glow:rgba(212,162,78,0.15);--dark:#0a0a0a;--card:#111;--border:rgba(255,255,255,0.06);--text:rgba(255,255,255,0.55);--text-dim:rgba(255,255,255,0.25)}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;text-decoration:none}.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{color:var(--text);text-decoration:none;font-size:12px;font-weight:600;padding:8px 18px;border-radius:30px;transition:all 0.25s;letter-spacing:0.8px;text-transform:uppercase}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.05)}
+.nav-links a.active{color:#fff}
+.nav-shop{background:var(--gold)!important;color:var(--dark)!important;font-weight:700!important;padding:10px 24px!important}
+.hamburger{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+.container{max-width:1280px;margin:0 auto;padding:0 48px}
+.page-head{padding:120px 0 40px;text-align:center}
+.page-head h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,56px);font-weight:900;color:#fff;letter-spacing:-2px;margin-bottom:12px}
+.page-head h1 em{font-style:italic;color:var(--gold)}
+.page-head p{font-size:15px;color:var(--text);max-width:520px;margin:0 auto}
+.recipe-list{padding-bottom:100px;margin-top:48px}
+.recipe-item{display:flex;align-items:center;gap:24px;padding:24px 28px;background:var(--card);border:1px solid var(--border);border-radius:16px;margin-bottom:12px;text-decoration:none;color:inherit;transition:all 0.3s;cursor:pointer}
+.recipe-item:hover{border-color:rgba(212,162,78,0.25);background:#151515;transform:translateX(4px)}
+.recipe-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:rgba(212,162,78,0.15);min-width:48px;letter-spacing:-1px}
+.recipe-info{flex:1}
+.recipe-name{font-size:17px;font-weight:700;color:#fff;margin-bottom:4px}
+.recipe-desc{font-size:13px;color:var(--text);line-height:1.5}
+.recipe-tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.recipe-tag{font-size:10px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:var(--gold);background:var(--gold-glow);border:1px solid rgba(212,162,78,0.15);padding:3px 10px;border-radius:12px}
+.recipe-arrow{font-size:18px;color:var(--text-dim);transition:color 0.3s}
+.recipe-item:hover .recipe-arrow{color:var(--gold)}
+.recipe-item:hover .recipe-num{color:rgba(212,162,78,0.4)}
+footer{border-top:1px solid var(--border);padding:40px 0;text-align:center}
+footer p{font-size:11px;color:var(--text-dim)}
+@media(max-width:960px){nav{padding:0 24px}.container{padding:0 24px}.nav-links{display:none}.hamburger{display:block}.nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;background:rgba(10,10,10,0.98);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:20px 24px;flex-direction:column;gap:4px}}
+@media(max-width:600px){.container{padding:0 16px}.recipe-item{flex-direction:column;align-items:flex-start;gap:12px}.recipe-num{font-size:24px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">VALIDO<span>.</span></a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="/shop">Shop</a>
+      <a href="/recipes" class="active">Recipes</a>
+      <a href="/#chefs">Chefs</a>
+      <a href="/wholesale">Wholesale</a>
+      <a href="/contact">Contact</a>
+      <a href="/about">About</a>
+      <a href="/shop" class="nav-shop">Shop Now</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-head">
+  <div class="container">
+    <h1>VF <em>Kitchen</em></h1>
+    <p>Quick, flavorful recipes from our kitchen to yours. Each one features Valido seasonings for restaurant-quality meals at home.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="recipe-list">
+    <a href="https://validofoods.com/baked-lemon-pepper-chicken" target="_blank" class="recipe-item">
+      <div class="recipe-num">01</div>
+      <div class="recipe-info">
+        <div class="recipe-name">Baked Lemon Pepper Chicken</div>
+        <div class="recipe-desc">Season chicken with lemon pepper, basil, oregano. Bake at 350°F for 30 minutes until golden and juicy.</div>
+        <div class="recipe-tags"><span class="recipe-tag">Poultry</span><span class="recipe-tag">Lemon Pepper</span><span class="recipe-tag">30 Min</span></div>
+      </div>
+      <div class="recipe-arrow">→</div>
+    </a>
+    <a href="https://validofoods.com/chickenfriedrice" target="_blank" class="recipe-item">
+      <div class="recipe-num">02</div>
+      <div class="recipe-info">
+        <div class="recipe-name">Chicken Fried Rice</div>
+        <div class="recipe-desc">A quick weeknight classic made with Valido Fried Rice Seasoning, diced chicken, veggies, and scrambled eggs.</div>
+        <div class="recipe-tags"><span class="recipe-tag">Rice</span><span class="recipe-tag">Fried Rice Seasoning</span><span class="recipe-tag">Quick</span></div>
+      </div>
+      <div class="recipe-arrow">→</div>
+    </a>
+    <a href="https://validofoods.com/maple-glazed-salmon" target="_blank" class="recipe-item">
+      <div class="recipe-num">03</div>
+      <div class="recipe-info">
+        <div class="recipe-name">Maple Glazed Salmon</div>
+        <div class="recipe-desc">Pan-seared salmon with a sweet maple glaze and Valido All-In-One Seasoning. Ready in under 20 minutes.</div>
+        <div class="recipe-tags"><span class="recipe-tag">Seafood</span><span class="recipe-tag">All-In-One</span><span class="recipe-tag">20 Min</span></div>
+      </div>
+      <div class="recipe-arrow">→</div>
+    </a>
+    <a href="https://validofoods.com/baked-garlic-brown-sugar-chicken" target="_blank" class="recipe-item">
+      <div class="recipe-num">04</div>
+      <div class="recipe-info">
+        <div class="recipe-name">Baked Garlic Brown Sugar Chicken</div>
+        <div class="recipe-desc">Sweet and savory baked chicken with garlic, brown sugar, and Valido Chicken Seasoning. A family favorite.</div>
+        <div class="recipe-tags"><span class="recipe-tag">Poultry</span><span class="recipe-tag">Garlic</span><span class="recipe-tag">Chicken</span></div>
+      </div>
+      <div class="recipe-arrow">→</div>
+    </a>
+    <a href="https://validofoods.com/foil-cajun-chicken-veggies" target="_blank" class="recipe-item">
+      <div class="recipe-num">05</div>
+      <div class="recipe-info">
+        <div class="recipe-name">Foil Cajun Chicken &amp; Veggies</div>
+        <div class="recipe-desc">One-pan foil packets with seasoned chicken, peppers, and zucchini. Bake at 450°F for 20-25 minutes.</div>
+        <div class="recipe-tags"><span class="recipe-tag">Poultry</span><span class="recipe-tag">Cajun</span><span class="recipe-tag">One Pan</span></div>
+      </div>
+      <div class="recipe-arrow">→</div>
+    </a>
+    <a href="https://validofoods.com/validos-overnight-chicken" target="_blank" class="recipe-item">
+      <div class="recipe-num">06</div>
+      <div class="recipe-info">
+        <div class="recipe-name">Valido's Overnight Chicken</div>
+        <div class="recipe-desc">Marinate overnight with Valido All-In-One for maximum flavor. Perfect for Sunday dinner or meal prep.</div>
+        <div class="recipe-tags"><span class="recipe-tag">Poultry</span><span class="recipe-tag">All-In-One</span><span class="recipe-tag">Meal Prep</span></div>
+      </div>
+      <div class="recipe-arrow">→</div>
+    </a>
+    <a href="https://validofoods.com/creamy-broccoli-keto" target="_blank" class="recipe-item">
+      <div class="recipe-num">07</div>
+      <div class="recipe-info">
+        <div class="recipe-name">Creamy Broccoli (Keto)</div>
+        <div class="recipe-desc">Low-carb creamy broccoli side dish seasoned with Valido garlic and All-In-One. Keto-friendly.</div>
+        <div class="recipe-tags"><span class="recipe-tag">Keto</span><span class="recipe-tag">Veggies</span><span class="recipe-tag">Garlic</span></div>
+      </div>
+      <div class="recipe-arrow">→</div>
+    </a>
+    <a href="https://validofoods.com/copy-of-copy-of-recipe-of-the-day-2" target="_blank" class="recipe-item">
+      <div class="recipe-num">08</div>
+      <div class="recipe-info">
+        <div class="recipe-name">Creamy Parmesan Garlic Shrimp Pasta</div>
+        <div class="recipe-desc">Rich, creamy pasta with garlic shrimp and parmesan, seasoned with Valido Garlic and All-In-One.</div>
+        <div class="recipe-tags"><span class="recipe-tag">Pasta</span><span class="recipe-tag">Seafood</span><span class="recipe-tag">Garlic</span></div>
+      </div>
+      <div class="recipe-arrow">→</div>
+    </a>
+    <a href="https://validofoods.com/blackened-shrimp-avocado-cucumber-bites" target="_blank" class="recipe-item">
+      <div class="recipe-num">09</div>
+      <div class="recipe-info">
+        <div class="recipe-name">Blackened Shrimp Avocado Cucumber Bites</div>
+        <div class="recipe-desc">Light, fresh appetizer with blackened shrimp on cucumber rounds topped with avocado.</div>
+        <div class="recipe-tags"><span class="recipe-tag">Appetizer</span><span class="recipe-tag">Seafood</span><span class="recipe-tag">Light</span></div>
+      </div>
+      <div class="recipe-arrow">→</div>
+    </a>
+    <a href="https://validofoods.com/healthy-baked-parmesan-chicken-nuggets" target="_blank" class="recipe-item">
+      <div class="recipe-num">10</div>
+      <div class="recipe-info">
+        <div class="recipe-name">Healthy Baked Parmesan Chicken Nuggets</div>
+        <div class="recipe-desc">Baked, not fried. Crispy parmesan coating with Valido Chicken Seasoning. Kids love them.</div>
+        <div class="recipe-tags"><span class="recipe-tag">Poultry</span><span class="recipe-tag">Chicken</span><span class="recipe-tag">Kid-Friendly</span></div>
+      </div>
+      <div class="recipe-arrow">→</div>
+    </a>
+    <a href="https://validofoods.com/crunchy-taco-cups" target="_blank" class="recipe-item">
+      <div class="recipe-num">11</div>
+      <div class="recipe-info">
+        <div class="recipe-name">Crunchy Taco Cups</div>
+        <div class="recipe-desc">Crispy tortilla cups filled with seasoned ground beef, cheese, lettuce, and salsa. Perfect party food.</div>
+        <div class="recipe-tags"><span class="recipe-tag">Mexican</span><span class="recipe-tag">Appetizer</span><span class="recipe-tag">Party</span></div>
+      </div>
+      <div class="recipe-arrow">→</div>
+    </a>
+    <a href="https://validofoods.com/cinnamon-apple-chips" target="_blank" class="recipe-item">
+      <div class="recipe-num">12</div>
+      <div class="recipe-info">
+        <div class="recipe-name">Cinnamon Apple Chips</div>
+        <div class="recipe-desc">Thin-sliced apples baked with Valido Cinnamon until crispy. A healthy, sweet snack.</div>
+        <div class="recipe-tags"><span class="recipe-tag">Snack</span><span class="recipe-tag">Cinnamon</span><span class="recipe-tag">Healthy</span></div>
+      </div>
+      <div class="recipe-arrow">→</div>
+    </a>
+    <a href="https://validofoods.com/taco-salad" target="_blank" class="recipe-item">
+      <div class="recipe-num">13</div>
+      <div class="recipe-info">
+        <div class="recipe-name">Taco Salad</div>
+        <div class="recipe-desc">Fresh taco salad with seasoned beef, black beans, corn, avocado, and a zesty lime dressing.</div>
+        <div class="recipe-tags"><span class="recipe-tag">Mexican</span><span class="recipe-tag">Salad</span><span class="recipe-tag">Fresh</span></div>
+      </div>
+      <div class="recipe-arrow">→</div>
+    </a>
+    <a href="https://validofoods.com/validos-taco-spaghetti" target="_blank" class="recipe-item">
+      <div class="recipe-num">14</div>
+      <div class="recipe-info">
+        <div class="recipe-name">Valido's Taco Spaghetti</div>
+        <div class="recipe-desc">A fusion twist — spaghetti meets taco seasoning for a quick, kid-approved dinner.</div>
+        <div class="recipe-tags"><span class="recipe-tag">Pasta</span><span class="recipe-tag">Mexican</span><span class="recipe-tag">Kid-Friendly</span></div>
+      </div>
+      <div class="recipe-arrow">→</div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Valido Foods, Inc. All rights reserved. · 8617 Ambassador Row, #120, Dallas, TX 75247 · (214) 307-5200</p>
+  </div>
+</footer>
+</body>
+</html>
