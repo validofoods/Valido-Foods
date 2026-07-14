@@ -17,7 +17,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
-.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;text-decoration:none}.nav-logo span{color:var(--gold)}
+.nav-logo{text-decoration:none;display:flex;align-items:center}.nav-logo img{height:40px;width:auto}
 .nav-links{display:flex;align-items:center;gap:6px}
 .nav-links a{color:var(--text);text-decoration:none;font-size:12px;font-weight:600;padding:8px 18px;border-radius:30px;transition:all 0.25s;letter-spacing:0.8px;text-transform:uppercase}
 .nav-links a:hover{color:#fff;background:rgba(255,255,255,0.05)}
@@ -114,7 +114,7 @@ footer p{font-size:11px;color:var(--text-dim)}
 
 <nav>
   <div class="nav-inner">
-    <a href="/" class="nav-logo">VALIDO<span>.</span></a>
+    <a href="/" class="nav-logo"><img src="/Images/logo-3_png.webp" alt="Valido Foods"></a>
     <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
     <div class="nav-links">
       <a href="/shop">Shop</a>
@@ -732,6 +732,7 @@ footer p{font-size:11px;color:var(--text-dim)}
 
 <footer>
   <div class="container">
+    <div style="margin-bottom:16px"><img src="/Images/logo-3_png.webp" alt="Valido Foods" style="height:44px;width:auto"></div>
     <p>&copy; 2026 Valido Foods, Inc. All rights reserved. · 8617 Ambassador Row, #120, Dallas, TX 75247 · (214) 307-5200</p>
   </div>
 </footer>
