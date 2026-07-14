@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wholesale — Valido Foods | Bulk Spices & Seasonings</title>
+<meta name="description" content="Stock Valido Foods in your store, restaurant, or commercial kitchen. Volume pricing, flexible ordering, and dedicated support.">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:#0a0a0a;color:#e8e0d6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+:root{--gold:#d4a24e;--gold-glow:rgba(212,162,78,0.15);--dark:#0a0a0a;--card:#111;--border:rgba(255,255,255,0.06);--text:rgba(255,255,255,0.55);--text-dim:rgba(255,255,255,0.25)}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;text-decoration:none}.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{color:var(--text);text-decoration:none;font-size:12px;font-weight:600;padding:8px 18px;border-radius:30px;transition:all 0.25s;letter-spacing:0.8px;text-transform:uppercase}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.05)}
+.nav-links a.active{color:#fff}
+.nav-shop{background:var(--gold)!important;color:var(--dark)!important;font-weight:700!important;padding:10px 24px!important}
+.hamburger{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+.container{max-width:1280px;margin:0 auto;padding:0 48px}
+
+/* HERO */
+.ws-hero{padding:120px 0 0;position:relative;overflow:hidden}
+.ws-hero-bg{width:100%;height:400px;object-fit:cover;border-radius:24px;margin-top:40px;filter:brightness(0.4)}
+.ws-hero-overlay{position:absolute;bottom:0;left:48px;right:48px;padding:48px;z-index:2}
+.ws-hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,56px);font-weight:900;color:#fff;letter-spacing:-2px;margin-bottom:12px}
+.ws-hero h1 em{font-style:italic;color:var(--gold)}
+.ws-hero p{font-size:16px;color:rgba(255,255,255,0.65);max-width:560px;line-height:1.7}
+
+/* WAREHOUSE PLACEHOLDER */
+.warehouse-img{width:100%;height:400px;background:linear-gradient(135deg,#1a1510 0%,#0d0d0d 50%,#111 100%);border-radius:24px;margin-top:40px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid var(--border)}
+.warehouse-img::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,var(--gold-glow),transparent 70%)}
+.warehouse-text{position:relative;z-index:2;text-align:center}
+.warehouse-text .wh-icon{font-size:64px;margin-bottom:16px;display:block}
+.warehouse-text h2{font-family:'Playfair Display',serif;font-size:36px;color:#fff;letter-spacing:-1px;margin-bottom:8px}
+.warehouse-text p{font-size:14px;color:var(--text)}
+
+/* CONTENT */
+.ws-content{padding:80px 0}
+.ws-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.ws-info h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,40px);color:#fff;letter-spacing:-1.5px;margin-bottom:20px}
+.ws-info p{font-size:15px;color:var(--text);line-height:1.8;margin-bottom:16px}
+.ws-benefits{list-style:none;margin:24px 0}
+.ws-benefits li{font-size:14px;color:var(--text);padding:12px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px}
+.ws-benefits li::before{content:'✦';color:var(--gold);font-size:12px}
+.ws-benefits li strong{color:#fff}
+.ws-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.ws-stat{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center}
+.ws-stat .ws-val{font-size:28px;font-weight:700;color:#fff;letter-spacing:-1px}
+.ws-stat .ws-val span{color:var(--gold)}
+.ws-stat .ws-lbl{font-size:11px;color:var(--text-dim);margin-top:4px;text-transform:uppercase;letter-spacing:0.5px}
+
+/* FORM */
+.ws-form{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px}
+.ws-form h3{font-family:'Playfair Display',serif;font-size:24px;color:#fff;margin-bottom:6px}
+.ws-form .ws-sub{font-size:13px;color:var(--text);margin-bottom:28px}
+.form-row{display:flex;gap:14px;margin-bottom:14px}
+.form-group{flex:1}
+.form-group label{display:block;font-size:11px;font-weight:600;letter-spacing:0.5px;color:var(--text-dim);margin-bottom:6px;text-transform:uppercase}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 18px;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:14px;color:#fff;font-family:'Space Grotesk',sans-serif;font-size:14px;outline:none;transition:border-color 0.3s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--text-dim)}
+.form-group select{cursor:pointer;-webkit-appearance:none}
+.form-group select option{background:#111;color:#fff}
+.form-group textarea{resize:vertical;min-height:90px}
+.form-submit{width:100%;margin-top:20px;padding:16px;background:var(--gold);color:var(--dark);border:none;border-radius:60px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.3s;text-transform:uppercase;letter-spacing:0.5px}
+.form-submit:hover{background:#e8b45a;box-shadow:0 4px 24px var(--gold-glow)}
+.form-success{display:none;text-align:center;padding:48px 20px}
+.form-success h3{font-family:'Playfair Display',serif;font-size:24px;color:#fff;margin-bottom:10px}
+.form-success p{font-size:14px;color:var(--text)}
+
+/* LOGIN SECTION */
+.ws-login-section{border-top:1px solid var(--border);padding:80px 0}
+.login-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:800px;margin:0 auto}
+.login-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;text-align:center;transition:all 0.3s}
+.login-card:hover{border-color:rgba(212,162,78,0.2)}
+.login-card .lc-icon{font-size:36px;margin-bottom:16px;display:block}
+.login-card h3{font-size:18px;font-weight:700;color:#fff;margin-bottom:8px}
+.login-card p{font-size:13px;color:var(--text);line-height:1.6;margin-bottom:20px}
+.login-card input{width:100%;padding:12px 16px;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:12px;color:#fff;font-family:'Space Grotesk',sans-serif;font-size:14px;outline:none;margin-bottom:10px;transition:border-color 0.3s}
+.login-card input:focus{border-color:var(--gold)}
+.login-card input::placeholder{color:var(--text-dim)}
+.login-btn{width:100%;padding:14px;border:none;border-radius:60px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.3s;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px}
+.login-btn.gold{background:var(--gold);color:var(--dark)}
+.login-btn.gold:hover{background:#e8b45a}
+.login-btn.outline{background:transparent;border:1px solid var(--border);color:#fff}
+.login-btn.outline:hover{border-color:var(--gold);color:var(--gold)}
+.login-divider{font-size:11px;color:var(--text-dim);margin:12px 0}
+
+footer{border-top:1px solid var(--border);padding:40px 0;text-align:center}
+footer p{font-size:11px;color:var(--text-dim)}
+@media(max-width:960px){
+  .ws-grid,.login-grid{grid-template-columns:1fr}
+  .ws-stats{grid-template-columns:repeat(3,1fr)}
+  nav{padding:0 24px}.container{padding:0 24px}
+  .ws-hero-overlay{left:24px;right:24px;padding:28px}
+  .nav-links{display:none}.hamburger{display:block}
+  .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;background:rgba(10,10,10,0.98);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:20px 24px;flex-direction:column;gap:4px}
+}
+@media(max-width:600px){.container{padding:0 16px}.form-row{flex-direction:column}.ws-stats{grid-template-columns:1fr}.warehouse-img{height:280px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">VALIDO<span>.</span></a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="/shop">Shop</a>
+      <a href="/recipes">Recipes</a>
+      <a href="/#chefs">Chefs</a>
+      <a href="/wholesale" class="active">Wholesale</a>
+      <a href="/contact">Contact</a>
+      <a href="/about">About</a>
+      <a href="/shop" class="nav-shop">Shop Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- WAREHOUSE HERO -->
+<div class="ws-hero">
+  <div class="container">
+    <div class="warehouse-img">
+      <div class="warehouse-text">
+        <span class="wh-icon">🏭</span>
+        <h2>Valido Foods <em style="color:var(--gold)">Warehouse</em></h2>
+        <p>Dallas, TX — 8617 Ambassador Row, #120</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="ws-content">
+  <div class="container">
+    <div class="ws-grid">
+      <div class="ws-info">
+        <h2>Partner With <em style="color:var(--gold)">Valido Foods</em></h2>
+        <p>Whether you're a grocery store, restaurant, food service provider, or specialty retailer — we make it easy to stock Valido Foods products. Our wholesale program offers competitive pricing, flexible minimum orders, and dedicated account support.</p>
+        <p>Valido Foods products are currently stocked in grocery stores, specialty markets, and African food stores across Texas and growing nationwide. Join our retail network and bring authentic, premium seasonings to your customers.</p>
+
+        <ul class="ws-benefits">
+          <li><strong>Volume Pricing</strong> — Competitive wholesale rates on all products</li>
+          <li><strong>Flexible MOQ</strong> — Low minimum orders for first-time partners</li>
+          <li><strong>Marketing Support</strong> — In-store displays, product samples, and POS materials</li>
+          <li><strong>Dedicated Rep</strong> — Personal account manager for your region</li>
+          <li><strong>Fast Fulfillment</strong> — Ships from our Dallas warehouse within 48 hours</li>
+          <li><strong>30+ SKUs</strong> — Full product catalog across seasonings, spices, herbs, and rubs</li>
+        </ul>
+
+        <div class="ws-stats">
+          <div class="ws-stat">
+            <div class="ws-val">30<span>+</span></div>
+            <div class="ws-lbl">Products</div>
+          </div>
+          <div class="ws-stat">
+            <div class="ws-val">48<span>hr</span></div>
+            <div class="ws-lbl">Fulfillment</div>
+          </div>
+          <div class="ws-stat">
+            <div class="ws-val">TX<span>+</span></div>
+            <div class="ws-lbl">Nationwide</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHOLESALE FORM -->
+      <div class="ws-form" id="wsFormCard">
+        <h3>Apply for Wholesale</h3>
+        <p class="ws-sub">Fill out the form below and our team will get back to you within 1–2 business days with pricing and next steps.</p>
+
+        <div id="wsFields">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Contact Name *</label>
+              <input type="text" id="wsName" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" id="wsEmail" placeholder="you@business.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone *</label>
+              <input type="tel" id="wsPhone" placeholder="(555) 123-4567" required>
+            </div>
+            <div class="form-group">
+              <label>Business Name *</label>
+              <input type="text" id="wsBusiness" placeholder="Your store or restaurant" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Business Type *</label>
+              <select id="wsType">
+                <option value="">Select type...</option>
+                <option value="grocery">Grocery Store</option>
+                <option value="specialty">Specialty / Ethnic Market</option>
+                <option value="restaurant">Restaurant / Food Service</option>
+                <option value="distributor">Distributor</option>
+                <option value="online">Online Retailer</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Location</label>
+              <input type="text" id="wsLocation" placeholder="City, State">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Tell us about your business</label>
+            <textarea id="wsMessage" placeholder="How many locations, estimated monthly volume, specific products you're interested in..."></textarea>
+          </div>
+          <button class="form-submit" onclick="submitWholesale()">Submit Application →</button>
+        </div>
+
+        <div class="form-success" id="wsSuccess">
+          <h3>✓ Application Received</h3>
+          <p>Thank you for your interest in stocking Valido Foods! Our wholesale team will review your application and reach out within 1–2 business days.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN SECTION -->
+<div class="ws-login-section">
+  <div class="container" style="text-align:center;margin-bottom:40px">
+    <span style="font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:10px"><span style="width:24px;height:1px;background:var(--gold);display:inline-block"></span> Account Access</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,40px);color:#fff;letter-spacing:-1.5px;margin-top:12px">Sign In or <em style="font-style:italic;color:var(--gold)">Create Account</em></h2>
+  </div>
+  <div class="container">
+    <div class="login-grid">
+      <div class="login-card">
+        <span class="lc-icon">📦</span>
+        <h3>Wholesale Account</h3>
+        <p>Existing wholesale partners — sign in to place orders, view pricing, and manage your account.</p>
+        <input type="email" placeholder="Email address">
+        <input type="password" placeholder="Password">
+        <button class="login-btn gold" onclick="alert('Wholesale login coming soon. Contact info@validofoods.com for assistance.')">Sign In →</button>
+        <div class="login-divider">Don't have an account? Apply above.</div>
+      </div>
+      <div class="login-card">
+        <span class="lc-icon">🛒</span>
+        <h3>Customer Account</h3>
+        <p>Create an account to track orders, save favorites, and get exclusive deals on Valido products.</p>
+        <input type="text" placeholder="Full name">
+        <input type="email" placeholder="Email address">
+        <input type="password" placeholder="Create password">
+        <button class="login-btn gold" onclick="alert('Account creation coming soon. You can still shop and checkout as a guest!')">Create Account →</button>
+        <div class="login-divider">Already have an account? <a href="#" style="color:var(--gold);text-decoration:none">Sign in</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Valido Foods, Inc. All rights reserved. · 8617 Ambassador Row, #120, Dallas, TX 75247 · (214) 307-5200</p>
+  </div>
+</footer>
+
+<script>
+function submitWholesale() {
+  var name = document.getElementById('wsName').value.trim();
+  var email = document.getElementById('wsEmail').value.trim();
+  var phone = document.getElementById('wsPhone').value.trim();
+  var business = document.getElementById('wsBusiness').value.trim();
+  if (!name || !email || !phone || !business) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+  var btn = document.querySelector('.form-submit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  var data = {name:name,email:email,phone:phone,business:business,type:document.getElementById('wsType').value,location:document.getElementById('wsLocation').value,message:document.getElementById('wsMessage').value,timestamp:new Date().toISOString()};
+  console.log('Wholesale application:', data);
+  setTimeout(function() {
+    document.getElementById('wsFields').style.display = 'none';
+    document.getElementById('wsSuccess').style.display = 'block';
+  }, 800);
+}
+</script>
+</body>
+</html>
