@@ -13,7 +13,7 @@ html{scroll-behavior:smooth}
 body{font-family:'Space Grotesk',sans-serif;background:#0a0a0a;color:#e8e0d6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 :root{--gold:#d4a24e;--gold-glow:rgba(212,162,78,0.15);--dark:#0a0a0a;--card:#111;--card-hover:#151515;--border:rgba(255,255,255,0.06);--text:rgba(255,255,255,0.55);--text-dim:rgba(255,255,255,0.25);--text-bright:rgba(255,255,255,0.85)}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-
+ 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
@@ -24,28 +24,28 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rg
 .nav-links a.active{color:#fff}
 .nav-shop{background:var(--gold)!important;color:var(--dark)!important;font-weight:700!important;padding:10px 24px!important}
 .hamburger{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
-
+ 
 /* PAGE HEADER */
 .container{max-width:1280px;margin:0 auto;padding:0 48px}
 .page-head{padding:120px 0 40px;text-align:center}
 .page-head h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,56px);font-weight:900;color:#fff;letter-spacing:-2px;margin-bottom:12px}
 .page-head h1 em{font-style:italic;color:var(--gold)}
 .page-head p{font-size:15px;color:var(--text);max-width:520px;margin:0 auto;line-height:1.6}
-
+ 
 /* CATEGORY FILTERS */
 .filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:32px;margin-bottom:48px}
 .filter-btn{background:transparent;border:1px solid var(--border);color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;padding:8px 20px;border-radius:30px;cursor:pointer;transition:all 0.25s}
 .filter-btn:hover{color:#fff;border-color:rgba(255,255,255,0.15);background:rgba(255,255,255,0.04)}
 .filter-btn.active{color:var(--gold);border-color:rgba(212,162,78,0.4);background:var(--gold-glow)}
-
+ 
 /* RECIPE LIST */
 .recipe-list{padding-bottom:100px}
-
+ 
 /* RECIPE ACCORDION ITEM */
 .recipe-item{background:var(--card);border:1px solid var(--border);border-radius:16px;margin-bottom:12px;overflow:hidden;transition:all 0.3s}
 .recipe-item:hover{border-color:rgba(212,162,78,0.2);background:var(--card-hover)}
 .recipe-item.open{border-color:rgba(212,162,78,0.3);background:var(--card-hover)}
-
+ 
 .recipe-header{display:flex;align-items:center;gap:24px;padding:24px 28px;cursor:pointer;-webkit-user-select:none;user-select:none}
 .recipe-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:rgba(212,162,78,0.15);min-width:48px;letter-spacing:-1px;transition:color 0.3s}
 .recipe-item:hover .recipe-num,.recipe-item.open .recipe-num{color:rgba(212,162,78,0.4)}
@@ -57,38 +57,38 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rg
 .recipe-toggle{font-size:20px;color:var(--text-dim);transition:all 0.3s;flex-shrink:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,0.03)}
 .recipe-item:hover .recipe-toggle{color:var(--gold);background:var(--gold-glow)}
 .recipe-item.open .recipe-toggle{color:var(--gold);background:var(--gold-glow);transform:rotate(45deg)}
-
+ 
 /* RECIPE EXPANDED CONTENT */
 .recipe-body{max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1)}
 .recipe-body-inner{padding:0 28px 32px;border-top:1px solid var(--border)}
 .recipe-layout{display:grid;grid-template-columns:320px 1fr;gap:32px;margin-top:28px}
 .recipe-img{width:100%;border-radius:12px;object-fit:cover;aspect-ratio:4/3}
 .recipe-content{}
-
+ 
 .recipe-section-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--gold);margin-bottom:14px;letter-spacing:-0.5px}
 .recipe-ingredients{list-style:none;margin-bottom:28px}
 .recipe-ingredients li{font-size:14px;color:var(--text-bright);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.03);line-height:1.5}
 .recipe-ingredients li:last-child{border-bottom:none}
 .recipe-ingredients li strong{color:#fff;font-weight:600}
-
+ 
 .recipe-instructions{list-style:none;counter-reset:step}
 .recipe-instructions li{font-size:14px;color:var(--text-bright);padding:10px 0 10px 36px;position:relative;line-height:1.6;border-bottom:1px solid rgba(255,255,255,0.03)}
 .recipe-instructions li:last-child{border-bottom:none}
 .recipe-instructions li::before{counter-increment:step;content:counter(step);position:absolute;left:0;top:10px;width:24px;height:24px;background:var(--gold-glow);border:1px solid rgba(212,162,78,0.2);color:var(--gold);font-size:11px;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center}
-
+ 
 .recipe-cta{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:10px 24px;background:var(--gold);color:var(--dark);font-size:12px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;border-radius:30px;text-decoration:none;transition:all 0.25s}
 .recipe-cta:hover{filter:brightness(1.1);transform:translateY(-1px)}
-
+ 
 /* SUB-SECTION for recipes with multiple parts */
 .recipe-sub{font-size:13px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.5px;margin:16px 0 8px;opacity:0.8}
-
+ 
 /* FOOTER */
 footer{border-top:1px solid var(--border);padding:40px 0;text-align:center}
 footer p{font-size:11px;color:var(--text-dim)}
-
+ 
 /* HIDDEN RECIPES */
 .recipe-item.hidden{display:none}
-
+ 
 /* RESPONSIVE */
 @media(max-width:960px){
   nav{padding:0 24px}
@@ -112,7 +112,7 @@ footer p{font-size:11px;color:var(--text-dim)}
 <link rel="stylesheet" href="/ux-enhance.css">
 </head>
 <body>
-
+ 
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-logo"><img src="/Images/logo-3_png.webp" alt="Valido Foods"></a>
@@ -120,6 +120,7 @@ footer p{font-size:11px;color:var(--text-dim)}
     <div class="nav-links">
       <a href="/shop">Shop</a>
       <a href="/recipes" class="active">Recipes</a>
+      <a href="/videos">Videos</a>
       <a href="/#chefs">Chefs</a>
       <a href="/wholesale">Wholesale</a>
       <a href="/contact">Contact</a>
@@ -128,16 +129,16 @@ footer p{font-size:11px;color:var(--text-dim)}
     </div>
   </div>
 </nav>
-
+ 
 <div class="page-head">
   <div class="container">
     <h1>VF <em>Kitchen</em></h1>
     <p>Quick, flavorful recipes from our kitchen to yours. Each one features Valido seasonings for restaurant-quality meals at home.</p>
   </div>
 </div>
-
+ 
 <div class="container">
-
+ 
   <div class="filters">
     <button class="filter-btn active" data-filter="all">All Recipes</button>
     <button class="filter-btn" data-filter="poultry">Poultry</button>
@@ -147,9 +148,9 @@ footer p{font-size:11px;color:var(--text-dim)}
     <button class="filter-btn" data-filter="pasta">Pasta &amp; Rice</button>
     <button class="filter-btn" data-filter="quick">Quick (&lt;30 min)</button>
   </div>
-
+ 
   <div class="recipe-list">
-
+ 
     <!-- 01 Baked Lemon Pepper Chicken -->
     <div class="recipe-item" data-categories="poultry quick">
       <div class="recipe-header" onclick="toggleRecipe(this)">
@@ -190,7 +191,7 @@ footer p{font-size:11px;color:var(--text-dim)}
         </div>
       </div>
     </div>
-
+ 
     <!-- 02 Chicken Fried Rice -->
     <div class="recipe-item" data-categories="poultry pasta quick">
       <div class="recipe-header" onclick="toggleRecipe(this)">
@@ -233,7 +234,7 @@ footer p{font-size:11px;color:var(--text-dim)}
         </div>
       </div>
     </div>
-
+ 
     <!-- 03 Maple Glazed Salmon -->
     <div class="recipe-item" data-categories="seafood quick">
       <div class="recipe-header" onclick="toggleRecipe(this)">
@@ -277,7 +278,7 @@ footer p{font-size:11px;color:var(--text-dim)}
         </div>
       </div>
     </div>
-
+ 
     <!-- 04 Baked Garlic Brown Sugar Chicken -->
     <div class="recipe-item" data-categories="poultry quick">
       <div class="recipe-header" onclick="toggleRecipe(this)">
@@ -317,7 +318,7 @@ footer p{font-size:11px;color:var(--text-dim)}
         </div>
       </div>
     </div>
-
+ 
     <!-- 05 Foil Cajun Chicken & Veggies -->
     <div class="recipe-item" data-categories="poultry quick">
       <div class="recipe-header" onclick="toggleRecipe(this)">
@@ -357,7 +358,7 @@ footer p{font-size:11px;color:var(--text-dim)}
         </div>
       </div>
     </div>
-
+ 
     <!-- 06 Valido's Overnight Chicken -->
     <div class="recipe-item" data-categories="poultry">
       <div class="recipe-header" onclick="toggleRecipe(this)">
@@ -395,7 +396,7 @@ footer p{font-size:11px;color:var(--text-dim)}
         </div>
       </div>
     </div>
-
+ 
     <!-- 07 Creamy Broccoli (Keto) -->
     <div class="recipe-item" data-categories="sides quick">
       <div class="recipe-header" onclick="toggleRecipe(this)">
@@ -437,7 +438,7 @@ footer p{font-size:11px;color:var(--text-dim)}
         </div>
       </div>
     </div>
-
+ 
     <!-- 08 Creamy Parmesan Garlic Shrimp Pasta -->
     <div class="recipe-item" data-categories="seafood pasta quick">
       <div class="recipe-header" onclick="toggleRecipe(this)">
@@ -480,7 +481,7 @@ footer p{font-size:11px;color:var(--text-dim)}
         </div>
       </div>
     </div>
-
+ 
     <!-- 09 Blackened Shrimp Avocado Cucumber Bites -->
     <div class="recipe-item" data-categories="seafood sides quick">
       <div class="recipe-header" onclick="toggleRecipe(this)">
@@ -526,7 +527,7 @@ footer p{font-size:11px;color:var(--text-dim)}
         </div>
       </div>
     </div>
-
+ 
     <!-- 10 Healthy Baked Parmesan Chicken Nuggets -->
     <div class="recipe-item" data-categories="poultry quick">
       <div class="recipe-header" onclick="toggleRecipe(this)">
@@ -565,7 +566,7 @@ footer p{font-size:11px;color:var(--text-dim)}
         </div>
       </div>
     </div>
-
+ 
     <!-- 11 Crunchy Taco Cups -->
     <div class="recipe-item" data-categories="beef sides quick">
       <div class="recipe-header" onclick="toggleRecipe(this)">
@@ -602,7 +603,7 @@ footer p{font-size:11px;color:var(--text-dim)}
         </div>
       </div>
     </div>
-
+ 
     <!-- 12 Cinnamon Apple Chips -->
     <div class="recipe-item" data-categories="sides">
       <div class="recipe-header" onclick="toggleRecipe(this)">
@@ -637,7 +638,7 @@ footer p{font-size:11px;color:var(--text-dim)}
         </div>
       </div>
     </div>
-
+ 
     <!-- 13 Taco Salad -->
     <div class="recipe-item" data-categories="beef quick">
       <div class="recipe-header" onclick="toggleRecipe(this)">
@@ -687,7 +688,7 @@ footer p{font-size:11px;color:var(--text-dim)}
         </div>
       </div>
     </div>
-
+ 
     <!-- 14 Valido's Taco Spaghetti -->
     <div class="recipe-item" data-categories="beef pasta">
       <div class="recipe-header" onclick="toggleRecipe(this)">
@@ -727,23 +728,23 @@ footer p{font-size:11px;color:var(--text-dim)}
         </div>
       </div>
     </div>
-
+ 
   </div><!-- /recipe-list -->
 </div><!-- /container -->
-
+ 
 <footer>
   <div class="container">
     <div style="margin-bottom:16px"><img src="/Images/logo-3_png.webp" alt="Valido Foods" style="height:44px;width:auto"></div>
     <p>&copy; 2026 Valido Foods, Inc. All rights reserved. · 8617 Ambassador Row, #120, Dallas, TX 75247 · (214) 307-5200</p>
   </div>
 </footer>
-
+ 
 <script>
 function toggleRecipe(header) {
   const item = header.closest('.recipe-item');
   const body = item.querySelector('.recipe-body');
   const isOpen = item.classList.contains('open');
-
+ 
   // Close all others
   document.querySelectorAll('.recipe-item.open').forEach(el => {
     if (el !== item) {
@@ -751,7 +752,7 @@ function toggleRecipe(header) {
       el.querySelector('.recipe-body').style.maxHeight = '0';
     }
   });
-
+ 
   if (isOpen) {
     item.classList.remove('open');
     body.style.maxHeight = '0';
@@ -764,22 +765,22 @@ function toggleRecipe(header) {
     }, 200);
   }
 }
-
+ 
 // Category filters
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     // Update active button
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
+ 
     const filter = btn.dataset.filter;
-
+ 
     // Close any open recipes
     document.querySelectorAll('.recipe-item.open').forEach(el => {
       el.classList.remove('open');
       el.querySelector('.recipe-body').style.maxHeight = '0';
     });
-
+ 
     // Show/hide recipes
     document.querySelectorAll('.recipe-item').forEach(item => {
       if (filter === 'all' || item.dataset.categories.includes(filter)) {
@@ -794,3 +795,4 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 <script src="/ux-enhance.js"></script>
 </body>
 </html>
+ 
