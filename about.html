@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Valido Foods | Premium Spices &amp; Seasonings from Dallas, TX</title>
+<meta name="description" content="Valido Foods is a leading food company based in Dallas, TX. We produce premium spices, seasonings, herbs, and rubs — gluten-free, globally inspired, made for every kitchen.">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:#0a0a0a;color:#e8e0d6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+:root{--gold:#d4a24e;--gold-glow:rgba(212,162,78,0.15);--dark:#0a0a0a;--card:#111;--card-hover:#151515;--border:rgba(255,255,255,0.06);--text:rgba(255,255,255,0.55);--text-dim:rgba(255,255,255,0.25);--text-bright:rgba(255,255,255,0.85)}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{text-decoration:none;display:flex;align-items:center}.nav-logo img{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{color:var(--text);text-decoration:none;font-size:12px;font-weight:600;padding:8px 18px;border-radius:30px;transition:all 0.25s;letter-spacing:0.8px;text-transform:uppercase}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.05)}
+.nav-links a.active{color:#fff}
+.nav-shop{background:var(--gold)!important;color:var(--dark)!important;font-weight:700!important;padding:10px 24px!important}
+.hamburger{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+
+/* LAYOUT */
+.container{max-width:1280px;margin:0 auto;padding:0 48px}
+.section{padding:100px 0}
+
+/* HERO */
+.page-hero{padding:140px 0 80px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-10%;right:-15%;width:60%;height:120%;background:radial-gradient(ellipse at center,var(--gold-glow) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:inline-flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(40px,5.5vw,72px);font-weight:900;color:#fff;letter-spacing:-3px;line-height:0.95;margin-bottom:28px}
+.page-hero h1 em{font-style:italic;font-weight:700;color:var(--gold)}
+.page-hero p{font-size:17px;color:var(--text);line-height:1.7;max-width:560px}
+
+/* STORY SECTION */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.story-content{}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:inline-flex;align-items:center;gap:10px}
+.section-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);font-weight:900;color:#fff;letter-spacing:-2px;margin-bottom:20px;line-height:1.05}
+.section-title em{font-style:italic;color:var(--gold)}
+.story-text{font-size:15px;color:var(--text);line-height:1.8;margin-bottom:16px}
+.story-image{position:relative}
+.story-image img{width:100%;border-radius:16px;object-fit:cover}
+.story-image::after{content:'';position:absolute;inset:0;border-radius:16px;border:1px solid rgba(212,162,78,0.1)}
+
+/* VALUES */
+.values-section{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.values-header{text-align:center;margin-bottom:64px}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.value-card{padding:36px;border:1px solid var(--border);border-radius:16px;background:rgba(255,255,255,0.02);transition:all 0.3s}
+.value-card:hover{border-color:rgba(212,162,78,0.2);background:rgba(212,162,78,0.03)}
+.value-icon{width:48px;height:48px;border-radius:12px;background:var(--gold-glow);border:1px solid rgba(212,162,78,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px}
+.value-card h3{font-size:16px;font-weight:700;color:#fff;margin-bottom:10px;letter-spacing:-0.3px}
+.value-card p{font-size:13px;color:var(--text);line-height:1.7}
+
+/* VISION & PURPOSE */
+.vp-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.vp-card{padding:48px;border:1px solid var(--border);border-radius:16px;background:var(--card);position:relative;overflow:hidden}
+.vp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent)}
+.vp-card h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:var(--gold);margin-bottom:16px;font-style:italic}
+.vp-card p{font-size:15px;color:var(--text-bright);line-height:1.8}
+
+/* STATS BAR */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:80px 0}
+.stat{text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:clamp(36px,4vw,56px);font-weight:900;color:var(--gold);letter-spacing:-2px}
+.stat-label{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);margin-top:8px}
+
+/* CHEFS SECTION */
+.chefs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:48px}
+.chef-card{text-align:center;padding:24px 16px;border:1px solid var(--border);border-radius:16px;background:var(--card);transition:all 0.3s}
+.chef-card:hover{border-color:rgba(212,162,78,0.25);transform:translateY(-4px)}
+.chef-avatar{width:80px;height:80px;border-radius:50%;object-fit:cover;margin:0 auto 14px;border:2px solid rgba(212,162,78,0.2)}
+.chef-card h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:4px}
+.chef-card p{font-size:11px;color:var(--text);line-height:1.5}
+
+/* LOCATION CTA */
+.location-section{text-align:center}
+.location-section .section-title{margin-bottom:16px}
+.location-desc{font-size:15px;color:var(--text);line-height:1.7;max-width:520px;margin:0 auto 32px}
+.location-detail{font-size:14px;color:var(--text-bright);margin-bottom:8px}
+.location-detail strong{color:#fff}
+.cta-row{display:flex;gap:16px;justify-content:center;margin-top:32px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--gold);color:var(--dark);font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;border-radius:30px;text-decoration:none;transition:all 0.25s}
+.btn-primary:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:0 8px 32px var(--gold-glow)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:transparent;color:var(--gold);font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;border-radius:30px;text-decoration:none;border:1px solid rgba(212,162,78,0.3);transition:all 0.25s}
+.btn-outline:hover{background:var(--gold-glow);border-color:rgba(212,162,78,0.5)}
+
+/* BLOCKQUOTE */
+.brand-quote{border-left:2px solid var(--gold);padding:24px 0 24px 28px;margin:32px 0;font-style:italic;color:var(--text-bright);font-size:15px;line-height:1.8}
+.brand-quote cite{display:block;margin-top:12px;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;font-style:normal}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:40px 0;text-align:center}
+footer p{font-size:11px;color:var(--text-dim)}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav{padding:0 24px}.container{padding:0 24px}
+  .nav-links{display:none}.hamburger{display:block}
+  .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;background:rgba(10,10,10,0.98);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:20px 24px;flex-direction:column;gap:4px}
+  .story-grid{grid-template-columns:1fr;gap:40px}
+  .values-grid{grid-template-columns:1fr}
+  .vp-grid{grid-template-columns:1fr}
+  .stats-bar{grid-template-columns:repeat(2,1fr);gap:32px}
+  .chefs-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:600px){
+  .container{padding:0 16px}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .chefs-grid{grid-template-columns:1fr 1fr}
+  .cta-row{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="/Images/logo-3_png.webp" alt="Valido Foods"></a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="/shop">Shop</a>
+      <a href="/recipes">Recipes</a>
+      <a href="/#chefs">Chefs</a>
+      <a href="/wholesale">Wholesale</a>
+      <a href="/contact">Contact</a>
+      <a href="/about" class="active">About</a>
+      <a href="/shop" class="nav-shop">Shop Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="container">
+    <div class="hero-eyebrow">Dallas, TX · Est. 2016</div>
+    <h1>Premium Spices,<br><em>Global Flavors</em></h1>
+    <p>Valido Foods is a leading food company in the United States with global reach — producing premium spices, seasonings, herbs, and rubs that bring families together around every meal.</p>
+  </div>
+</div>
+
+<!-- OUR STORY -->
+<div class="section">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-content">
+        <div class="section-eyebrow">Our Story</div>
+        <h2 class="section-title">Built for <em>Every Kitchen</em></h2>
+        <p class="story-text">Valido Foods is one of the nation's emerging leaders in the production, marketing, and distribution of household food products. From our headquarters in Dallas, Texas, we craft over 33 premium spices, seasonings, and blends — all gluten-free — inspired by cuisines from around the world.</p>
+        <p class="story-text">Our product line spans everything from everyday essentials like Black Pepper and Garlic Powder to globally inspired blends like Jollof Rice Seasoning, Moi Moi, Curry Powder, Cajun, Creole, and our signature All-In-One Seasoning. We also produce Canola Oil and Margarine.</p>
+        <p class="story-text">We're proud that our brand brings people together and provides pleasurable moments for families — whether it's a weeknight dinner, a holiday feast, or a new recipe adventure.</p>
+      </div>
+      <div class="story-image">
+        <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1553549464698-A8WRONE8I824F27CENZD/ALL+PINTS+PIC+4.png" alt="Valido Foods product lineup" loading="lazy">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<div class="section values-section">
+  <div class="container">
+    <div class="values-header">
+      <div class="section-eyebrow">What Guides Us</div>
+      <h2 class="section-title">Our <em>Values</em></h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">⚡</div>
+        <h3>Integrity</h3>
+        <p>We maintain the highest standards in sourcing, production, and business partnerships. What's on the label is what's in the jar — no fillers, no shortcuts.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🔥</div>
+        <h3>Passion</h3>
+        <p>Every blend we create is driven by a deep love for flavor and food culture. We believe the right seasoning transforms a meal into an experience.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌍</div>
+        <h3>Culture &amp; Respect</h3>
+        <p>Our seasonings are inspired by cuisines from around the globe. We honor culinary traditions while making them accessible to every home cook.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <h3>Accountability</h3>
+        <p>From our partners to our customers, we stand behind every product we ship. Quality is not negotiable — it's the foundation of everything we do.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌱</div>
+        <h3>Humility</h3>
+        <p>We started small and we stay grounded. We listen to our customers, learn from our chefs, and continuously improve our craft.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">✨</div>
+        <h3>Simplicity</h3>
+        <p>Great food shouldn't be complicated. Our seasonings are designed to make restaurant-quality flavor achievable in minutes, for any skill level.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="container">
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num">33+</div>
+      <div class="stat-label">Products</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Gluten Free</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Partner Chefs</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Dallas</div>
+      <div class="stat-label">Headquartered</div>
+    </div>
+  </div>
+</div>
+
+<!-- VISION & PURPOSE -->
+<div class="section">
+  <div class="container">
+    <div class="vp-grid">
+      <div class="vp-card">
+        <h3>Our Vision</h3>
+        <p>To be part of every family's journey in discovering nourishment and delight through our foods and brands. We envision a world where premium, flavorful seasonings are accessible to every household — regardless of background, budget, or culinary experience.</p>
+      </div>
+      <div class="vp-card">
+        <h3>Our Purpose</h3>
+        <p>To provide nourishment that allows families to flourish, and to produce ingredients that make every meal a novelty. We exist to take the guesswork out of seasoning and put the joy back into cooking.</p>
+      </div>
+    </div>
+    <blockquote class="brand-quote">
+      Our values are what made us who we are. They guide us in our engagement with our business partners, commitment to our customers, communities, and each other. As we focus on creating the best brand for your family, we remain committed to maintaining integrity, passion, humility, accountability — with simplicity and respect to culture and ethics.
+      <cite>— Valido Foods, Inc.</cite>
+    </blockquote>
+  </div>
+</div>
+
+<!-- CHEF PARTNERSHIPS -->
+<div class="section" style="padding-top:0">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-eyebrow">Collaborations</div>
+      <h2 class="section-title">Chefs Who Trust <em>Valido</em></h2>
+      <p style="font-size:15px;color:var(--text);max-width:480px;margin:12px auto 0;line-height:1.7">Professional chefs from around the world use Valido Foods seasonings in their kitchens and collaborate with us on signature blends.</p>
+    </div>
+    <div class="chefs-grid">
+      <div class="chef-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1553555073997-VA3C2L9WKKRCN4IUV6UH/Cassaundra.png" alt="Chef Cassaundra" class="chef-avatar" loading="lazy">
+        <h4>Cassaundra</h4>
+        <p>Recipe Developer &amp; Content Creator</p>
+      </div>
+      <div class="chef-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1594162591706-TQHVQZQT4DAR2X2S1FZT/Chef+Nice+1.png" alt="Chef N.I.C.E." class="chef-avatar" loading="lazy">
+        <h4>Chef N.I.C.E.</h4>
+        <p>N.I.C.E. Blend Collaboration</p>
+      </div>
+      <div class="chef-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1553554756498-2L6JFG7JFXQ5PHSGQZN3/Top+Chef+Ron+Duprat-2.png" alt="Chef Ron Duprat" class="chef-avatar" loading="lazy">
+        <h4>Ron Duprat</h4>
+        <p>Top Chef Contestant &amp; Culinary Artist</p>
+      </div>
+      <div class="chef-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1586373547506-VDY7Z5VWG5ZTZD6L26XM/IMG_20200406_191428_591.jpg" alt="Chef Toya" class="chef-avatar" loading="lazy">
+        <h4>Chef Toya</h4>
+        <p>Southern Comfort Specialist</p>
+      </div>
+      <div class="chef-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1553554977972-XCX59UH94KB2CTHXL3FR/Winnie.png" alt="Chef Winnie" class="chef-avatar" loading="lazy">
+        <h4>Chef Winnie</h4>
+        <p>International Cuisine Expert</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOCATION CTA -->
+<div class="section location-section" style="padding-top:40px">
+  <div class="container">
+    <div class="section-eyebrow">Visit Us</div>
+    <h2 class="section-title">Made in <em>Dallas</em></h2>
+    <p class="location-desc">Our products are crafted at our facility in Dallas, Texas and distributed nationwide. Available online, in select retail stores, and through our wholesale program.</p>
+    <div class="location-detail"><strong>Address:</strong> 8617 Ambassador Row, #120, Dallas, TX 75247</div>
+    <div class="location-detail"><strong>Phone:</strong> (214) 307-5200</div>
+    <div class="location-detail"><strong>Email:</strong> info@validofoods.com</div>
+    <div class="cta-row">
+      <a href="/shop" class="btn-primary">Shop Our Products →</a>
+      <a href="/wholesale" class="btn-outline">Wholesale Inquiries</a>
+      <a href="/contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div style="margin-bottom:16px"><img src="/Images/logo-3_png.webp" alt="Valido Foods" style="height:44px;width:auto"></div>
+    <p>&copy; 2026 Valido Foods, Inc. All rights reserved. · 8617 Ambassador Row, #120, Dallas, TX 75247 · (214) 307-5200</p>
+  </div>
+</footer>
+
+</body>
+</html>
