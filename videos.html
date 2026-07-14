@@ -11,7 +11,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Space Grotesk',sans-serif;background:#0a0a0a;color:#e8e0d6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-:root{--gold:#d4a24e;--gold-glow:rgba(212,162,78,0.15);--dark:#0a0a0a;--card:#111;--border:rgba(255,255,255,0.06);--text:rgba(255,255,255,0.55);--text-dim:rgba(255,255,255,0.25)}
+:root{--gold:#d4a24e;--gold-glow:rgba(212,162,78,0.15);--dark:#0a0a0a;--card:#111;--border:rgba(255,255,255,0.06);--text:rgba(255,255,255,0.55);--text-dim:rgba(255,255,255,0.25);--text-bright:rgba(255,255,255,0.85)}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
@@ -29,40 +29,41 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rg
 .page-head h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,56px);font-weight:900;color:#fff;letter-spacing:-2px;margin-bottom:12px}
 .page-head h1 em{font-style:italic;color:var(--gold)}
 .page-head p{font-size:15px;color:var(--text);max-width:520px;margin:0 auto;line-height:1.6}
-
-/* FEATURED */
-.featured-video{margin-top:48px;margin-bottom:64px}
-.featured-video .video-wrap{position:relative;width:100%;max-width:900px;margin:0 auto;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:1px solid rgba(212,162,78,0.15);box-shadow:0 20px 80px rgba(0,0,0,0.4),0 0 100px rgba(212,162,78,0.05)}
-.featured-video iframe{width:100%;height:100%;border:none}
+.featured-video{margin-top:48px;margin-bottom:80px}
 .featured-label{text-align:center;margin-bottom:20px}
 .featured-label span{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:var(--gold-glow);border:1px solid rgba(212,162,78,0.2);padding:5px 14px;border-radius:20px}
-
-/* CHANNEL SECTION */
-.channel-section{margin-bottom:80px}
-.section-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:#fff;letter-spacing:-1px;margin-bottom:8px}
-.section-sub{font-size:14px;color:var(--text);margin-bottom:32px}
-.channel-embed{width:100%;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:0 8px 40px rgba(0,0,0,0.3)}
-.channel-embed iframe{width:100%;height:100%;border:none}
-
-/* SUBSCRIBE */
-.subscribe-section{text-align:center;padding:80px 0;border-top:1px solid var(--border)}
-.subscribe-section h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,40px);font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:12px}
-.subscribe-section h2 em{font-style:italic;color:var(--gold)}
-.subscribe-section p{font-size:15px;color:var(--text);margin-bottom:28px;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.7}
+.video-wrap{position:relative;width:100%;max-width:960px;margin:0 auto;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:1px solid rgba(212,162,78,0.15);box-shadow:0 20px 80px rgba(0,0,0,0.4),0 0 100px rgba(212,162,78,0.05)}
+.video-wrap iframe{width:100%;height:100%;border:none}
+.video-caption{text-align:center;margin-top:16px;font-size:14px;color:var(--text)}
+ 
+/* CHANNEL CTA */
+.channel-cta{text-align:center;padding:60px 0 100px}
+.channel-cta h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:12px}
+.channel-cta h2 em{font-style:italic;color:var(--gold)}
+.channel-cta p{font-size:15px;color:var(--text);margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 .yt-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:#FF0000;color:#fff;font-size:13px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;border-radius:60px;text-decoration:none;transition:all 0.3s}
 .yt-btn:hover{background:#cc0000;transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,0,0,0.2)}
 .yt-btn svg{width:20px;height:20px;fill:currentColor}
-
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;background:transparent;color:var(--gold);font-size:13px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;border-radius:60px;text-decoration:none;border:1px solid rgba(212,162,78,0.3);transition:all 0.3s}
+.btn-outline:hover{background:var(--gold-glow);border-color:rgba(212,162,78,0.5);transform:translateY(-2px)}
+ 
+/* HIGHLIGHTS */
+.highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:80px}
+.highlight-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px 24px;text-align:center;transition:all 0.3s}
+.highlight-card:hover{border-color:rgba(212,162,78,0.2);transform:translateY(-4px)}
+.highlight-icon{font-size:32px;margin-bottom:14px;display:block}
+.highlight-card h3{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px}
+.highlight-card p{font-size:12px;color:var(--text);line-height:1.6}
+ 
 footer{border-top:1px solid var(--border);padding:40px 0;text-align:center}
 footer p{font-size:11px;color:var(--text-dim)}
-
-@media(max-width:960px){nav{padding:0 24px}.container{padding:0 24px}.nav-links{display:none}.hamburger{display:block}.nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;background:rgba(10,10,10,0.98);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:20px 24px;flex-direction:column;gap:4px}}
-@media(max-width:600px){.container{padding:0 16px}}
+@media(max-width:960px){nav{padding:0 24px}.container{padding:0 24px}.nav-links{display:none}.hamburger{display:block}.nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;background:rgba(10,10,10,0.98);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:20px 24px;flex-direction:column;gap:4px}.highlights{grid-template-columns:1fr}}
+@media(max-width:600px){.container{padding:0 16px}.cta-buttons{flex-direction:column;align-items:center}}
 </style>
 <link rel="stylesheet" href="/ux-enhance.css">
 </head>
 <body>
-
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-logo"><img src="/Images/logo-3_png.webp" alt="Valido Foods"></a>
@@ -80,54 +81,60 @@ footer p{font-size:11px;color:var(--text-dim)}
     </div>
   </div>
 </nav>
-
+ 
 <div class="page-head">
   <div class="container">
     <h1>VF <em>Videos</em></h1>
     <p>Watch our chefs in action — cooking demos, seasoning tips, and behind-the-scenes content from the Valido Foods Kitchen.</p>
   </div>
 </div>
-
+ 
 <div class="container">
-
-  <!-- FEATURED VIDEO -->
   <div class="featured-video">
-    <div class="featured-label"><span>Featured</span></div>
+    <div class="featured-label"><span>Now Playing</span></div>
     <div class="video-wrap">
-      <iframe src="https://www.youtube.com/embed/4yChhrMWDfc" title="Valido Foods — Street Taste Test" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      <iframe src="https://www.youtube.com/embed/4yChhrMWDfc?rel=0" title="Ify Enilolobo Takes Valido Foods to the Streets" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="video-caption">Ify Enilolobo takes Valido Foods seasoning to the streets for a live taste test</p>
+  </div>
+ 
+  <div class="highlights">
+    <div class="highlight-card">
+      <span class="highlight-icon">🎬</span>
+      <h3>Cooking Demos</h3>
+      <p>Step-by-step tutorials with Chef Cassaundra featuring Steak, All-In-One, and Fish Seasoning</p>
+    </div>
+    <div class="highlight-card">
+      <span class="highlight-icon">🌍</span>
+      <h3>Global Flavors</h3>
+      <p>Chef Winnie shows how to use Jollof Rice, Curry Powder, and other world-inspired blends</p>
+    </div>
+    <div class="highlight-card">
+      <span class="highlight-icon">🔥</span>
+      <h3>Street Reactions</h3>
+      <p>Real people tasting Valido Foods seasoning for the first time — unscripted and authentic</p>
     </div>
   </div>
-
-  <!-- ALL CHANNEL VIDEOS -->
-  <div class="channel-section">
-    <div class="section-title">From the Kitchen</div>
-    <div class="section-sub">All cooking demos and seasoning tutorials from the Valido Foods YouTube channel</div>
-    <div class="channel-embed">
-      <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=validofoods9629" title="Valido Foods YouTube Channel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+ 
+  <div class="channel-cta">
+    <h2>Watch All Videos on<br><em>Our YouTube Channel</em></h2>
+    <p>Cooking demos with Steak Seasoning, All-In-One &amp; Fish Seasoning, Jollof Rice, Curry Powder, Cajun, and more — all on our YouTube channel.</p>
+    <div class="cta-buttons">
+      <a href="https://www.youtube.com/@validofoods9629?sub_confirmation=1" target="_blank" rel="noopener" class="yt-btn">
+        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        Subscribe &amp; Watch All
+      </a>
+      <a href="/shop" class="btn-outline">Shop Our Seasonings →</a>
     </div>
   </div>
-
 </div>
-
-<!-- SUBSCRIBE CTA -->
-<div class="subscribe-section">
-  <div class="container">
-    <h2>Follow <em>VF Kitchen</em></h2>
-    <p>Subscribe to our YouTube channel for new recipes, cooking tips, and seasoning tutorials.</p>
-    <a href="https://www.youtube.com/@validofoods9629?sub_confirmation=1" target="_blank" rel="noopener" class="yt-btn">
-      <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-      Subscribe on YouTube
-    </a>
-  </div>
-</div>
-
+ 
 <footer>
   <div class="container">
     <div style="margin-bottom:16px"><img src="/Images/logo-3_png.webp" alt="Valido Foods" style="height:44px;width:auto"></div>
     <p>&copy; 2026 Valido Foods, Inc. All rights reserved. · 8617 Ambassador Row, #120, Dallas, TX 75247 · (214) 307-5200</p>
   </div>
 </footer>
-
 <script src="/ux-enhance.js"></script>
 </body>
 </html>
