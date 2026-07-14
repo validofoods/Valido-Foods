@@ -152,11 +152,12 @@ nav.scrolled{background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);-webkit-b
 .recipe-card:not(:first-child) .recipe-overlay h3{font-size:18px}
  
 /* ═══ CHEFS ═══ */
-.chef-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.chef-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-top:56px}
 .chef-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px 32px;text-align:center;text-decoration:none;color:inherit;transition:all 0.4s}
 .chef-card:hover{border-color:rgba(212,162,78,0.2);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.2)}
-.chef-card img{width:140px;height:140px;border-radius:50%;object-fit:cover;margin:0 auto 20px;border:3px solid var(--border);transition:border-color 0.3s}
-.chef-card:hover img{border-color:var(--gold)}
+.chef-card img,.chef-card .chef-init{width:140px;height:140px;border-radius:50%;object-fit:cover;margin:0 auto 20px;border:3px solid var(--border);transition:border-color 0.3s}
+.chef-init{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(212,162,78,0.15),rgba(212,162,78,0.05));font-family:'Playfair Display',serif;font-size:42px;font-weight:900;color:var(--gold);letter-spacing:-1px}
+.chef-card:hover img,.chef-card:hover .chef-init{border-color:var(--gold)}
 .chef-card h3{font-family:'Playfair Display',serif;font-size:22px;color:#fff;margin-bottom:6px}
 .chef-card p{font-size:13px;color:var(--text)}
  
@@ -437,20 +438,30 @@ footer{border-top:1px solid var(--border);padding:64px 0 32px}
     </div>
  
     <div class="chef-grid">
-      <a href="#" class="chef-card">
-        <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1553549574060-8NEKIR0E0DUOMKD1TELQ/All-In-One+Chef.png?format=500w" alt="Chef Cassaundra">
+      <a href="/about" class="chef-card">
+        <div class="chef-init">C</div>
         <h3>Chef Cassaundra</h3>
-        <p>Dallas Chef Association</p>
+        <p>Recipe Developer &amp; Content Creator</p>
       </a>
-      <a href="#" class="chef-card">
-        <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1652771791651-TNXTNY3G40QJZ9CZI327/valido-nice-blend-splash2.jpg?format=500w" alt="Chef Emcee N.I.C.E.">
+      <a href="/about" class="chef-card">
+        <div class="chef-init">N</div>
         <h3>Chef Emcee N.I.C.E.</h3>
         <p>N.I.C.E. Blend Creator</p>
       </a>
-      <a href="#" class="chef-card">
-        <img src="https://images.squarespace-cdn.com/content/v1/56dbaed462cd9436991553b5/1600837126051-GNKQWH7QALTGOFECIQL6/Chef+Toya.jpeg?format=500w" alt="Chef Toya">
+      <a href="/about" class="chef-card">
+        <div class="chef-init">R</div>
+        <h3>Ron Duprat</h3>
+        <p>Top Chef &amp; Culinary Ambassador</p>
+      </a>
+      <a href="/about" class="chef-card">
+        <div class="chef-init">T</div>
         <h3>Chef Toya</h3>
-        <p>Southern Soul Food</p>
+        <p>Southern Comfort Specialist</p>
+      </a>
+      <a href="/about" class="chef-card">
+        <div class="chef-init">W</div>
+        <h3>Chef Winnie</h3>
+        <p>International Cuisine Expert</p>
       </a>
     </div>
   </div>
