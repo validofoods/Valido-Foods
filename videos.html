@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Videos — Valido Foods | VF Kitchen</title>
+<meta name="description" content="Watch Valido Foods cooking videos — learn how to use our premium seasonings with step-by-step demos from our kitchen and partner chefs.">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:#0a0a0a;color:#e8e0d6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+:root{--gold:#d4a24e;--gold-glow:rgba(212,162,78,0.15);--dark:#0a0a0a;--card:#111;--card-hover:#151515;--border:rgba(255,255,255,0.06);--text:rgba(255,255,255,0.55);--text-dim:rgba(255,255,255,0.25);--text-bright:rgba(255,255,255,0.85)}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{text-decoration:none;display:flex;align-items:center}.nav-logo img{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{color:var(--text);text-decoration:none;font-size:12px;font-weight:600;padding:8px 18px;border-radius:30px;transition:all 0.25s;letter-spacing:0.8px;text-transform:uppercase}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.05)}
+.nav-links a.active{color:#fff}
+.nav-shop{background:var(--gold)!important;color:var(--dark)!important;font-weight:700!important;padding:10px 24px!important}
+.hamburger{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+
+/* LAYOUT */
+.container{max-width:1280px;margin:0 auto;padding:0 48px}
+
+/* PAGE HEADER */
+.page-head{padding:120px 0 40px;text-align:center}
+.page-head h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,56px);font-weight:900;color:#fff;letter-spacing:-2px;margin-bottom:12px}
+.page-head h1 em{font-style:italic;color:var(--gold)}
+.page-head p{font-size:15px;color:var(--text);max-width:520px;margin:0 auto;line-height:1.6}
+
+/* FEATURED VIDEO */
+.featured-video{margin-top:48px;margin-bottom:64px}
+.featured-video .video-wrap{position:relative;width:100%;max-width:900px;margin:0 auto;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:1px solid rgba(212,162,78,0.15);box-shadow:0 20px 80px rgba(0,0,0,0.4),0 0 100px rgba(212,162,78,0.05)}
+.featured-video iframe{width:100%;height:100%;border:none}
+.featured-label{text-align:center;margin-bottom:20px}
+.featured-label span{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:var(--gold-glow);border:1px solid rgba(212,162,78,0.2);padding:5px 14px;border-radius:20px}
+
+/* VIDEO GRID */
+.video-section-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:#fff;letter-spacing:-1px;margin-bottom:8px}
+.video-section-sub{font-size:14px;color:var(--text);margin-bottom:32px}
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:80px}
+.video-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+.video-card:hover{border-color:rgba(212,162,78,0.2);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.25)}
+.video-card .video-embed{position:relative;width:100%;aspect-ratio:16/9}
+.video-card iframe{width:100%;height:100%;border:none}
+.video-card-info{padding:16px 20px}
+.video-card-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;line-height:1.4}
+.video-card-meta{font-size:11px;color:var(--text);text-transform:uppercase;letter-spacing:0.5px}
+
+/* SUBSCRIBE CTA */
+.subscribe-section{text-align:center;padding:80px 0;border-top:1px solid var(--border)}
+.subscribe-section h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,40px);font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:12px}
+.subscribe-section h2 em{font-style:italic;color:var(--gold)}
+.subscribe-section p{font-size:15px;color:var(--text);margin-bottom:28px;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.7}
+.yt-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:#FF0000;color:#fff;font-size:13px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;border-radius:60px;text-decoration:none;transition:all 0.3s}
+.yt-btn:hover{background:#cc0000;transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,0,0,0.2)}
+.yt-btn svg{width:20px;height:20px;fill:currentColor}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:40px 0;text-align:center}
+footer p{font-size:11px;color:var(--text-dim)}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav{padding:0 24px}.container{padding:0 24px}
+  .nav-links{display:none}.hamburger{display:block}
+  .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;background:rgba(10,10,10,0.98);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:20px 24px;flex-direction:column;gap:4px}
+  .video-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .container{padding:0 16px}
+  .video-grid{grid-template-columns:1fr}
+}
+</style>
+<link rel="stylesheet" href="/ux-enhance.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="/Images/logo-3_png.webp" alt="Valido Foods"></a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="/shop">Shop</a>
+      <a href="/recipes">Recipes</a>
+      <a href="/videos" class="active">Videos</a>
+      <a href="/#chefs">Chefs</a>
+      <a href="/wholesale">Wholesale</a>
+      <a href="/contact">Contact</a>
+      <a href="/about">About</a>
+      <a href="/shop" class="nav-shop">Shop Now</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-head">
+  <div class="container">
+    <h1>VF <em>Videos</em></h1>
+    <p>Watch our chefs in action — cooking demos, seasoning tips, and behind-the-scenes content from the Valido Foods Kitchen.</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- FEATURED VIDEO -->
+  <div class="featured-video">
+    <div class="featured-label"><span>Featured</span></div>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/4yChhrMWDfc" title="Valido Foods — Street Taste Test" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- ALL VIDEOS -->
+  <div class="video-section-title">From the Kitchen</div>
+  <div class="video-section-sub">Cooking demos and seasoning tutorials from our partner chefs</div>
+
+  <div class="video-grid">
+
+    <!--
+      ═══════════════════════════════════════════════
+      HOW TO ADD MORE VIDEOS:
+      1. Go to your YouTube video
+      2. Copy the video ID from the URL (the part after v=)
+         Example: youtube.com/watch?v=ABC123def → ID is ABC123def
+      3. Duplicate one of the video-card blocks below
+      4. Replace the VIDEO_ID_HERE in the iframe src
+      5. Update the title and meta text
+      ═══════════════════════════════════════════════
+    -->
+
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/4yChhrMWDfc" title="Valido Foods — Street Taste Test" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-title">Ify Enilolobo Takes Valido Foods to the Streets</div>
+        <div class="video-card-meta">Valido Foods · Street Taste Test</div>
+      </div>
+    </div>
+
+    <!-- VIDEO 2 — Replace VIDEO_ID_HERE with your YouTube video ID -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="Cooking - Steak Seasoning - Valido Foods Kitchen" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-title">Cooking — Steak Seasoning</div>
+        <div class="video-card-meta">Valido Foods Kitchen · Chef Cassaundra</div>
+      </div>
+    </div>
+
+    <!-- VIDEO 3 — Replace VIDEO_ID_HERE with your YouTube video ID -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="Cooking - All-in-One and Fish Seasoning - Valido Foods Kitchen" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-title">Cooking — All-In-One &amp; Fish Seasoning</div>
+        <div class="video-card-meta">Valido Foods Kitchen · Chef Cassaundra</div>
+      </div>
+    </div>
+
+    <!-- VIDEO 4 — Replace VIDEO_ID_HERE with your YouTube video ID -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="Cooking - Jollof Rice - Valido Foods Kitchen" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-title">Cooking — Jollof Rice Seasoning</div>
+        <div class="video-card-meta">Valido Foods Kitchen · Chef Winnie</div>
+      </div>
+    </div>
+
+    <!-- VIDEO 5 — Replace VIDEO_ID_HERE with your YouTube video ID -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="Valido Foods Cooking Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-title">Cooking Demo — Curry Powder</div>
+        <div class="video-card-meta">Valido Foods Kitchen</div>
+      </div>
+    </div>
+
+    <!-- VIDEO 6 — Replace VIDEO_ID_HERE with your YouTube video ID -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="Valido Foods Cooking Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-title">Cooking Demo — Cajun Seasoning</div>
+        <div class="video-card-meta">Valido Foods Kitchen</div>
+      </div>
+    </div>
+
+  </div><!-- /video-grid -->
+
+</div><!-- /container -->
+
+<!-- SUBSCRIBE CTA -->
+<div class="subscribe-section">
+  <div class="container">
+    <h2>Follow <em>VF Kitchen</em></h2>
+    <p>Subscribe to our YouTube channel for new recipes, cooking tips, and seasoning tutorials every week.</p>
+    <a href="https://www.youtube.com/@validofoods9629?sub_confirmation=1" target="_blank" rel="noopener" class="yt-btn">
+      <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      Subscribe on YouTube
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div style="margin-bottom:16px"><img src="/Images/logo-3_png.webp" alt="Valido Foods" style="height:44px;width:auto"></div>
+    <p>&copy; 2026 Valido Foods, Inc. All rights reserved. · 8617 Ambassador Row, #120, Dallas, TX 75247 · (214) 307-5200</p>
+  </div>
+</footer>
+
+<script src="/ux-enhance.js"></script>
+</body>
+</html>
