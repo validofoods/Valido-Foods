@@ -1,22 +1,25 @@
 
 {
-  "rewrites": [
+  "routes": [
     {
       "source": "/shop",
       "destination": "/shop.html"
-    },
-    {
-      "source": "/contact",
-      "destination": "/contact.html"
     },
     {
       "source": "/recipes",
       "destination": "/recipes.html"
     },
     {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
       "source": "/wholesale",
       "destination": "/wholesale.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
     }
-  ],
-  "cleanUrls": true
+  ]
 }
