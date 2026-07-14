@@ -16,7 +16,7 @@ html{scroll-behavior:smooth}
 body{font-family:'Space Grotesk',sans-serif;background:#0a0a0a;color:#e8e0d6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 :root{--gold:#d4a24e;--gold-glow:rgba(212,162,78,0.15);--dark:#0a0a0a;--card:#111;--border:rgba(255,255,255,0.06);--text:rgba(255,255,255,0.55);--text-dim:rgba(255,255,255,0.25)}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-
+ 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
@@ -32,22 +32,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rg
 .cart-count.bump{animation:bump 0.3s}
 @keyframes bump{0%{transform:scale(1)}50%{transform:scale(1.4)}100%{transform:scale(1)}}
 .hamburger{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
-
+ 
 /* LAYOUT */
 .container{max-width:1280px;margin:0 auto;padding:0 48px}
-
+ 
 /* PAGE HEADER */
 .page-head{padding:120px 0 40px;text-align:center}
 .page-head h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,60px);font-weight:900;color:#fff;letter-spacing:-2px;margin-bottom:12px}
 .page-head h1 em{font-style:italic;color:var(--gold)}
 .page-head p{font-size:15px;color:var(--text);max-width:500px;margin:0 auto}
-
+ 
 /* FILTERS */
 .filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;padding:0 48px}
 .filter-btn{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.5px;color:var(--text);background:transparent;border:1px solid var(--border);padding:8px 20px;border-radius:30px;cursor:pointer;transition:all 0.25s;text-transform:uppercase}
 .filter-btn:hover{color:#fff;border-color:rgba(255,255,255,0.15)}
 .filter-btn.active{color:var(--dark);background:var(--gold);border-color:var(--gold)}
-
+ 
 /* PRODUCT GRID */
 .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-bottom:100px}
 .product-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative}
@@ -69,7 +69,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rg
 .add-btn{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--text);cursor:pointer;transition:all 0.25s}
 .add-btn:hover{background:var(--gold);color:var(--dark);border-color:var(--gold);transform:scale(1.1)}
 .add-btn.added{background:var(--gold);color:var(--dark);border-color:var(--gold)}
-
+ 
 /* SIZE PICKER MODAL */
 .size-modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:200;display:none;align-items:center;justify-content:center;backdrop-filter:blur(8px)}
 .size-modal-bg.open{display:flex}
@@ -85,7 +85,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rg
 .sm-add:hover{background:#e8b45a;box-shadow:0 4px 24px var(--gold-glow)}
 .sm-close{margin-top:12px;font-size:13px;color:var(--text);cursor:pointer;background:none;border:none;font-family:'Space Grotesk',sans-serif}
 .sm-close:hover{color:#fff}
-
+ 
 /* CART DRAWER */
 .cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:150;display:none;backdrop-filter:blur(4px)}
 .cart-overlay.open{display:block}
@@ -117,20 +117,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rg
 .checkout-btn:hover{background:#e8b45a;box-shadow:0 4px 24px var(--gold-glow)}
 .checkout-btn:disabled{opacity:0.5;cursor:not-allowed}
 .cart-note{font-size:11px;color:var(--text-dim);text-align:center;margin-top:12px}
-
+ 
 /* SUCCESS BANNER */
 .success-banner{position:fixed;top:80px;left:50%;transform:translateX(-50%);background:#10b981;color:#fff;padding:14px 32px;border-radius:14px;font-size:14px;font-weight:600;z-index:200;display:none;box-shadow:0 8px 32px rgba(16,185,129,0.3)}
 .success-banner.show{display:block;animation:slideDown 0.4s ease}
 @keyframes slideDown{from{opacity:0;transform:translateX(-50%) translateY(-20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
-
+ 
 /* TOAST */
 .toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#1a1a1a;border:1px solid var(--border);color:#fff;padding:12px 24px;border-radius:12px;font-size:13px;font-weight:600;z-index:200;display:none;box-shadow:0 8px 32px rgba(0,0,0,0.3)}
 .toast.show{display:flex;align-items:center;gap:8px;animation:slideDown 0.3s ease}
-
+ 
 /* FOOTER */
 footer{border-top:1px solid var(--border);padding:40px 0;text-align:center}
 footer p{font-size:11px;color:var(--text-dim)}
-
+ 
 /* RESPONSIVE */
 @media(max-width:1024px){
   .product-grid{grid-template-columns:repeat(3,1fr)}
@@ -149,7 +149,7 @@ footer p{font-size:11px;color:var(--text-dim)}
 </style>
 </head>
 <body>
-
+ 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
@@ -167,13 +167,13 @@ footer p{font-size:11px;color:var(--text-dim)}
     </div>
   </div>
 </nav>
-
+ 
 <!-- SUCCESS BANNER -->
 <div class="success-banner" id="successBanner">✓ Order placed successfully! Thank you for shopping with Valido Foods.</div>
-
+ 
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
-
+ 
 <!-- PAGE HEADER -->
 <div class="page-head">
   <div class="container">
@@ -181,15 +181,15 @@ footer p{font-size:11px;color:var(--text-dim)}
     <p>30+ premium blends crafted in Dallas, TX. Every jar is made with natural ingredients — no fillers, no shortcuts.</p>
   </div>
 </div>
-
+ 
 <!-- FILTERS -->
 <div class="filters" id="filters"></div>
-
+ 
 <!-- PRODUCTS -->
 <div class="container">
   <div class="product-grid" id="productGrid"></div>
 </div>
-
+ 
 <!-- SIZE PICKER MODAL -->
 <div class="size-modal-bg" id="sizeModal">
   <div class="size-modal">
@@ -200,10 +200,10 @@ footer p{font-size:11px;color:var(--text-dim)}
     <button class="sm-close" onclick="closeSizeModal()">Cancel</button>
   </div>
 </div>
-
+ 
 <!-- CART OVERLAY -->
 <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
-
+ 
 <!-- CART DRAWER -->
 <div class="cart-drawer" id="cartDrawer">
   <div class="cart-header">
@@ -222,17 +222,17 @@ footer p{font-size:11px;color:var(--text-dim)}
     <div class="cart-note">Shipping calculated at checkout</div>
   </div>
 </div>
-
+ 
 <!-- FOOTER -->
 <footer>
   <div class="container">
     <p>© 2026 Valido Foods, Inc. All rights reserved. · 8617 Ambassador Row, #120, Dallas, TX 75247 · (214) 307-5200</p>
   </div>
 </footer>
-
+ 
 <script>
 // ═══ PRODUCT DATA ═══
-const IMG = '/images/';
+const IMG = '/Images/';
 const PRODUCTS = [
   {id:'all-in-one',name:'All-In-One Seasoning',cat:'Seasoning Blend',badge:'hot',sizes:[{name:'6 oz',price:6.50,img:IMG+'all-in-one-6oz.webp'},{name:'9.5 oz',price:9.99,img:IMG+'all-in-one-9.5oz.webp'},{name:'1.5 lbs',price:16.99,img:IMG+'all-in-one-1.5lb.webp'}],img:IMG+'all-in-one-9.5oz.webp'},
   {id:'all-in-one-ns',name:'All-In-One No Salt',cat:'No Salt',sizes:[{name:'3 oz',price:4.50}],img:IMG+'all-in-one-no-salt-3oz.webp'},
@@ -265,13 +265,13 @@ const PRODUCTS = [
   {id:'pepper-soup',name:'Pepper Soup Mix',cat:'Seasoning Blend',sizes:[{name:'9.6 oz',price:10.99}],img:IMG+'pepper-soup-9.6oz.webp'},
   {id:'suya',name:'Suya Mix',cat:'Rub',sizes:[{name:'8.4 oz',price:10.99}],img:IMG+'suya-mix-8.4oz.webp'},
 ];
-
+ 
 // ═══ STATE ═══
 let cart = JSON.parse(localStorage.getItem('vf_cart') || '[]');
 let currentFilter = 'All';
 let pendingProduct = null;
 let selectedSizeIdx = 0;
-
+ 
 // ═══ RENDER FILTERS ═══
 function renderFilters() {
   const cats = ['All', ...new Set(PRODUCTS.map(p => p.cat))];
@@ -279,7 +279,7 @@ function renderFilters() {
     '<button class="filter-btn' + (c === currentFilter ? ' active' : '') + '" onclick="setFilter(\'' + c + '\')">' + c + '</button>'
   ).join('');
 }
-
+ 
 // ═══ RENDER PRODUCTS ═══
 function renderProducts() {
   const filtered = currentFilter === 'All' ? PRODUCTS : PRODUCTS.filter(p => p.cat === currentFilter);
@@ -299,14 +299,14 @@ function renderProducts() {
       '</div></div></div>';
   }).join('');
 }
-
+ 
 // ═══ FILTER ═══
 function setFilter(cat) {
   currentFilter = cat;
   renderFilters();
   renderProducts();
 }
-
+ 
 // ═══ SIZE MODAL ═══
 function openSizeModal(productId) {
   pendingProduct = PRODUCTS.find(p => p.id === productId);
@@ -325,7 +325,7 @@ function openSizeModal(productId) {
   document.getElementById('smOptions').innerHTML = opts;
   document.getElementById('sizeModal').classList.add('open');
 }
-
+ 
 function selectSize(idx) {
   selectedSizeIdx = idx;
   document.querySelectorAll('.size-opt').forEach((el, i) => {
@@ -337,14 +337,14 @@ function selectSize(idx) {
     smImg.src = pendingProduct.sizes[idx].img || pendingProduct.img;
   }
 }
-
+ 
 function closeSizeModal() {
   document.getElementById('sizeModal').classList.remove('open');
   var smImg = document.getElementById('smImg');
   if (smImg) smImg.remove();
   pendingProduct = null;
 }
-
+ 
 function confirmAdd() {
   if (!pendingProduct) return;
   const size = pendingProduct.sizes[selectedSizeIdx];
@@ -358,7 +358,7 @@ function confirmAdd() {
   });
   closeSizeModal();
 }
-
+ 
 // ═══ CART ═══
 function addToCart(item) {
   const existing = cart.find(c => c.id === item.id);
@@ -371,13 +371,13 @@ function addToCart(item) {
   renderCart();
   showToast('✓ ' + item.name + ' (' + item.size + ') added');
 }
-
+ 
 function removeFromCart(id) {
   cart = cart.filter(c => c.id !== id);
   saveCart();
   renderCart();
 }
-
+ 
 function updateQty(id, delta) {
   const item = cart.find(c => c.id === id);
   if (!item) return;
@@ -386,17 +386,17 @@ function updateQty(id, delta) {
   saveCart();
   renderCart();
 }
-
+ 
 function saveCart() {
   localStorage.setItem('vf_cart', JSON.stringify(cart));
 }
-
+ 
 function renderCart() {
   const countEl = document.getElementById('cartCount');
   const totalCount = cart.reduce((sum, c) => sum + c.qty, 0);
   countEl.textContent = totalCount;
   if (totalCount > 0) { countEl.classList.add('bump'); setTimeout(() => countEl.classList.remove('bump'), 300); }
-
+ 
   const itemsEl = document.getElementById('cartItems');
   if (cart.length === 0) {
     itemsEl.innerHTML = '<div class="cart-empty">Your cart is empty. Add some spice!</div>';
@@ -404,11 +404,11 @@ function renderCart() {
     document.getElementById('cartTotal').textContent = '$0.00';
     return;
   }
-
+ 
   document.getElementById('checkoutBtn').disabled = false;
   const total = cart.reduce((sum, c) => sum + c.price * c.qty, 0);
   document.getElementById('cartTotal').textContent = '$' + total.toFixed(2);
-
+ 
   itemsEl.innerHTML = cart.map(c =>
     '<div class="cart-item">' +
     '<img src="' + c.img + '" alt="' + c.name + '">' +
@@ -425,20 +425,20 @@ function renderCart() {
     '</div></div>'
   ).join('');
 }
-
+ 
 function toggleCart() {
   const d = document.getElementById('cartDrawer');
   const o = document.getElementById('cartOverlay');
   d.classList.toggle('open');
   o.classList.toggle('open');
 }
-
+ 
 // ═══ CHECKOUT ═══
 async function checkout() {
   const btn = document.getElementById('checkoutBtn');
   btn.textContent = 'Redirecting...';
   btn.disabled = true;
-
+ 
   try {
     const res = await fetch('/api/create-checkout-session', {
       method: 'POST',
@@ -459,7 +459,7 @@ async function checkout() {
     showToast('Checkout error. Please try again.');
   }
 }
-
+ 
 // ═══ TOAST ═══
 function showToast(msg) {
   const t = document.getElementById('toast');
@@ -467,12 +467,12 @@ function showToast(msg) {
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2500);
 }
-
+ 
 // ═══ INIT ═══
 renderFilters();
 renderProducts();
 renderCart();
-
+ 
 // Check for success
 if (new URLSearchParams(window.location.search).get('success') === 'true') {
   cart = [];
