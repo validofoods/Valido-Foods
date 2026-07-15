@@ -141,6 +141,14 @@ nav.scrolled{background:rgba(7,6,5,0.72);backdrop-filter:blur(30px) saturate(1.2
 .chef-card h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--ivory);margin-bottom:5px;letter-spacing:-0.4px}
 .chef-card p{font-size:11px;color:var(--text);letter-spacing:0.5px;line-height:1.6}
  
+/* ═══ RETAILERS ═══ */
+.retailer-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.retailer-card{background:var(--card);backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:18px;padding:28px 20px;text-align:center;text-decoration:none;transition:all 0.55s cubic-bezier(0.16,1,0.3,1)}
+.retailer-card:hover{transform:translateY(-6px);border-color:rgba(212,162,78,0.3);box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 50px rgba(212,162,78,0.05)}
+.retailer-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:var(--ivory);margin-bottom:6px;letter-spacing:-0.4px}
+.retailer-card:hover .retailer-name{color:var(--saffron)}
+.retailer-type{font-size:10px;color:var(--text);letter-spacing:1px;text-transform:uppercase;line-height:1.6}
+ 
 /* ═══ FIND / WHOLESALE / NEWSLETTER ═══ */
 .find-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
 .find-content p{font-size:15px;color:var(--text);line-height:1.9;margin-bottom:22px}
@@ -196,6 +204,7 @@ footer{border-top:1px solid var(--border);padding:72px 0 36px;background:rgba(7,
   .story-grid,.find-grid{grid-template-columns:1fr;gap:44px}
   .recipe-grid{grid-template-columns:1fr}
   .chef-grid{grid-template-columns:repeat(3,1fr)}
+  .retailer-grid{grid-template-columns:repeat(2,1fr)}
   .wholesale-banner{flex-direction:column;text-align:center;padding:40px 28px}
   .footer-grid{grid-template-columns:1fr 1fr}
   .section{padding:90px 0}
@@ -241,11 +250,11 @@ footer{border-top:1px solid var(--border);padding:72px 0 36px;background:rgba(7,
 <!-- ═══ HERO ═══ -->
 <section class="hero">
   <div class="container">
-    <div class="hero-eyebrow">Valido Foods · Dallas, Texas</div>
-    <h1>Flavor,<br><em>Engineered.</em></h1>
-    <p class="hero-sub">Premium spices and seasoning blends crafted with precision — for home kitchens, restaurants, distributors, and global food brands.</p>
+    <div class="hero-eyebrow">Premium Spices &amp; Seasonings · Dallas, Texas</div>
+    <h1>Every Great Meal<br>Starts With <em>the Right Spice</em></h1>
+    <p class="hero-sub">Hand-crafted seasoning blends born from authentic global recipes. From West African Jollof to classic American BBQ — Valido brings the world's best flavors to your kitchen.</p>
     <div class="hero-ctas">
-      <a href="/shop" class="btn btn-gold">Explore Our Collection →</a>
+      <a href="/shop" class="btn btn-gold">Shop All Spices →</a>
       <a href="/wholesale" class="btn btn-ghost">Become a Partner</a>
     </div>
   </div>
@@ -345,6 +354,39 @@ footer{border-top:1px solid var(--border);padding:72px 0 36px;background:rgba(7,
         <div class="find-address"><strong>Valido Foods, Inc.</strong><br>8617 Ambassador Row, #120<br>Dallas, TX 75247<br>☎ (214) 307-5200 · info@validofoods.com</div>
       </div>
       <img src="/Images/all-in-one2.JPG.webp" alt="Valido Foods products" class="find-img">
+    </div>
+  </div>
+</section>
+ 
+<!-- ═══ RETAIL CHANNELS ═══ -->
+<section class="section sec-reveal" style="padding:70px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div class="section-head center" style="margin-bottom:44px">
+      <span class="section-eyebrow">Available Everywhere</span>
+      <h2>Where to <em>Buy</em></h2>
+      <p>Shop Valido Foods online or find us on the shelf at retailers nationwide.</p>
+    </div>
+    <div class="retailer-grid stagger">
+      <a href="https://www.amazon.com/s?k=valido+foods" target="_blank" rel="noopener" class="retailer-card">
+        <div class="retailer-name">Amazon</div>
+        <div class="retailer-type">Online · Ships Nationwide</div>
+      </a>
+      <a href="https://www.walmart.com/search?q=valido+foods" target="_blank" rel="noopener" class="retailer-card">
+        <div class="retailer-name">Walmart</div>
+        <div class="retailer-type">Online &amp; Marketplace</div>
+      </a>
+      <a href="/shop" class="retailer-card">
+        <div class="retailer-name">ValidoFoods.com</div>
+        <div class="retailer-type">Direct · Free Shipping $28+</div>
+      </a>
+      <a href="/contact" class="retailer-card">
+        <div class="retailer-name">Local Grocers</div>
+        <div class="retailer-type">Texas &amp; Growing</div>
+      </a>
+      <a href="/contact" class="retailer-card">
+        <div class="retailer-name">African &amp; Specialty Markets</div>
+        <div class="retailer-type">DFW Metro</div>
+      </a>
     </div>
   </div>
 </section>
