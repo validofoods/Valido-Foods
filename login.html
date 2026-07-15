@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In — Valido Foods</title>
+<meta name="description" content="Sign in or create your Valido Foods account — for shoppers and wholesale partners.">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:#faf6ee;color:#2b2118;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+:root{--red:#c8202a;--red-dark:#a51820;--ink:#2b2118;--paper:#ffffff;--border:rgba(43,33,24,0.09);--text:rgba(43,33,24,0.62);--text-dim:rgba(43,33,24,0.38);--red-glow:rgba(200,32,42,0.1)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;background:rgba(250,246,238,0.9);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{text-decoration:none;display:flex;align-items:center}.nav-logo img{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{color:var(--text);text-decoration:none;font-size:12px;font-weight:600;padding:8px 18px;border-radius:30px;transition:all 0.25s;letter-spacing:0.8px;text-transform:uppercase}
+.nav-links a:hover{color:var(--ink);background:rgba(43,33,24,0.05)}
+.nav-shop{background:var(--red)!important;color:#fff!important;font-weight:700!important;padding:10px 24px!important}
+.hamburger{display:none;background:none;border:none;color:var(--ink);font-size:24px;cursor:pointer}
+.auth-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:130px 24px 80px}
+.auth-card{width:100%;max-width:440px;background:var(--paper);border:1px solid var(--border);border-radius:26px;padding:44px;box-shadow:0 20px 70px rgba(43,33,24,0.1)}
+.auth-logo{text-align:center;margin-bottom:22px}
+.auth-logo img{height:52px;width:auto}
+.auth-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:var(--ink);text-align:center;letter-spacing:-0.8px;margin-bottom:6px}
+.auth-sub{font-size:13px;color:var(--text);text-align:center;margin-bottom:28px;line-height:1.6}
+.auth-tabs{display:flex;background:#f5efe2;border-radius:40px;padding:5px;margin-bottom:28px}
+.auth-tab{flex:1;text-align:center;padding:11px;font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--text);border-radius:40px;cursor:pointer;transition:all 0.3s;border:none;background:transparent;font-family:inherit}
+.auth-tab.active{background:var(--red);color:#fff;box-shadow:0 4px 16px rgba(200,32,42,0.25)}
+.auth-panel{display:none}
+.auth-panel.active{display:block}
+.form-group{margin-bottom:16px}
+label{display:block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text);margin-bottom:8px}
+input,select{width:100%;background:#fdfaf4;border:1px solid var(--border);border-radius:14px;padding:14px 18px;color:var(--ink);font-size:14px;font-family:inherit;outline:none;transition:all 0.3s}
+input:focus,select:focus{border-color:rgba(200,32,42,0.4);box-shadow:0 0 24px rgba(200,32,42,0.06)}
+.submit-btn{width:100%;background:var(--red);color:#fff;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:16px;border:none;border-radius:40px;cursor:pointer;transition:all 0.3s;font-family:inherit;margin-top:6px}
+.submit-btn:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 10px 34px rgba(200,32,42,0.25)}
+.aux-row{display:flex;justify-content:space-between;align-items:center;margin:14px 2px 0}
+.aux-row a{font-size:12px;color:var(--red);text-decoration:none;font-weight:600}
+.aux-row label{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text);text-transform:none;letter-spacing:0;font-weight:500;margin:0}
+.aux-row input{width:auto}
+.notice{display:none;text-align:center;font-weight:600;margin-top:16px;font-size:13px}
+.notice.ok{color:#0d8a5f}
+.notice.err{color:var(--red)}
+.acct-type{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.acct-opt{border:1px solid var(--border);border-radius:14px;padding:14px;text-align:center;cursor:pointer;transition:all 0.3s;background:#fdfaf4}
+.acct-opt.selected{border-color:var(--red);background:var(--red-glow)}
+.acct-opt .t{font-size:13px;font-weight:700;color:var(--ink)}
+.acct-opt .d{font-size:10px;color:var(--text);margin-top:3px;letter-spacing:0.4px}
+footer{border-top:1px solid var(--border);padding:36px 0;text-align:center;background:#fff}
+footer p{font-size:11px;color:var(--text-dim)}
+@media(max-width:960px){nav{padding:0 24px}.nav-links{display:none}.hamburger{display:block}.nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;background:rgba(250,246,238,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:20px 24px;flex-direction:column;gap:4px}}
+@media(max-width:600px){.auth-card{padding:30px 22px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="/Images/logo-3_png.webp" alt="Valido Foods"></a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="/shop">Shop</a><a href="/recipes">Recipes</a><a href="/videos">Videos</a><a href="/#chefs">Chefs</a><a href="/wholesale">Wholesale</a><a href="/contact">Contact</a><a href="/about">About</a><a href="/shop" class="nav-shop">Shop Now</a>
+    </div>
+  </div>
+</nav>
+
+<div class="auth-wrap">
+  <div class="auth-card">
+    <div class="auth-logo"><img src="/Images/logo-3_png.webp" alt="Valido Foods"></div>
+    <div class="auth-title" id="authTitle">Welcome Back</div>
+    <p class="auth-sub" id="authSub">Sign in to your Valido Foods account</p>
+
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tabSignin" onclick="switchMode('signin')">Sign In</button>
+      <button class="auth-tab" id="tabRegister" onclick="switchMode('register')">Register</button>
+    </div>
+
+    <!-- SIGN IN -->
+    <div class="auth-panel active" id="panel-signin">
+      <div class="form-group"><label>Email</label><input type="email" id="siEmail" placeholder="you@email.com" autocomplete="email"></div>
+      <div class="form-group"><label>Password</label><input type="password" id="siPassword" placeholder="••••••••" autocomplete="current-password"></div>
+      <div class="aux-row">
+        <label><input type="checkbox" id="siRemember"> Remember me</label>
+        <a href="#" onclick="forgotPw();return false">Forgot password?</a>
+      </div>
+      <button class="submit-btn" style="margin-top:20px" onclick="doSignin()">Sign In</button>
+      <p class="notice" id="siNotice"></p>
+    </div>
+
+    <!-- REGISTER -->
+    <div class="auth-panel" id="panel-register">
+      <div class="acct-type">
+        <div class="acct-opt selected" id="optShopper" onclick="pickType('shopper')"><div class="t">Shopper</div><div class="d">Personal orders</div></div>
+        <div class="acct-opt" id="optWholesale" onclick="pickType('wholesale')"><div class="t">Wholesale</div><div class="d">Business account</div></div>
+      </div>
+      <div class="form-group"><label>Full Name</label><input type="text" id="rgName" placeholder="Your name" autocomplete="name"></div>
+      <div class="form-group" id="bizField" style="display:none"><label>Business Name</label><input type="text" id="rgBiz" placeholder="Your business"></div>
+      <div class="form-group"><label>Email</label><input type="email" id="rgEmail" placeholder="you@email.com" autocomplete="email"></div>
+      <div class="form-group"><label>Password</label><input type="password" id="rgPassword" placeholder="Create a password (8+ characters)" autocomplete="new-password"></div>
+      <button class="submit-btn" onclick="doRegister()">Create Account</button>
+      <p class="notice" id="rgNotice"></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Valido Foods, Inc. All rights reserved. · 8617 Ambassador Row, #120, Dallas, TX 75247</p>
+  </div>
+</footer>
+
+<script>
+var acctType='shopper';
+function switchMode(mode){
+  document.getElementById('tabSignin').classList.toggle('active',mode==='signin');
+  document.getElementById('tabRegister').classList.toggle('active',mode==='register');
+  document.getElementById('panel-signin').classList.toggle('active',mode==='signin');
+  document.getElementById('panel-register').classList.toggle('active',mode==='register');
+  document.getElementById('authTitle').textContent=mode==='signin'?'Welcome Back':'Join Valido Foods';
+  document.getElementById('authSub').textContent=mode==='signin'?'Sign in to your Valido Foods account':'Create your account — shoppers and wholesale partners welcome';
+}
+function pickType(t){
+  acctType=t;
+  document.getElementById('optShopper').classList.toggle('selected',t==='shopper');
+  document.getElementById('optWholesale').classList.toggle('selected',t==='wholesale');
+  document.getElementById('bizField').style.display=t==='wholesale'?'block':'none';
+}
+function notice(id,msg,ok){var n=document.getElementById(id);n.textContent=msg;n.className='notice '+(ok?'ok':'err');n.style.display='block'}
+function doSignin(){
+  var e=document.getElementById('siEmail').value,p=document.getElementById('siPassword').value;
+  if(!e||!e.includes('@')||!p){notice('siNotice','Please enter your email and password.',false);return}
+  /* TODO: replace with Supabase auth — supabase.auth.signInWithPassword({email,password}) */
+  console.log('Sign in:',e);
+  notice('siNotice','✓ Account system launching soon — your login is saved for early access.',true);
+}
+function doRegister(){
+  var n=document.getElementById('rgName').value,e=document.getElementById('rgEmail').value,p=document.getElementById('rgPassword').value;
+  if(!n||!e||!e.includes('@')){notice('rgNotice','Please fill in your name and a valid email.',false);return}
+  if(!p||p.length<8){notice('rgNotice','Password must be at least 8 characters.',false);return}
+  if(acctType==='wholesale'&&!document.getElementById('rgBiz').value){notice('rgNotice','Please enter your business name.',false);return}
+  /* TODO: replace with Supabase auth — supabase.auth.signUp({email,password,options:{data:{name,type,business}}}) */
+  console.log('Register:',{name:n,email:e,type:acctType});
+  notice('rgNotice','✓ Account system launching soon — you\u2019re on the early access list!',true);
+}
+function forgotPw(){
+  /* TODO: Supabase — supabase.auth.resetPasswordForEmail(email) */
+  notice('siNotice','Password reset is coming with account launch. Contact info@validofoods.com for help.',true);
+}
+if(window.location.search.indexOf('mode=register')>-1){switchMode('register')}
+</script>
+</body>
+</html>
